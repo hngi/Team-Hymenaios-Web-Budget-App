@@ -21,4 +21,5 @@ $router->get('/api', function () use ($router) {
 $router->post('/api/user/register', 'RegisterController@register');
 $router->post('api/user/verify', 'VerifyUserController@verifyUser');
 $router->post('api/user/login', 'LogInController@userLogin');
+$router->post('api/password/reset', 'PasswordController@resetpassword');
 $router->put('api/password/change', 'ChangePasswordController@updatepassword');
