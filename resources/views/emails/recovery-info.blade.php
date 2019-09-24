@@ -9,6 +9,9 @@
             p {
                 color: white !important;
             }
+            span{
+                  color: hotpink !important;
+            }
         </style>
         </head>
             <body>
