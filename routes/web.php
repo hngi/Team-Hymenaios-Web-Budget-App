@@ -12,7 +12,7 @@
 */
 
 $router->get('/', function () use ($router) {
-     return ["message" => "All API routes are on {server}/api"];
+     return ["message" => "Welcome To Hymenaios Budget Calculate API, All API Routes Are On {server}/api"];
 });
 $router->get('/api', function () use ($router) {
     return ["message" => "Hymenaios Budget Calculate API"];
