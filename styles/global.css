@@ -39,3 +39,28 @@
 .our-nav .brand-image span{
     color: white;
 }
+.our-nav{
+  height: 10vh;
+}
+.nav-btns button{
+  font-size: 12px;
+  font-weight: bold;
+}
+.footer{
+    min-height: 10vh;
+    background: #333333;
+}
+.copyright{
+    line-height: 14px;
+}
+.copyright p{
+    color: white;
+}
+.copyright span{
+    color: grey;
+    font-size: 12px;
+}
+.footer-links ul li{
+    color: white;
+    display: inline;
+}
