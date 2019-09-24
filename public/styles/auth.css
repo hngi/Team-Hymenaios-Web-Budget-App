@@ -6,15 +6,16 @@ body{
     background: #2b2b2b;
 }
 .auth-form-con{
-    height: 75vh;
+    min-height: 55vh;
     color: white;
 }
 .auth-form-con h5{
     margin-top: 12vh;
 }
-.or-login-link{
+.or-link{
     color: #0097e7;
     font-size: 12px;
+    cursor: pointer;
 }
 .sign-up-form label{
     font-size: 12px;
@@ -29,4 +30,11 @@ body{
     box-shadow: none;
     background: rgb(78, 77, 77);
     color: white;
+}
+.verify-account-here{
+    height: 10vh;
+    color: white;
+}
+.verify-account-here h6{
+    cursor: pointer;
 }

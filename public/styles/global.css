@@ -63,4 +63,5 @@
 .footer-links ul li{
     color: white;
     display: inline;
+    cursor: pointer;
 }
