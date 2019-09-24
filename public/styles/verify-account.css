@@ -31,6 +31,7 @@ body{
 #verify-email-input{
     background: rgb(78, 77, 77);
     border: none;
+    color: white;
 }
 #verify-email-input::placeholder{
     color: lightgrey;

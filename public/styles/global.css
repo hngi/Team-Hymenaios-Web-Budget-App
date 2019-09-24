@@ -66,9 +66,9 @@
     cursor: pointer;
 }
 ._err_msg {
-  color: red;
+  color: red !important;
   font-size: 14px;
-  height: 15px;
+  margin: 0;
 }
 .preloader_bg {
   width: 100%;

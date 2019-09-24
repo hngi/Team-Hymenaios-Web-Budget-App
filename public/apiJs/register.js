@@ -41,7 +41,6 @@ const registerFormFunc = (event) => {
 		})
 		.then(response => errorHandling(response))
 		.then(data => {
-			console.log(data)
 		register_preloader.style.display = 'none';
 		let title = 'Sign up succesful';
 			let msg = `please check you email 
