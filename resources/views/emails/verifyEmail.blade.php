@@ -25,7 +25,7 @@
                     <p>Please copy the code below to verify your account!</p><br><br>
                     <p>Verification Code </p>
                     <p style="text-align:center; background: #0094E7; width: 20%; height: 30px; padding-top: 10px; margin: auto; font-size: 18px; font-weight: bold;">{{ $user->verifycode }}</p>
-                     <p><small style="font-size: 16px;">Please copy verification code and follow the <a href="https://app-hymenaios.firebasewebapp.com/verify.html">link</a> to confirm account!</small></p>
+                     <p><small style="font-size: 16px;">Please copy verification code and follow the <a href="https://app-hymenaios-a2838.firebaseapp.com/verify-account.html">link</a> to confirm account!</small></p>
                     <h5 style="text-align:right;">Team Hymenaios</h5>
                     <p style="text-align:left;">You are getting this email because you have requested to change your password, if this was not authorize by you please discard.</p>
             </div>
