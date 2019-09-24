@@ -4,13 +4,6 @@ body{
 .container-fluid{
     height: 100vh;
 }
-.our-nav{
-    height: 10vh;
-}
-.nav-btns button{
-    font-size: 12px;
-    font-weight: bold;
-}
 .main-body{
     height: 80vh;
     background: #2B2B2B;
@@ -34,22 +27,4 @@ body{
 .landing-image img{
     height: 100%;
     width:  100%;
-}
-.footer{
-    height: 10vh;
-    background: #2B2B2B;
-}
-.copyright{
-    line-height: 14px;
-}
-.copyright p{
-    color: white;
-}
-.copyright span{
-    color: grey;
-    font-size: 12px;
-}
-.footer-links ul li{
-    color: white;
-    display: inline;
 }
