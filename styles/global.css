@@ -1,0 +1,41 @@
+.scroller {
+  overflow-y: scroll;
+}
+.scroller::-webkit-scrollbar {
+  width: 4px;
+}
+.scroller::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  display: none;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+  color: black;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #343a40;
+}
+.btn-brand {
+  background: #0094e7;
+  color: white;
+}
+.btn-brand-outline {
+  color: white;
+  background: inherit;
+}
+.btn-brand-white{
+    background: white;
+    color: #0094e7;
+}
+.our-nav{
+    background: #0094e7;
+}
+.brand-image{
+    height: 6vh;
+}
+.brand-image img{
+    height: 100%;
+}
+.our-nav .brand-image span{
+    color: white;
+}
