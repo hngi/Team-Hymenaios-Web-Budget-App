@@ -58,7 +58,6 @@ const registerFormFunc = (event) => {
 			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
 			    backdrop: `
 				    rgba(0,0,123,0.4)
-				    url("images/cornfuse-logo.png")
 				    center 
 				    no-repeat
 				  `,
@@ -96,6 +95,10 @@ const registerFormFunc = (event) => {
 				action_field.style.color = 'white';
 				error_field.style.color = 'white';
 				registerForm.reset();
+				setTimeout( () => {
+					localStorage.setItem('c-token-email', formData.get('email'));
+					location.replace('verify-account.html');
+				}, 3000)
 			}
 		})
 		.catch(error => {
