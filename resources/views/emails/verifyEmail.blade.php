@@ -6,6 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Hymenaios Verify Account</title>
+         <style type="text/css">
+            p {
+                color: white !important;
+            }
+        </style>
         </head>
             <body>
     <section style="width: 100%;margin: auto;height:auto; padding-bottom:20px;box-shadow: 0 0 10px #f58731;color: grey; border-radius: 5px;background: #2b2b2b;">
