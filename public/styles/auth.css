@@ -38,3 +38,7 @@ body{
 .verify-account-here h6{
     cursor: pointer;
 }
+.forgot-password-link{
+    color: #0097e7;
+    font-size: 12px;
+}
