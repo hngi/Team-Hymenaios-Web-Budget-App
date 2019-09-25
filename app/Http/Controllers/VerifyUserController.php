@@ -40,8 +40,8 @@ class VerifyUserController extends Controller
                 $msg['verified'] = "True";
                 $msg['user'] = $user;
                 $msg['token'] = 'Bearer ' . $token;
-                $image_link = 'https://res.cloudinary.com/getfiledata/image/upload/';
-                $image_round_styling = 'w_200,c_thumb,ar_4:4,g_face/';
+                $msg['image_link'] = 'https://res.cloudinary.com/getfiledata/image/upload/';
+                $msg['image_format'] = 'w_200,c_thumb,ar_4:4,g_face/';
 
                 return response()->json($msg, 200);
                 
