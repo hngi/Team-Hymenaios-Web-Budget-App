@@ -41,6 +41,9 @@ class VerifyUserController extends Controller
                 $msg['note'] = 'if it return verified = True store the token in a localstorage and redirect to dashboard';
                 $msg['user'] = $user;
                 $msg['token'] = 'Bearer ' . $token;
+                $image_link = 'https://res.cloudinary.com/getfiledata/image/upload/';
+                $image_round_styling = 'w_200,c_thumb,ar_4:4,g_face/';
+
                 return response()->json($msg, 200);
                 
             } else {
