@@ -49,12 +49,13 @@ class LogInController extends Controller
         }
 
         $user = Auth::guard('api')->user();
-        $image_link = 'https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/';
+        $image_link = 'https://res.cloudinary.com/getfiledata/image/upload/';
+        $image_format = 'w_200,c_thumb,ar_4:4,g_face/';
 
         if ($user->email_verified_at != null) {
-            return response()->json(['data' => ['success' => true, 'user' => $user, 'image_link' => $image_link, 'token' => 'Bearer '.$token]], 200);
+            return response()->json(['success' => true, 'user' => $user, 'image_link' => $image_link, ' image_format' =>  $image_format, 'token' => 'Bearer '.$token], 200);
         } else {
-            return response()->json(['data' => ['error' => false, 'message' => "Not confirmed yet"]], 401);
+            return response()->json(['error' => false, 'message' => "Not confirmed yet"], 401);
         }
     }
 }
