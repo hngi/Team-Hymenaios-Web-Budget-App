@@ -1,22 +1,13 @@
-nav{
-	background: none;
-	background-image: none;
-	background-color: #19bdea;
+.search-budgets{
+	height: 10vh;
 }
-
-#budget-title{
-	color: #ffffff;
+.search-budget-input{
+	background-color: #151515;
 }
-
-#toolbar-expenses{
-	color: #4eccee;
+.search-budget-input::placeholder{
+	color: grey;
+	font-size: 12px;
 }
-
-.toolbar-input{
-	height: 20px;
-	width: 60px;
-	margin-right: 20px;
-	border-radius: 4px;
-	padding-left: 4px;
-	color: #4eccee;
+.budgets-list{
+	height: 80vh;
 }
