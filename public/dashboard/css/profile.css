@@ -5,3 +5,13 @@
 	height: 30vh;
 	width: 30vh;
 }
+#editProfileModal .modal-content{
+	height: 90vh;
+	color: black;
+}
+.btn-icon-split span{
+	font-size: 12px;
+}
+.bio-box{
+	height: 12vh;
+}
