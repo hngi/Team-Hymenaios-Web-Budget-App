@@ -1,3 +1,7 @@
 #footer{
 	background-color: #2B2B2B00 !important;
 }
+.profile-image img{
+	height: 20vh;
+	width: 20vh;
+}
