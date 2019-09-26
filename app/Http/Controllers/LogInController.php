@@ -53,7 +53,7 @@ class LogInController extends Controller
         $image_format = 'w_200,c_thumb,ar_4:4,g_face/';
 
         if ($user->email_verified_at != null) {
-            return response()->json(['success' => true, 'user' => $user, 'image_link' => $image_link, ' image_format' =>  $image_format, 'token' => 'Bearer '.$token], 200);
+            return response()->json(['success' => true, 'user' => $user, 'image_link' => $image_link, 'image_format' =>  $image_format, 'token' => 'Bearer '.$token], 200);
         } else {
             return response()->json(['error' => false, 'message' => "Not confirmed yet"], 401);
         }
