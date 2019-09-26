@@ -1,3 +1,6 @@
+#content{
+	background: #eaeaea;
+}
 .search-budgets{
 	height: 10vh;
 }
@@ -9,5 +12,45 @@
 	font-size: 12px;
 }
 .budgets-list{
-	height: 80vh;
+	height: 70vh;
+}
+.budget{
+	height: 17vh;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 2px 2px 16px lightgrey;
+}
+.budget-image{
+	background: linear-gradient(160deg, #0094e7, rgb(182, 49, 182));
+	border-radius: 10px 0px 0px 10px;
+}
+.budget-image img{
+	height: 10vh;
+	width: 10vh;
+}
+.budget-name{
+	height: 4vh;
+}
+.budget-desc{
+	height: 8vh;
+	font-size: 14px;
+}
+.budget-info{
+	height: 5vh;
+}
+.budget-info-pill{
+	height: 3.5vh;
+	border-radius: 20px;
+}
+.budget-info-pill span{
+	font-size: 12px;
+}
+.budget-total{
+	color: #0094e7;
+}
+.positive-value{
+	color: green;
+}
+.negative-value{
+	color: red;
 }

@@ -112,130 +112,157 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-2"></div>
-              <div class="col-lg-8">
-                <!-- Dropdown Card Example -->
-                <div class="card shadow mb-4">
-                  <!-- Card Header - Dropdown -->
-                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Profile</h6>
-                    <div class="dropdown no-arrow">
-                      <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                        <div class="dropdown-header">Actions:</div>
-                        <a class="dropdown-item" href="#">Clear Records</a>
-                        <a class="dropdown-item" href="#">Edit Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log Out</a>
-                      </div>
+          <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+              <!-- Dropdown Card Example -->
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Profile</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                      aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Actions:</div>
+                      <a class="dropdown-item" href="#">Clear Records</a>
+                      <a class="dropdown-item" href="#">Edit Profile</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Log Out</a>
                     </div>
                   </div>
-                  <!-- Card Body -->
-                  <div class="card-body">
-                    <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-lg-4 profile-image">
-                          <img class="border" style="border-radius: 50%;" data-this-image src=""><!--img/man-1.svg-->
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-lg-4 profile-image">
+                        <img class="border mt-5" style="border-radius: 50%;" data-this-image src="">
+                        <!--img/man-1.svg-->
+                      </div>
+                      <div class="col-lg-8" style="height: 40vh;">
+                        <div>
+                          <h3 data-this-fullname class="mt-3">
+                            <bold>Hello Friend</bold>
+                          </h3>
+                          <p class="mb-1" data-this-username></p>
+                          <p class="mb-1" data-this-email></p>
                         </div>
-                        <div class="col-lg-8">
-                          <h3 data-this-fullname><bold>Hello Friend</bold></h3>
-                          <p data-this-username></p>
-                          <p data-this-email></p>
-                          <div class="my-2"></div>
-                          <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#editProfileModal">
+                        <div class="col-12 border bio-box mb-2 px-0">
+                          <span>This is some dummy text to check how it looks and i am currently running out of things to write</span>
+                        </div>
+                        <div class="col-12 row mx-0 px-0 ">
+                          <a href="#" class="btn btn-primary btn-icon-split col mr-2" data-toggle="modal"
+                            data-target="#editProfileModal">
                             <span class="text">EDIT</span>
                           </a>
                           <div class="my-2"></div>
-                          <a href="#" class="btn btn-primary btn-icon-split">
+                          <a href="#" class="btn btn-primary btn-icon-split col mr-2">
                             <span class="text">Change Password</span>
                           </a>
                           <div class="my-2"></div>
-                          <a href="#" class="btn btn-danger btn-icon-split">
+                          <a href="#" class="btn btn-danger btn-icon-split col mr-2 px-0">
                             <span class="icon text-white-50">
                               <i class="fas fa-trash"></i>
                             </span>
-                            <span class="text">Clear Records</span>
+                            <span class="text px-0">Clear Records</span>
                           </a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
               <div class="col-lg-2"></div>
             </div>
-        </div>
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white" id="footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Hymenaios 2019</span>
           </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white" id="footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Hymenaios 2019</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+
+      </div>
+      <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-  <!-- Modal -->
-  <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-              </button>
-          </div>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- Modal -->
+    <div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
           <div class="modal-body">
-              ...
+            <h4 class="mb-4">Edit Profile</h4>
+            <form>
+              <div class="form-group">
+                <label for="edit_username">Username</label>
+                <input type="text" class="form-control" maxlength="100" id="edit_username" aria-describedby=""
+                  placeholder="Username">
+              </div>
+              <div class="form-group">
+                <label for="edit_fname">First Name</label>
+                <input type="text" class="form-control" maxlength="100" id="edit_fname" placeholder="First Name">
+              </div>
+              <div class="form-group">
+                <label for="edit_lname">Last Name</label>
+                <input type="text" class="form-control" maxlength="100" id="edit_lname" placeholder="text">
+              </div>
+              <div class="form-group">
+                <label for="edit_dob">Date Of Birth</label>
+                <input type="date" class="form-control" maxlength="100" id="edit_dob" placeholder="DOB">
+              </div>
+              <div class="form-group">
+                <label for="edit_bio">Bio</label>
+                <textarea type="text" class="form-control" maxlength="100" id="edit_bio"
+                  placeholder="Write a short bio here"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
           </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+        </div>
       </div>
-  </div>
-</div>
-  <!-- Bootstrap core JavaScript-->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-    </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-    </script>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+      </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+      </script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area.js"></script>
-  <script src="js/demo/chart-pie.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-  <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
-  <script type="text/javascript" src="../apiJs/dashboard.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area.js"></script>
+    <script src="js/demo/chart-pie.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
+    <script type="text/javascript" src="../apiJs/dashboard.js"></script>
 
 </body>
 
