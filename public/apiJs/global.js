@@ -6,6 +6,7 @@ const checkUser = () => {
     !current_user ?  location.replace('login.html'): null
 }
 checkUser();
+console.log(current_user)
 
 //Destruct to get data
 const {token, image_link, image_format, user} = current_user;
@@ -14,5 +15,6 @@ const {token, image_link, image_format, user} = current_user;
 
 //Get the user by destruring
 const {first_name, last_name, email, username, image, dob, id, bio, created_at, updated_at } = user;
+console.log(first_name)
 
 
