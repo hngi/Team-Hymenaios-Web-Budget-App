@@ -1,0 +1,18 @@
+#accordionSidebar{
+  background-image: none;
+  background-color:#151515;
+}
+
+#profile-icon-link{
+  margin-top: 35px;
+  margin-bottom: 35px;
+  margin-left: 3px;
+}
+
+#profile-icon-link > div{
+  font-size:15px;
+  color: #ffffff;
+}
+
+/* #19BDEA */
+/* #AF39E7 */

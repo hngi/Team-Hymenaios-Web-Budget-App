@@ -1,0 +1,22 @@
+nav{
+	background: none;
+	background-image: none;
+	background-color: #19bdea;
+}
+
+#budget-title{
+	color: #ffffff;
+}
+
+#toolbar-expenses{
+	color: #4eccee;
+}
+
+.toolbar-input{
+	height: 20px;
+	width: 60px;
+	margin-right: 20px;
+	border-radius: 4px;
+	padding-left: 4px;
+	color: #4eccee;
+}
