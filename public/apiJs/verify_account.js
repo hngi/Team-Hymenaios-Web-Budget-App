@@ -83,7 +83,7 @@ const verifyAccountFunc = (event) => {
 				error_field.style.color = 'white';
 				setTimeout( () => {
 					localStorage.setItem('h-user-data', JSON.stringify(data));
-					location.replace('profile.html');
+					location.replace('dashboard/profile.html');
 				}, 3000)
 			}
 		})

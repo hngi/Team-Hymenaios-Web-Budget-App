@@ -75,7 +75,7 @@ const loginFormFunc = (event) => {
 			}else{
 				console.log(data)
 				localStorage.setItem('h-user-data', JSON.stringify(data));
-				location.replace(`${window.location.origin}/dsh/profile.html`)
+				location.replace(`${window.location.origin}/dashboard/profile.html`)
 			}
 		})
 		.catch(error => {
