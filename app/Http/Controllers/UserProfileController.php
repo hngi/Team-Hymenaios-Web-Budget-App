@@ -18,8 +18,8 @@ class UserProfileController extends Controller
 
         return response()->json(['data' => [ 'success' => true, 'user' => $user ]], 200);
     }
-	public function edit(Request $request)
 
+	public function edit(Request $request)
 	{
 		$user = Auth::user();
 		$this->validateRequest($request);

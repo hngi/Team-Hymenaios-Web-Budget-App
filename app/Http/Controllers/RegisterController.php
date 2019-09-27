@@ -36,7 +36,7 @@ class RegisterController extends Controller
 			]);
 
 
-			// Mail::to($user->email)->send(new VerifyEmail($user));
+			Mail::to($user->email)->send(new VerifyEmail($user));
 
 
 			$msg['message'] = "Hello $user->username,  thanks for signing up! A verification mail has been Sent to your account -> $user->email";
