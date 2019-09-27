@@ -16,9 +16,25 @@ class UserBudgetController extends Controller
     public function showOne(Request $request, $id) {
         $user = Auth::user();
         $budget = Budget::where('id', $id)->where('owner_id', $user->id)
-                  ->with('items')
-                  ->order()
-                ->get();
+                  ->withCount('items')
+                  ->orderBy('id', 'desc')
+                  ->get();
+
+        if ($budget) {
+            $msg['budget'] = $budget;
+            $msg['message'] = 'Successful';
+            return response()->json([$msg], 200);
+        }else {
+            $msg['message'] = 'Not Found';
+            return response()->json([$msg], 404);
+        }
+    }
+     public function showAll(Request $request) {
+        $user = Auth::user();
+        $budget = Budget::where('owner_id', $user->id)
+                  ->withCount('items')
+                  ->orderBy('id', 'desc')
+                  ->get();
 
         if ($budget) {
             $msg['budget'] = $budget;
@@ -103,6 +119,21 @@ class UserBudgetController extends Controller
 
         }
 
+    }
+
+    public function destroy($id) {
+        $user = Auth::user();
+        $del_budget = Budget::where('id', $id)->where('owner_id', $user->id)->first();
+        if($del_budget) {
+            $del_budget->delete();
+            $res['success'] = true;
+            $res['message'] = 'User account deleted!';
+            return response()->json($res);
+        }else {
+            $res['error'] = false;
+            $res['message'] = 'User not found!';
+            return response()->json($res);
+        }
     }
 
     public function validateRequest(Request $request){

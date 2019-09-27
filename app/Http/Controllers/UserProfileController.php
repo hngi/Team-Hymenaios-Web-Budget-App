@@ -144,7 +144,7 @@ class UserProfileController extends Controller
         }
     }
 
-    public function destroy(Request $request) {
+    public function destroy() {
         $user = Auth::user();
         if($user) {
             $user->delete();
