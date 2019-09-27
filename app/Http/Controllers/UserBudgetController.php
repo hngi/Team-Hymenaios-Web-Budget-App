@@ -47,10 +47,16 @@ class UserBudgetController extends Controller
     }
 	public function create(Request $request, Budget $budget)
     {
+        $user = Auth::user();
         $this->validateRequest($request);
         //start temporay transaction
         DB::beginTransaction();
         try {
+            if($request->input('currency') != $user->total_income){
+                $msg['error'] = "Error: Currency Must be the same as your total income!";
+                $msg['hint'] = $e->getMessage();
+                return response()->json($msg, 422);
+            }
             $budget_amount = number_format($request->input('amount'), 2); 
             // $real_integer = filter_var($price, FILTER_SANITIZE_NUMBER_INT);
 
