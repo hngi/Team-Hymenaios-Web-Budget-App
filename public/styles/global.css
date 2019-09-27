@@ -76,8 +76,8 @@ a {
 .preloader_bg {
   width: 100%;
   height: 100%;
-  z-index: 999;
-  position: absolute;
+  z-index: 999999999;
+  position: fixed;
   background: black;
   opacity: 0.4;
   display: none;
