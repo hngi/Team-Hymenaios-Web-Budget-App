@@ -150,4 +150,17 @@ class UserProfileController extends Controller
 		$this->validate($request, $rules, $messages);
 		}
 
+    public function validatePassword(Request $request)
+    {
+       $rules = [
+        'old_password'=> 'required|string',
+        'password' => 'required|min:8|different:old_password'
+        ];
+        $messages = [
+            'required' => ':attribute is required'
+        ];
+        $this->validate($request, $rules);
+    }
+
+
 }
