@@ -52,7 +52,8 @@ class UserBudgetController extends Controller
         //start temporay transaction
         DB::beginTransaction();
         try {
-            if($request->input('currency') != $user->total_income){
+            $curr = explode("", $user->total_income);
+            if($request->input('currency') != $curr[0]){
                 $msg['error'] = "Error: Currency Must be the same as your total income!";
                 $msg['hint'] = $e->getMessage();
                 return response()->json($msg, 422);
@@ -92,8 +93,9 @@ class UserBudgetController extends Controller
         $user = Auth::user();
          $this->validateRequest($request);
         //start temporay transaction
-         try {
-             if($request->input('currency') != $user->total_income){
+         try { 
+             $curr = explode("", $user->total_income);
+            if($request->input('currency') != $curr[0]){
                 $msg['error'] = "Error: Currency Must be the same as your total income!";
                 $msg['hint'] = $e->getMessage();
                 return response()->json($msg, 422);
