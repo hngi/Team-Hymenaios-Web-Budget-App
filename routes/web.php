@@ -38,6 +38,9 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
 	// delete users profile
     $router->delete('user/delete', 'UserProfileController@destroy');
 
+    // change users password
+    $router->put('/password', 'UserProfileController@updatePassword');
+
 });
 //The budget Api     
 $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {

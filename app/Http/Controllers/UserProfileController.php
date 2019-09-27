@@ -8,6 +8,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 use Cloudder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserProfileController extends Controller
 {
@@ -119,7 +120,30 @@ class UserProfileController extends Controller
         $user->save();
 
     }
-    
+    public function updatePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        $this->validatePassword($request);
+
+        $old_password = $request->input('old_password');
+        $password = $request->input('password');
+
+        $checker = Hash::check($old_password, $user->password);
+
+        if($checker) {
+
+            $user->password = Hash::make($password);
+            $user->save();
+
+            $msg['success'] = 'Password Changed Successfully';
+            return response()->json($msg, 201);
+        } else {
+            $msg['error'] = 'Invalid Credentials';
+            return response()->json($msg, 402);
+        }
+    }
+
     public function destroy(Request $request) {
         $user = Auth::user();
         if($user) {
