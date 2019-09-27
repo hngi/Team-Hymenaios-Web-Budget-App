@@ -17,8 +17,10 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('owner_id');
             $table->unsignedInteger('budget_id');
+            $table->string('title');
             $table->string('item_amount');
             $table->string('priority');
+            $table->string('tag');
             $table->string('category');
             $table->string('description');
             $table->timestamps();

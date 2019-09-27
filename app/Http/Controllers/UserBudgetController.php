@@ -8,10 +8,27 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Budget;
-
+use App\Item;
 
 class UserBudgetController extends Controller
 {
+
+    public function showOne(Request $request, $id) {
+        $user = Auth::user();
+        $budget = Budget::where('id', $id)->where('owner_id', $user->id)
+                  ->with('items')
+                  ->order()
+                ->get();
+
+        if ($budget) {
+            $msg['budget'] = $budget;
+            $msg['message'] = 'Successful';
+            return response()->json([$msg], 200);
+        }else {
+            $msg['message'] = 'Not Found';
+            return response()->json([$msg], 404);
+        }
+    }
 	public function create(Request $request, Budget $budget)
     {
         $this->validateRequest($request);
@@ -49,19 +66,24 @@ class UserBudgetController extends Controller
 
     }
 
-    public function update(Request $request, Budget $budget) {
+    public function update(Request $request, $id) {
          $this->validateRequest($request);
         //start temporay transaction
          try {
+            $budget = Budget::find($id);
             $budget_amount = number_format($request->input('amount'), 2); 
             // $real_integer = filter_var($price, FILTER_SANITIZE_NUMBER_INT);
-
-            $budget->title = $request->input('title');
-            $budget->owner_id = Auth::user()->id;
-            $budget->description = $request->input('description');
-            $budget->budget_amount = $request->input('currency') ." ". $budget_amount;
-            $budget->save();
-
+            if ($budget) {
+                $budget->title = $request->input('title');
+                $budget->owner_id = Auth::user()->id;
+                $budget->description = $request->input('description');
+                $budget->budget_amount = $request->input('currency') ." ". $budget_amount;
+                $budget->save();
+            }else{
+                $msg['message'] = "Budget not found!";
+                return response()->json($msg, 404);
+            }
+           
             $msg['budget']  =  $budget;
             $msg['message'] = "Budget has been updated!";
             // //if operation was successful save changes to database
@@ -86,7 +108,7 @@ class UserBudgetController extends Controller
     public function validateRequest(Request $request){
 		$rules = [
 			'title' => 'required|string',
-			'description' => 'required|string',
+			'description' => 'string',
             'currency' => array(
                               'required',
                               'regex:/(^([NGN,USD,EUR]+)(\d+)?$)/u'

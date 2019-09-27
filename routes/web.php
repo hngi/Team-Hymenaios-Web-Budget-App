@@ -42,14 +42,14 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
 //The budget Api     
 $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {
 
-	$router->post('/budget/create', 'UserBudgetController@create');
+	$router->post('budget/create', 'UserBudgetController@create');
 
-    $router->put('/budget/edit', 'UserBudgetController@update');
+    $router->put('budget/{id}/edit', 'UserBudgetController@update');
 
-    $router->post('/budget/showAll', 'UserBudgetController@showAll');
+    $router->get('budget/showAll', 'UserBudgetController@showAll');
 
-    $router->post('/budget/showOne', 'UserBudgetController@showOne');
+    $router->get('budget/{id}/showOne', 'UserBudgetController@showOne');
 
-    $router->delete('/budget/delete', 'UserBudgetController@destroy');
+    $router->delete('budget/{id}/delete', 'UserBudgetController@destroy');
 
 });

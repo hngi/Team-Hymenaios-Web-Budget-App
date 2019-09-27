@@ -18,7 +18,7 @@ class Item extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-          'title', 'buget_id', 'category', 'priority', 'item_amount', 'description'
+          'title', 'buget_id', 'tag', 'category', 'budget_amount', 'category', 'priority', 'item_amount', 'description'
 
     ];
 
@@ -28,7 +28,7 @@ class Item extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-     
+     'tag'
     ];
 
    

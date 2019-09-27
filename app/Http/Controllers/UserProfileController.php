@@ -24,7 +24,7 @@ class UserProfileController extends Controller
 		$this->validateRequest($request);
 
 		DB::beginTransaction();
-
+        $token = Auth::guard()->login($user);
 		try {
             $user->username = $request->input('username');
  			$user->first_name = $request->input('first_name');
@@ -33,22 +33,25 @@ class UserProfileController extends Controller
 	        $user->dob = $request->input('dob');
 	        $user->save();
 
-			$res['message'] = "Account Updated Successfully!";
-	        $res['user'] = $user;
+			$msg['message'] = "Account Updated Successfully!";
+	        $msg['user'] = $user;
+            $msg['token'] = 'Bearer ' . $token;
+            $msg['image_link'] = 'https://res.cloudinary.com/getfiledata/image/upload/';
+            $msg['image_format'] = 'w_200,c_thumb,ar_4:4,g_face/';
 	
 			//if operation was successful save changes to database
 			DB::commit();
 
-			return response()->json($res, 200);
+			return response()->json($msg, 200);
 
 		}catch(\Exception $e) {
 
 			//if any operation fails, Thanos snaps finger - user was not created
 			DB::rollBack();
 
-			$res['error'] = "Error: There was an unexpected error, please try again!";
-			$res['hint'] = $e->getMessage();
-			return response()->json($res, 501);
+			$msg['error'] = "Error: There was an unexpected error, please try again!";
+			$msg['hint'] = $e->getMessage();
+			return response()->json($msg, 501);
 
 		}
 
@@ -133,7 +136,7 @@ class UserProfileController extends Controller
 
     public function validateRequest(Request $request){
 		$rules = [
-			'username' => 'required|string|unique:users',
+			'username' => 'required|string',
 			'first_name' => 'required|string',
 			'last_name' => 'required|string',
 			'dob' => 'required',

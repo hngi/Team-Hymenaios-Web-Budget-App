@@ -31,5 +31,8 @@ class Budget extends Model implements AuthenticatableContract, AuthorizableContr
      
     ];
 
-   
+    public function items()
+    {
+        return $this->hasMany('App\Item', 'budget_id', 'id');
+    }
 }
