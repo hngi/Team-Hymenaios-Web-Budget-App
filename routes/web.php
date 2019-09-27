@@ -41,6 +41,8 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
     // change users password
     $router->put('/password', 'UserProfileController@updatePassword');
 
+    $router->get('/total_income', 'UserProfileController@addIncome');
+
 });
 //The budget Api     
 $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {

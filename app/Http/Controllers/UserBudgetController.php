@@ -127,11 +127,11 @@ class UserBudgetController extends Controller
         if($del_budget) {
             $del_budget->delete();
             $res['success'] = true;
-            $res['message'] = 'User account deleted!';
+            $res['message'] = 'Budget deleted!';
             return response()->json($res);
         }else {
             $res['error'] = false;
-            $res['message'] = 'User not found!';
+            $res['message'] = 'Budget not found!';
             return response()->json($res);
         }
     }
@@ -142,7 +142,7 @@ class UserBudgetController extends Controller
 			'description' => 'string',
             'currency' => array(
                               'required',
-                              'regex:/(^([NGN,USD,EUR]+)(\d+)?$)/u'
+                              'regex:/(^([NGN,USD,EUR,GBR]+)(\d+)?$)/u'
                             ),
 			'amount' => array(
                               'required'
