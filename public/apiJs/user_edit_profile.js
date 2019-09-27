@@ -1,6 +1,7 @@
 const editAccountForm = document.querySelector('#editAccountForm');
 const profile_preloader = document.querySelector('[data-editAccount-preloader]');
 const changePassword = document.querySelector('#changePasswordForm');
+const delUser = document.querySelector('#delAccountForm');
 
 const editAccountFormFunc = (event) => {
 	event.preventDefault();
@@ -180,14 +181,16 @@ const changePasswordFormFunc = (event) => {
 				error_field.style.color = 'red';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
-				const {password} = data;
+				const {old_password, password} = data;
 				msg = '';
 				if (password){
 					msg +=`${password} <br>`;
-				}
+				}else if(old_password) {
+                    msg +=`${old_password} <br>`;
+                }
 
 				error_field.innerHTML = msg;
-			} else if (status == 501) {
+			} else if (status == 402) {
 				title_field.style.color = 'red';
 				action_field.style.color = 'white';
 				error_field.style.color = 'red';
@@ -210,3 +213,72 @@ const changePasswordFormFunc = (event) => {
 }
 
 changePasswordForm.addEventListener('submit', (event) => changePasswordFormFunc(event));
+
+
+
+const delUserFunc = (event) => {
+	event.preventDefault();
+
+		let status;
+		profile_preloader.style.display = 'block';
+		const errorHandling = (response) => {
+			status = response.status;
+			return response.json();
+		}
+
+		const url = `${ baseUrl }api/user/delete`;
+		fetch(url, {
+		 method: "DELETE",
+		 mode: "cors",
+		 headers: {
+             "Authorization": `${token}`,
+		 	 "Content-Type": "application/json"
+		 }
+		})
+		.then(response => errorHandling(response))
+		.then(data => {
+        console.log(data)
+		profile_preloader.style.display = 'none';
+		let title = 'Proccess Successful';
+			let msg = `Account Delete!`;
+			let action   = 'Close!';
+			Swal.fire({
+			    title: `<b id="title">${title}</b>`,
+			    width: 600,
+			    padding: '3em',
+			    background: 'none',
+			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
+			    backdrop: `
+				    rgba(0,0,123,0.4)
+				  `,
+				confirmButtonText: `<span id="action">${action}</span>`
+			})
+			const title_field =document.querySelector('#title');
+			const action_field =document.querySelector('#action');
+			const error_field =document.querySelector('#error_field');
+		     if (status == 501) {
+				title_field.style.color = 'red';
+				action_field.style.color = 'white';
+				error_field.style.color = 'red';
+				title_field.innerHTML = 'Oops, an error just occured !';
+				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
+				error_field.innerHTML = 'An Unexpected error occured, please try again!';
+			}else{
+				title_field.style.color = 'lime';
+				action_field.style.color = 'white';
+				error_field.style.color = 'white';
+                setTimeout( () => {
+					localStorage.removeItem('h-user-data');
+                    location.href=location.origin;
+				}, 1000)
+			}
+		})
+		.catch(error => {
+            profile_preloader.style.display = 'none';
+            console.error(error)
+			console.error(error.status)
+		})
+	}
+
+    delUser.addEventListener('submit', (event) =>  delUserFunc(event));
+

@@ -80,11 +80,16 @@
 
       <!-- Nav Item - Profile -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-table"></i>
+        <a class="nav-link" href="profile.html">
+          <i class="fas fa-user"></i>
           <span>Profile</span></a>
       </li>
 
+      <li class="nav-item" data-logout>
+          <a class="nav-link" href="#">
+            <i class="fas fa-sign-out-alt"></i>
+            <span style="color: tomato">Log Out</span></a>
+        </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -113,7 +118,6 @@
           <!-- Topbar Title -->
           <h3>Profile</h3>
           <p><small>last edited: today</small></p>
-
         </nav>
         <!-- End of Topbar -->
 
@@ -291,7 +295,7 @@
                <small>please note: if you do this all your information would be lost.</small>
              </div>
              <button type="submit" class="btn btn-primary" style="background: tomato; border: tomato;">Yes</button>
-             <button data-close-del class="btn btn-primary">No</button>
+             <button data-close-del class="btn btn-primary" data-dismiss="modal">No</button>
            </form>
          </div>
        </div>
