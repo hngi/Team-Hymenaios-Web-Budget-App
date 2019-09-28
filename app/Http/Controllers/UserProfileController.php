@@ -131,8 +131,13 @@ class UserProfileController extends Controller
         $user->total_income = $request->input('currency') ." ". $total_income_amount;
         $user->save();
 
-            $res['message'] = "Username Updated Successfully!";
-            $res['user'] = $user;
+            $token = Auth::guard()->login(Auth::user());
+
+            $res['message'] = "Income Added Successful!";
+            $res['token'] = 'Bearer ' . $token;
+            $res['image_link'] = 'https://res.cloudinary.com/getfiledata/image/upload/';
+            $res['image_format'] = 'w_200,c_thumb,ar_4:4,g_face/';
+            $res['user'] = Auth::user();
         return response()->json($res, 201);
     }
 
