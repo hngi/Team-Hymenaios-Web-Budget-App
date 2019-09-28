@@ -24,7 +24,7 @@ class CalculatorController extends Controller
                 $format_budget_2 = filter_var($format_budget[0], FILTER_SANITIZE_NUMBER_INT);
                 $allocated = [];
                 $not_allocated = [];
-                $p = [];
+                $low_budget = [];
 
                 foreach ($items as $item) {
                     $format_item  = explode(".", $item->item_amount);
@@ -32,18 +32,25 @@ class CalculatorController extends Controller
 
                     if ( $format_budget_2 > 0) {
                         $format_budget_2 = $format_budget_2 - $format_item_2;
-                            // if ($format_budget_2) {
-                            //     # code...
-                            // }
-                        array_push($allocated, $item);
-                        array_push($p, $format_budget_2);
+                        $details = explode("-", $format_budget_2);
+                        if ($details[0] == "") {
+                             array_push($low_budget, $details[1]);
+                             array_push($not_allocated, $item);
+                             $msg['message'] = "Allocated and Not allocated budget items!";
+                             $msg['low_budget'] =  $low_budget;
+                             $msg['allocated'] =  $allocated;
+                             $msg['not_allocated'] =  $not_allocated;
+                             return response()->json($msg, 200);
+                        }else {
+                            array_push($allocated, $item);
+                        } 
                     }else {
                         array_push($not_allocated, $item);
                     }
                 }
             $msg['message'] = "Allocated and Not allocated budget items!";
             $msg['allocated'] =  $allocated;
-            $msg['allocated'] =  $p;
+            $msg['low_budget'] =  $low_budget;
             $msg['not_allocated'] =  $not_allocated;
             return response()->json($msg, 200);
         }else {
