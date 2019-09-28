@@ -97,7 +97,7 @@ class UserProfileController extends Controller
             $token = Auth::guard()->login(Auth::user());
 
             $res['message'] = "Upload Successful!";
-            $msg['token'] = 'Bearer ' . $token;
+            $res['token'] = 'Bearer ' . $token;
             $res['image_link'] = 'https://res.cloudinary.com/getfiledata/image/upload/';
             $res['image_format'] = 'w_200,c_thumb,ar_4:4,g_face/';
             $res['user'] = Auth::user();
