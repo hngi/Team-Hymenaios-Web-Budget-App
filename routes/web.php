@@ -33,7 +33,7 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
     $router->put('user/edit', 'UserProfileController@edit');
 
     // upload profile picture
-    $router->put('user/image/upload', 'UserProfileController@image');
+    $router->post('user/image/upload', 'UserProfileController@image');
 
 	// delete users profile
     $router->delete('user/delete', 'UserProfileController@destroy');
