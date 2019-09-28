@@ -90,9 +90,9 @@ const editAccountFormFunc = (event) => {
 
 				error_field.innerHTML = msg;
 			} else if (status == 501) {
-				title_field.style.color = 'red';
+				title_field.style.color = 'tomato';
 				action_field.style.color = 'white';
-				error_field.style.color = 'red';
+				error_field.style.color = 'tomato';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
 				error_field.innerHTML = 'An Unexpected error occured, please try again!';
@@ -176,9 +176,9 @@ const changePasswordFormFunc = (event) => {
 			const action_field =document.querySelector('#action');
 			const error_field =document.querySelector('#error_field');
 			if (status == 422) {
-				title_field.style.color = 'red';
+				title_field.style.color = 'tomato';
 				action_field.style.color = 'white';
-				error_field.style.color = 'red';
+				error_field.style.color = 'tomato';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
 				const {old_password, password} = data;
@@ -191,9 +191,9 @@ const changePasswordFormFunc = (event) => {
 
 				error_field.innerHTML = msg;
 			} else if (status == 402) {
-				title_field.style.color = 'red';
+				title_field.style.color = 'tomato';
 				action_field.style.color = 'white';
-				error_field.style.color = 'red';
+				error_field.style.color = 'tomato';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
 				error_field.innerHTML = 'An Unexpected error occured, please try again!';
@@ -257,9 +257,9 @@ const delUserFunc = (event) => {
 			const action_field =document.querySelector('#action');
 			const error_field =document.querySelector('#error_field');
 		     if (status == 501) {
-				title_field.style.color = 'red';
+				title_field.style.color = 'tomato';
 				action_field.style.color = 'white';
-				error_field.style.color = 'red';
+				error_field.style.color = 'tomato';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
 				error_field.innerHTML = 'An Unexpected error occured, please try again!';

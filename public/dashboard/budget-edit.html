@@ -17,16 +17,25 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Custom styles for this template-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
   <link href="css/sb-admin-2.css" rel="stylesheet">
   <link href="css/design.css" rel="stylesheet">
   <link href="css/dashboard.css" rel="stylesheet">
   <link rel="stylesheet" href="../styles/global.css">
   <link rel="stylesheet" href="css/budget-edit.css">
-  <script type="text/javascript" src="../apiJs/formatter.js"></script>
+  <link rel="stylesheet" href="../styles/global.css">  
+  <script type="text/javascript" src="../apiJs/global.js"></script>
 </head>
 
 <body id="page-top">
-
+  <!--Preloader-->
+  <div class="preloader_bg" data-preloader>
+    <div class="money_preloader fadeInContinue bounceOutContinue">
+      <img src="../images/money-bag.png">
+    </div>
+  </div>
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -43,8 +52,9 @@
       <hr class="sidebar-divider my-0">
 
       <a class="d-flex align-items-center" href="profile.html" id="profile-icon-link">
-        <img src="img/man-1.png" width="45px" height="45px">
-        <div class="mx-1">Rubbie Kelvin</div>
+        <img style="border-radius: 50%;" data-this-image-side src="" width="45px" height="45px">
+        <!--img/man-1.png-->
+        <div class="mx-1" data-this-username-side></div>
       </a>
 
       <!-- Divider -->
@@ -64,11 +74,11 @@
 
       <!-- Nav Item - Budget -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Budget</span></a>
-      </li>
-
+          <a class="nav-link"  href="budget-edit.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Budget</span></a>
+        </li>
+  
       <!-- Nav Item - Profile -->
       <li class="nav-item">
         <a class="nav-link" href="profile.html">
@@ -101,7 +111,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid budgets-full">
           <div class="row">
-            <div class="col-8 mx-auto budgets-con">
+            <div class="col-11 col-md-8 mx-auto budgets-con">
               <div class="col-12 search-budgets mt-2">
                 <div class="input-group mt-3">
                   <input type="text" class="form-control search-budget-input" placeholder="Search Budget..."
@@ -112,94 +122,18 @@
                   </div>
                 </div>
               </div>
+              
+              <div class="col-12 add-budget-btn text-right">
+                  <span style="text-align: left; color: slateblue; font-weight: bold;" class="text-left"><span style="color: black">Total Income:</span> <span data-income-spot>0.00</span></span>
+                <button type="button" class="btn btn-brand" data-toggle="modal" data-target="#addIncomeModal">
+                  Add Income
+                </button>   
+                <button type="button" class="btn btn-brand" data-toggle="modal" data-target="#addBudgetModal">
+                  Add Budget
+                </button>
+              </div>
+              <div class="col-12 budgets-list" data-budget-list style="overflow: auto; height:80vh; margin-bottom: 20px;">
 
-              <div class="col-12 budgets-list">
-                <div class="col-12 budget border row mx-0 mt-3 px-0">
-                  <div class="col-12 col-lg-2 budget-image text-center">
-                    <img class="mt-3" src="../images/43016.png" alt="">
-                  </div>
-                  <div class="col-12 col-lg-10 row mx-0">
-                    <div class="col-10 budget-name">
-                      <span>Budget 1</span>
-                    </div>
-                    <div class="col-2 delete-budget" style="display: inline-block; cursor: pointer;">
-                      <i class="far fa-edit"></i>
-                      <i class="fas fa-eye"></i>
-                      <i class="fas fa-times-circle"></i>
-                    </div>
-                    <div class="col-12 budget-desc">
-                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, beatae. Atque veritatis
-                        molestias soluta quisquam?</span>
-                    </div>
-                    <div class="col-12 budget-info row mx-0">
-                      <div class="col col-sm-2 budget-info-pill text-center items-count border mt-1 mr-3">
-                        <span>25 items</span>
-                      </div>
-                      <div class="col col-sm-2 budget-info-pill text-center budget-total border mt-1 mr-3">
-                        <span>$2500</span>
-                      </div>
-                      <div class="col col-sm-2 budget-info-pill text-center budget-status border mt-1 mr-3">
-                        <span class="negative-value">-$500</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 budget border row mx-0 mt-3 px-0">
-                  <div class="col-12 col-lg-2 budget-image text-center">
-                    <img class="mt-3" src="../images/43016.png" alt="">
-                  </div>
-                  <div class="col-12 col-lg-10 row mx-0">
-                    <div class="col-11 budget-name">
-                      <span>Budget 1</span>
-                    </div>
-                    <div class="col-1 delete-budget">
-                      <i class="fas fa-times-circle"></i>
-                    </div>
-                    <div class="col-12 budget-desc">
-                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, beatae. Atque veritatis
-                        molestias soluta quisquam?</span>
-                    </div>
-                    <div class="col-12 budget-info row mx-0">
-                      <div class="col col-sm-2 budget-info-pill text-center items-count border mt-1 mr-3">
-                        <span>25 items</span>
-                      </div>
-                      <div class="col col-sm-2 budget-info-pill text-center budget-total border mt-1 mr-3">
-                        <span>$2500</span>
-                      </div>
-                      <div class="col col-sm-2 budget-info-pill text-center budget-status border mt-1 mr-3">
-                        <span class="negative-value">-$500</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 budget border row mx-0 mt-3 px-0">
-                  <div class="col-12 col-lg-2 budget-image text-center">
-                    <img class="mt-3" src="../images/43016.png" alt="">
-                  </div>
-                  <div class="col-12 col-lg-10 row mx-0">
-                    <div class="col-11 budget-name">
-                      <span>Budget 1</span>
-                    </div>
-                    <div class="col-1 delete-budget">
-                      <i class="fas fa-times-circle"></i>
-                    </div>
-                    <div class="col-12 budget-desc">
-                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, beatae. Atque veritatis
-                        molestias soluta quisquam?</span>
-                    </div>
-                    <div class="col-12 budget-info row mx-0">
-                      <div class="col col-sm-2 budget-info-pill text-center items-count border mt-1 mr-3">
-                        <span>25 items</span>
-                      </div>
-                      <div class="col col-sm-2 budget-info-pill text-center budget-total border mt-1 mr-3">
-                        <span>$2500</span>
-                      </div>
-                      <div class="col col-sm-2 budget-info-pill text-center budget-status border mt-1 mr-3">
-                        <span class="negative-value">-$500</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -230,7 +164,116 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+  <div class="modal fade" id="addBudgetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="mb-4">Add New Budget</h4>
+          <form id="addBudgetForm">
+            <div class="form-group">
+              <label for="new_title">Title</label>
+              <input data-this-title-edit name="title" type="text" class="form-control" maxlength="100" id="new_title"
+                aria-describedby="" placeholder="">
+              <p class="_err_msg"></p>
+            </div>
+            <div class="form-group">
+              <label for="new_amount">Amount</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                    <option selected value="NGN">&#8358;</option>
+                    <option value="USD">&#36;</option>
+                    <option value="EUR">&euro;</option>
+                    <option value="GBR">&#163;</option>
+                  </select>
+                </div>
+                <input type="text" name="amount" class="form-control" aria-label="Text input with dropdown button">
+                <p class="_err_msg"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="new_desc">Description</label>
+              <textarea data-this-desc-edit name="description" type="text" class="form-control" maxlength="100" id="new_desc"
+                placeholder=""></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="editBudgetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="mb-4">Edit Budget</h4>
+          <form id="editBudgetForm">
+            <div class="form-group">
+              <label for="edit_title">Title</label>
+              <input data-this-username-edit name="title" type="text" class="form-control" maxlength="100"
+                id="edit_title" aria-describedby="" placeholder="">
+              <p class="_err_msg"></p>
+            </div>
+            <div class="form-group">
+              <label for="new_amount">Amount</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                    <option selected value="NGN">&#8358;</option>
+                    <option value="USD">&#36;</option>
+                    <option value="EUR">&euro;</option>
+                    <option value="GBR">&#163;</option>
+                  </select>
+                </div>
+                <input name="amount" type="number" class="form-control" aria-label="Text input with dropdown button">
+                <p class="_err_msg"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="edit_desc">Description</label>
+              <textarea name="description" data-this-first-name-edit name="desc" type="text" class="form-control" maxlength="100"
+                id="edit_desc" placeholder=""></textarea>
+            </div>
+            <div data-budget-edit-id></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="addIncomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="mb-4">Add Total Income</h4>
+          <form id="addTotalIncomeForm">
+            <div class="form-group">
+              <label for="new_amount">Total Income</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                    <option selected value="NGN">&#8358;</option>
+                    <option value="USD">&#36;</option>
+                    <option value="EUR">&euro;</option>
+                    <option value="GBR">&#163;</option>
+                  </select>
+                </div>
+                <input name="total_income" type="number" class="form-control" aria-label="Text input with dropdown button">
+                <p class="_err_msg"></p>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Bootstrap core JavaScript-->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -247,12 +290,13 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area.js"></script>
-  <script src="js/demo/chart-pie.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
+  <script type="text/javascript" src="../apiJs/formatter.js"></script>
+  <script type="text/javascript" src= "../apiJs/budget-view.js"></script>
+  <script type="text/javascript" src="../apiJs/budget-all.js"></script>
+  <script type="text/javascript" src="../apiJs/budget-edit.js"></script>
 
 </body>
 

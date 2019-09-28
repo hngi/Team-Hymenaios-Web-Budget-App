@@ -3,6 +3,9 @@ nav{
 	background-image: none;
 	background-color: #19bdea;
 }
+li {
+	list-style: none;
+}
 
 #budget-title{
 	color: #ffffff;

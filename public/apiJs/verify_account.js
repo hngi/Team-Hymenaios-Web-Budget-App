@@ -63,17 +63,17 @@ const verifyAccountFunc = (event) => {
             const error_field =document.querySelector('#error_field');
             
 			if (status == 422) {
-				title_field.style.color = 'red';
+				title_field.style.color = 'tomato';
 				action_field.style.color = 'white';
-				error_field.style.color = 'red';
+				error_field.style.color = 'tomato';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
 				const {verifycode} = data;
 				error_field.innerHTML = verifycode;
 			} else if (status == 400) {
-				title_field.style.color = 'red';
+				title_field.style.color = 'tomato';
 				action_field.style.color = 'white';
-				error_field.style.color = 'red';
+				error_field.style.color = 'tomato';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
 				error_field.innerHTML = 'An Unexpected error occured, please try again!';

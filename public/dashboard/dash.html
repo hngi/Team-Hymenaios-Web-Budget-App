@@ -20,7 +20,8 @@
   <link href="css/sb-admin-2.css" rel="stylesheet">
   <link href="css/design.css" rel="stylesheet">
   <link href="css/dashboard.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="../styles/global.css">
+  <script type="text/javascript" src="../apiJs/global.js"></script>
 </head>
 
 <body id="page-top">
@@ -41,8 +42,8 @@
       <hr class="sidebar-divider my-0">
 
       <a class="d-flex align-items-center" href="profile.html" id="profile-icon-link">
-        <img src="img/man-1.png" width="45px" height="45px">
-        <div class="mx-1">Rubbie Kelvin</div>
+        <img  data-this-image-side src="img/man-1.png" width="45px" height="45px">
+        <div class="mx-1" data-this-username-side></div>
       </a>
 
       <!-- Divider -->
@@ -276,6 +277,7 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area.js"></script>
   <script src="js/demo/chart-pie.js"></script>
+  <script type="text/javascript" src="../apiJs/formatter.js"></script>
   <script type="text/javascript" src="../apiJs/formatter.js"></script>
 
 </body>

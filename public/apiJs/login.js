@@ -54,9 +54,9 @@ const loginFormFunc = (event) => {
 				const title_field =document.querySelector('#title');
 				const action_field =document.querySelector('#action');
 				const error_field =document.querySelector('#error_field');
-				title_field.style.color = 'red';
+				title_field.style.color = 'tomato';
 				action_field.style.color = 'white';
-				error_field.style.color = 'red';
+				error_field.style.color = 'tomato';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
 				if (path == 0) {

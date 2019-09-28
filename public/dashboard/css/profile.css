@@ -2,8 +2,8 @@
 	background-color: #2B2B2B00 !important;
 }
 .profile-image img{
-	height: 30vh;
-	width: 30vh;
+	height: 20vh;
+	width: 20vh;
 }
 #editProfileModal .modal-content{
 	height: 90vh;
