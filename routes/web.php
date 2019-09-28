@@ -43,6 +43,8 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
 
     $router->put('/total_income', 'UserProfileController@addIncome');
 
+    
+
 });
 //The budget Api     
 $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {
@@ -70,4 +72,6 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
     $router->get('items/{budget_id}', 'ItemController@showAll');
 
     $router->delete('item/{id}/delete', 'ItemController@destroy');
+
+    $router->get('/total_xpences', 'ItemController@totalXpences');
 });

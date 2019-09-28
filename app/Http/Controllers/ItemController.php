@@ -26,6 +26,41 @@ class ItemController extends Controller
             return response()->json([$msg], 404);
         }
     }
+     public function totalXpences() {
+        $user = Auth::user()->id;
+        $sum = 0;
+        $items_amount = item::where('owner_id', $user)
+                  ->pluck('item_amount');
+        $tag_3 = item::where('owner_id', $user)
+                      ->where('tag', 3)
+                      ->count();
+        $tag_2 = item::where('owner_id', $user)
+                      ->where('tag', 2)
+                      ->count();
+        $tag_1 = item::where('owner_id', $user)
+                      ->where('tag', 1)
+                      ->count();
+        $total_tag = $tag_3 + $tag_2 + $tag_1;
+
+        $highest_priority_percent = $tag_3 / $total_tag * 100;
+        $medium_priority_percent = $tag_2 / $total_tag * 100;
+        $lowest_priority_percent = $tag_1 / $total_tag * 100;
+
+
+        foreach ($items_amount as $item_amount) {
+             $format_item = explode(".", $item_amount);
+             $format_currency = explode(" ", $item_amount);
+             $format_item_2 = filter_var($format_item[0], FILTER_SANITIZE_NUMBER_INT);
+            $sum = $sum + $format_item_2;
+        }
+
+            $msg['total_expences'] = $format_currency[0]. " " .number_format($sum, 2);
+            $msg['highest_priority_percent'] = $highest_priority_percent.'%';
+            $msg['medium_priority_percent'] = $medium_priority_percent.'%';
+            $msg['lowest_priority_percent'] = $lowest_priority_percent.'%';
+            $msg['message'] = 'Successful';
+            return response()->json([$msg], 200);
+    }
 	public function create(Request $request,item $item, $budget_id)
     {
         $user = Auth::user();
