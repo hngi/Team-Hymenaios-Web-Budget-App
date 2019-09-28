@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('title');
             $table->string('item_amount');
             $table->string('priority');
-            $table->string('tag');
+            $table->unsignedInteger('tag');
             $table->string('category');
             $table->string('description');
             $table->timestamps();

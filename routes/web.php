@@ -41,7 +41,7 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
     // change users password
     $router->put('/password', 'UserProfileController@updatePassword');
 
-    $router->get('/total_income', 'UserProfileController@addIncome');
+    $router->put('/total_income', 'UserProfileController@addIncome');
 
 });
 //The budget Api     
@@ -51,10 +51,23 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
 
     $router->put('budget/{id}/edit', 'UserBudgetController@update');
 
-    $router->get('budget/showAll', 'UserBudgetController@showAll');
+    $router->get('budget/all', 'UserBudgetController@showAll');
 
-    $router->get('budget/{id}/showOne', 'UserBudgetController@showOne');
+    $router->get('budget/{id}/one', 'UserBudgetController@showOne');
 
     $router->delete('budget/{id}/delete', 'UserBudgetController@destroy');
 
+    $router->get('calculate/{budget_id}', 'CalculatorController@calculate');
+});
+
+//The item Api     
+$router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {
+
+    $router->post('item/{budget_id}/create', 'itemController@create');
+
+    $router->put('item/{budget_id}/{id}/edit', 'ItemController@update');
+
+    $router->get('items/{budget_id}', 'ItemController@showAll');
+
+    $router->delete('item/{id}/delete', 'ItemController@destroy');
 });

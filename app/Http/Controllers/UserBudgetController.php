@@ -16,7 +16,7 @@ class UserBudgetController extends Controller
     public function showOne(Request $request, $id) {
         $user = Auth::user();
         $budget = Budget::where('id', $id)->where('owner_id', $user->id)
-                  ->withCount('items')
+                  ->with('items')
                   ->orderBy('id', 'desc')
                   ->get();
 
@@ -52,18 +52,17 @@ class UserBudgetController extends Controller
         //start temporay transaction
         DB::beginTransaction();
         try {
-            $curr = explode("", $user->total_income);
+            $curr = explode(" ", $user->total_income);
             if($request->input('currency') != $curr[0]){
                 $msg['error'] = "Error: Currency Must be the same as your total income!";
-                $msg['hint'] = $e->getMessage();
                 return response()->json($msg, 422);
             }
             $budget_amount = number_format($request->input('amount'), 2); 
             // $real_integer = filter_var($price, FILTER_SANITIZE_NUMBER_INT);
 
-            $budget->title = $request->input('title');
+            $budget->title = ucwords($request->input('title'));
             $budget->owner_id = Auth::user()->id;
-            $budget->description = $request->input('description');
+            $budget->description = ucwords($request->input('description'));
             $budget->budget_amount = $request->input('currency') ." ". $budget_amount;
             $budget->save();
 
@@ -94,7 +93,7 @@ class UserBudgetController extends Controller
          $this->validateRequest($request);
         //start temporay transaction
          try { 
-             $curr = explode("", $user->total_income);
+             $curr = explode(" ", $user->total_income);
             if($request->input('currency') != $curr[0]){
                 $msg['error'] = "Error: Currency Must be the same as your total income!";
                 $msg['hint'] = $e->getMessage();
@@ -105,9 +104,9 @@ class UserBudgetController extends Controller
             $budget_amount = number_format($request->input('amount'), 2); 
             // $real_integer = filter_var($price, FILTER_SANITIZE_NUMBER_INT);
             if ($budget) {
-                $budget->title = $request->input('title');
+                $budget->title = ucwords($request->input('title'));
                 $budget->owner_id = Auth::user()->id;
-                $budget->description = $request->input('description');
+                $budget->description = ucwords($request->input('description'));
                 $budget->budget_amount = $request->input('currency') ." ". $budget_amount;
                 $budget->save();
             }else{
@@ -157,7 +156,7 @@ class UserBudgetController extends Controller
 			'description' => 'string',
             'currency' => array(
                               'required',
-                              'regex:/(^([NGN,USD,EUR,GBR]+)(\d+)?$)/u'
+                              'regex:/(^([NGN,USD,EUR,GBR]+)?$)/u'
                             ),
 			'amount' => array(
                               'required'

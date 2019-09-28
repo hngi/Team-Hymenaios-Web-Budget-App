@@ -120,7 +120,7 @@ class UserProfileController extends Controller
         $user->save();
 
     }
-    
+
     public function addIncome(Request $request)
     {
         $user = Auth::user();
@@ -128,17 +128,17 @@ class UserProfileController extends Controller
         $this->validate($request, [
              'currency' => array(
                               'required',
-                              'regex:/(^([NGN,USD,EUR,GBR]+)(\d+)?$)/u'
+                              'regex:/(^([NGN,USD,EUR,GBR]+)?$)/u'
                             ),
             'total_income' => 'required'
         ]);
 
-        $total_income_amount = number_format($request->input('amount'), 2); 
-        $user->total_income = $total_income_amount;
+        $total_income_amount = number_format($request->input('total_income'), 2); 
+        $user->total_income = $request->input('currency') ." ". $total_income_amount;
         $user->save();
 
             $res['message'] = "Username Updated Successfully!";
-        $res['user'] = $user;
+            $res['user'] = $user;
         return response()->json($res, 201);
     }
 
