@@ -107,7 +107,7 @@ class UserProfileController extends Controller
               'aspectRatio' => 'ar_4:4'
             ];
             $res['image'] = $user_image;
-            $res['user'] = $user;
+            $res['user'] = Auth::user();
             return response()->json($res, 200);
 
         }
