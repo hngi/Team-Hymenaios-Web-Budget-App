@@ -63,7 +63,7 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
 //The item Api     
 $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {
 
-    $router->post('item/{budget_id}/create', 'itemController@create');
+    $router->post('item/{budget_id}/create', 'ItemController@create');
 
     $router->put('item/{budget_id}/{id}/edit', 'ItemController@update');
 
