@@ -94,19 +94,12 @@ class UserProfileController extends Controller
             $user_image = $file_url.".".$format;
 
             $this->saveImages($request, $user_image);
+            $token = Auth::guard()->login($user);
 
             $res['message'] = "Upload Successful!";
+            $msg['token'] = 'Bearer ' . $token;
             $res['image_link'] = 'https://res.cloudinary.com/getfiledata/image/upload/';
-            $res['image_prop'] = [
-              'cropType1' => 'c_fit',
-              'cropType2' => 'g_face',
-              'imageStyle' => 'c_thumb',
-              'heigth' => 'h_577',
-              'width' =>  '433',
-              'widthThumb' => 'w_200',
-              'aspectRatio' => 'ar_4:4'
-            ];
-            $res['image'] = $user_image;
+            $res['image_format'] = 'w_200,c_thumb,ar_4:4,g_face/';
             $res['user'] = Auth::user();
             return response()->json($res, 200);
 
