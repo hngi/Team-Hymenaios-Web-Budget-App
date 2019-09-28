@@ -47,7 +47,7 @@ const loginFormFunc = (event) => {
 				    background: 'none',
 				    html: `<p id="error_field" style="font-weight:bold;"></p>`,
 				    backdrop: `
-					    rgba(0,0,123,0.4)
+					rgba(0,0,0,0.5)
 					  `,
 					confirmButtonText: `<span id="action"></span>`
 				})

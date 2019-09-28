@@ -73,6 +73,12 @@ a {
   font-size: 14px;
   margin: 0;
 }
+#saveImage {
+  visibility: hidden;
+}
+.percent_formatting {
+  position:absolute; left: 30%; margin-left:-20px; top:40%; font-size: 80px;
+}
 .preloader_bg {
   width: 100%;
   height: 100%;
@@ -81,6 +87,12 @@ a {
   background: black;
   opacity: 0.4;
   display: none;
+}
+.preloader_bg_2 {
+  width: 100%;
+  height: 100%;
+  z-index: 999999999;
+  opacity: 1;
 }
 .bounceOutContinue {
   animation: bounceOut 1s infinite linear;

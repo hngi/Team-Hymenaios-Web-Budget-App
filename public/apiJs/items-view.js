@@ -2,6 +2,7 @@ const parsedUrl = new URL(window.location.href);
 const getSearchParam = parsedUrl.searchParams;
 let budget_id = getSearchParam.get("id");
 let budget_title = getSearchParam.get("budget");
+let budget_amt = getSearchParam.get("amount");
 console.log(budget_id)
 console.log(budget_title);
 
@@ -11,7 +12,7 @@ const thisIncomeSpot = document.querySelector('[data-income-spot]');
 
 const thisBudgetTitle = document.querySelector('[data-budget-title]');
 
-thisBudgetTitle.innerHTML = budget_title;
+thisBudgetTitle.innerHTML = `${budget_title} (${budget_amt})`;
 
 
 thisUserNameSidebar.innerHTML = `@${username}`;

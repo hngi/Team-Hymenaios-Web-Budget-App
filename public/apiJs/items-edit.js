@@ -49,7 +49,7 @@ const createItemFormFunc = (event) => {
 			    background: 'none',
 			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
 			    backdrop: `
-				    rgba(0,0,123,0.4)
+				    rgba(0,0,0,0.5)
 				  `,
 				confirmButtonText: `<span id="action">${action}</span>`
 			})
@@ -87,7 +87,7 @@ const createItemFormFunc = (event) => {
 				action_field.style.color = 'white';
 				error_field.style.color = 'white';
 				createItemForm.reset();
-				location.replace(`Items-edit.html?id=${budget_id}`);
+				location.replace(`items-edit.html?id=${budget_id}&budget=${budget_title}&amount=${budget_amt}`);
 			}
 		})
 		.catch(error => {
@@ -125,7 +125,7 @@ const editItemFormFunc = (event) => {
 		    data[key] = value;
 		}
 
-		const url = `${ baseUrl }api/budget/${budget_id}/${item_id}/edit`;
+		const url = `${ baseUrl }api/item/${budget_id}/${item_id}/edit`;
 		fetch(url, {
 		 method: "PUT",
 		 mode: "cors",
@@ -149,7 +149,7 @@ const editItemFormFunc = (event) => {
 			    background: 'none',
 			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
 			    backdrop: `
-				    rgba(0,0,123,0.4)
+				rgba(0,0,0,0.5)
 				  `,
 				confirmButtonText: `<span id="action">${action}</span>`
 			})
@@ -187,7 +187,7 @@ const editItemFormFunc = (event) => {
 				action_field.style.color = 'white';
 				error_field.style.color = 'white';
 				editItemForm.reset();
-				location.replace(`item-edit.html?id=${budget_id}`);
+				location.replace(`items-edit.html?id=${budget_id}&budget=${budget_title}&amount=${budget_amt}`);
 			}
 		})
 		.catch(error => {

@@ -61,7 +61,7 @@ const editAccountFormFunc = (event) => {
 			    background: 'none',
 			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
 			    backdrop: `
-				    rgba(0,0,123,0.4)
+				rgba(0,0,0,0.5)
 				  `,
 				confirmButtonText: `<span id="action">${action}</span>`
 			})
@@ -107,7 +107,7 @@ const editAccountFormFunc = (event) => {
 			}
 		})
 		.catch(error => {
-            editAccount_preloader.style.display = 'none';
+            profile_preloader.style.display = 'none';
             console.error(error)
 			console.error(error.status)
 		})
@@ -168,7 +168,7 @@ const changePasswordFormFunc = (event) => {
 			    background: 'none',
 			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
 			    backdrop: `
-				    rgba(0,0,123,0.4)
+				rgba(0,0,0,0.5)
 				  `,
 				confirmButtonText: `<span id="action">${action}</span>`
 			})
@@ -249,7 +249,7 @@ const delUserFunc = (event) => {
 			    background: 'none',
 			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
 			    backdrop: `
-				    rgba(0,0,123,0.4)
+				rgba(0,0,0,0.5)
 				  `,
 				confirmButtonText: `<span id="action">${action}</span>`
 			})

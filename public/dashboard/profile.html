@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Hymenaios - Profile</title>
+  <title>blueBOX | Profile</title>
 
   <!-- Custom fonts for this template-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"
@@ -45,14 +45,14 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <img src="img/logo.svg">
-        <div class="sidebar-brand-text mx-3">Hymenaios</div>
+        <div class="sidebar-brand-text mx-3">blueBOX</div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <a class="d-flex align-items-center" href="#" id="profile-icon-link">
-        <img class="" style="border-radius: 50%;" data-this-image-side src="img/man-1.png" width="45px" height="45px">
+        <img class="" style="border-radius: 50%;" data-this-image-side src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/noimage.png" width="45px" height="45px">
         <div data-this-username-side class="mx-1"></div>
       </a>
 
@@ -151,7 +151,20 @@
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-lg-4 profile-image">
-                        <img class="border mt-5" style="border-radius: 50%;" data-this-image src="">
+                            <label id="image_power" for="uploadImage">
+                                  <div style="width: 100%;">
+                                      <img class="border mt-5 p-0" style="border-radius: 50%;" data-this-image src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/noimage.png">
+                                  </div>
+                                  <span>Upload an image (jpeg, jpg, png format only)</span>   
+                                <i class="fa fa-camera image_click" aria-hidden="true"></i>
+                                <form id="data" enctype="multipart/form-data">
+                                    <input style="display:none;" type="file" id="uploadImage"  accept="image/png, image/jpeg, Image/jpg" value="noImage.png" />
+                                </form>
+                            </label>
+                            
+                            <a id="saveImage" style="font-size: 15px; width: 60%; margin: auto">
+                             <i class="fa fa-upload" style="font-size:36px;color:red"></i>
+                            </a>
                         <!--img/man-1.svg-->
                       </div>
                       <div class="col-lg-8" style="height: 40vh;">
@@ -199,7 +212,7 @@
         <footer class="sticky-footer bg-white" id="footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Hymenaios 2019</span>
+              <span>Copyright &copy; blueBOX 2019</span>
             </div>
           </div>
         </footer>
@@ -301,6 +314,34 @@
        </div>
      </div>
    </div>
+   
+  <!--Image Upload Block-->
+  <div class="modal fade" id="uploadImageModal" role="dialog" aria-labelledby="uploadImageModal"
+  aria-hidden="true" style="z-index: 9999">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="se-pre">
+                <p align='center'></p>
+              </div>
+
+              <label for="inputBio">Profile Image Upload</label>
+              <div class="row col-9 mx-auto border user-page-interests" style="height: auto;"
+                id="ImagePreview">
+                <!--  <div class="mx-auto border mt-3" style=" max-height: 50vh; height:17vh; width: 60%;border-radius: 50%; z-index: 9999; opacity: 0.8;">
+                                </div>  -->
+              </div>
+              <small id="BioHelp" class="form-text text-muted alert_note">Click "Change" to choose
+                another image.</small>
+            </div>
+            <button type="submit" class="btn btn-primary saveImage">Save</button>
+            <label for="uploadImage" class="btn btn-primary"
+              style="margin-top: 9px; background-color: #d1b7e2; border-color: #d1b7e2;">Change</label>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -322,6 +363,7 @@
     <script type="text/javascript" src="../apiJs/dashboard.js"></script>
     <script type="text/javascript" src="../apiJs/formatter.js"></script>
     <script type="text/javascript" src="../apiJs/user_edit_profile.js"></script>
+    <script type="text/javascript" src="../apiJs/imageupload.js"></script>
 </body>
 
 </html>

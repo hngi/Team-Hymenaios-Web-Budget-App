@@ -1,4 +1,3 @@
-
 const thisUserNameSidebar = document.querySelector('[data-this-username-side]');
 const thisImageSidebar = document.querySelector('[data-this-image-side]');
 const thisIncomeSpot = document.querySelector('[data-income-spot]');

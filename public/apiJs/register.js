@@ -56,7 +56,7 @@ const registerFormFunc = (event) => {
 			    background: 'none',
 			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
 			    backdrop: `
-				    rgba(0,0,123,0.4)
+				rgba(0,0,0,0.5)
 				    center 
 				    no-repeat
 				  `,

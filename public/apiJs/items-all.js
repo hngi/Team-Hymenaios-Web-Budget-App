@@ -13,7 +13,6 @@ const getAllItemsApi = () => {
 		})
 		.then(response => response.json())
 		.then(data => {
-            console.log(data)
             allItems = [];
             allItems.push(...data[0].items);
             showAllItems()
@@ -27,6 +26,7 @@ const getAllItemsApi = () => {
 const showAllItems = () => {
 const itemsList = document.querySelector('[data-item-list]')
     if(allItems != []) {
+        itemsList.innerHTML = '';
         allItems.map((items, i) => {
             
             console.log(items);
@@ -56,15 +56,15 @@ const itemsList = document.querySelector('[data-item-list]')
                             <span class="list-edit list-item">${title} :</span>
                             <span class="list-edit list-amount">${formatted_item_amount}</span>
                             <span class="delete-budget px-0 text-right" style="cursor: pointer; float: right">
-                                <i style="margin-right:10px; font-size: 15px;" data-edit-id="${id}" data-budget-id="${budget_id}" class="far fa-edit edit_budget" class="btn btn-primary" data-toggle="modal"
+                                <i style="margin-right:10px; font-size: 15px;" data-edit-id="${id}" data-budget-id="${budget_id}" class="far fa-edit edit_item" class="btn btn-primary" data-toggle="modal"
                                 data-target="#editItemModal"></i>
-                                <i  style="margin-right:10px; font-size: 15px;" data-del-id=${id} class="fas fa-times-circle del_budget"></i>
+                                <i  style="margin-right:10px; font-size: 15px;" data-del-id=${id} class="fas fa-times-circle del_item"></i>
                             </span>
                             </div>
                             <div name="comments" rows="4"
                             class="list-edit list-description">${description}</div>
                             <ul class="list-label-list">
-                            <li class="list-label-item normal-label" style="background:rgb(0,0,0,0.5); color:black;">${i}</li>
+                            <li class="list-label-item normal-label" style="color:black;">${i}</li>
                             <li class="list-label-item normal-label">${category}</li>
                             <li id="border-design_2${id}" class="list-label-item important-priority-label">${priority}</li>
                             </ul>
@@ -91,19 +91,20 @@ const itemsList = document.querySelector('[data-item-list]')
         
         //Edit item
         const editItems = Array.from(document.querySelectorAll('.edit_item'));
-        const itemDismantle = (event, edititem) => {
-            const edit_id = edititem.dataset.editId
+        const itemDisMantle = (event, item) => {
+            event.preventDefault();
+            const edit_id = item.dataset.editId
             document.querySelector('[data-item-edit-id]').innerHTML = edit_id;
         }
 
-        editItems.map((edititem, i) => {
-            edititem.addEventListener('click', (event) => itemDismantle(event, edititem));
+        editItems.map((item, i) => {
+            item.addEventListener('click', (event) => itemDisMantle(event, item));
         })
 
         //Delete item
         const delItems = Array.from(document.querySelectorAll('.del_item'));
                       
-            const deleteitem = (event, delitem) => {
+            const deleteItem = (event, delitem) => {
                 event.preventDefault();
                 const del_id = delitem.dataset.delId  
                 console.log(del_id)
@@ -118,7 +119,7 @@ const itemsList = document.querySelector('[data-item-list]')
                 })
                 .then(response => response.json())
                 .then(data => {
-                    location.replace('budget-edit.html');
+                    location.replace(`items-edit.html?id=${budget_id}&budget=${budget_title}&amount=${budget_amt}`);
                 })
                 .catch(error => {
                     preloader.style.display = 'none';
@@ -126,8 +127,8 @@ const itemsList = document.querySelector('[data-item-list]')
 
                 })
             }
-        delItems.map((delBudget, i) => {
-            delBudget.addEventListener('click', (event) => deleteBudget(event, delBudget));
+        delItems.map((delItem, i) => {
+            delItem.addEventListener('click', (event) => deleteItem(event, delItem));
         })
     
 
