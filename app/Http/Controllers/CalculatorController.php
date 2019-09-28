@@ -24,6 +24,7 @@ class CalculatorController extends Controller
                 $format_budget_2 = filter_var($format_budget[0], FILTER_SANITIZE_NUMBER_INT);
                 $allocated = [];
                 $not_allocated = [];
+                   $not_allocated = [];
 
                 foreach ($items as $item) {
                     $format_item  = explode(".", $item->item_amount);
@@ -31,6 +32,9 @@ class CalculatorController extends Controller
 
                     if ( $format_budget_2 > 0) {
                         $format_budget_2 = $format_budget_2 - $format_item_2;
+                            // if ($format_budget_2) {
+                            //     # code...
+                            // }
                         array_push($allocated, $item);
                     }else {
                         array_push($not_allocated, $item);
