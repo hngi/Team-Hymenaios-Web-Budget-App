@@ -53,6 +53,7 @@ class UserBudgetController extends Controller
         DB::beginTransaction();
         try {
             $curr = explode(" ", $user->total_income);
+            
             if($request->input('currency') != $curr[0]){
                 $msg['error'] = "Error: Currency Must be the same as your total income!";
                 return response()->json($msg, 422);
