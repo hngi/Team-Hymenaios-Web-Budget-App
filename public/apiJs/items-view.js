@@ -1,12 +1,17 @@
 const parsedUrl = new URL(window.location.href);
 const getSearchParam = parsedUrl.searchParams;
 let budget_id = getSearchParam.get("id");
+let budget_title = getSearchParam.get("budget");
 console.log(budget_id)
+console.log(budget_title);
 
 const thisUserNameSidebar = document.querySelector('[data-this-username-side]');
 const thisImageSidebar = document.querySelector('[data-this-image-side]');
 const thisIncomeSpot = document.querySelector('[data-income-spot]');
 
+const thisBudgetTitle = document.querySelector('[data-budget-title]');
+
+thisBudgetTitle.innerHTML = budget_title;
 
 
 thisUserNameSidebar.innerHTML = `@${username}`;

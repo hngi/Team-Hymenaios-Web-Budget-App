@@ -117,7 +117,7 @@
           </button>
 
           <!-- Topbar Title -->
-          <h4 id="budget-title">New Budget</h4>
+          <h4 id="budget-title" data-budget-title></h4>
 
           <!-- <ul class="navbar-nav ml-auto">
             <li>
@@ -164,7 +164,7 @@
             </div>
           </div>
 
-          <h3 class="list-head">ITEMS</h3>
+          <h3 class="list-head" style="font-size: 20px;">ITEMS</h3>
 
           <!-- below is the budget list -->
 
@@ -301,6 +301,21 @@ aria-hidden="true">
             aria-describedby="" placeholder="">
           <p class="_err_msg"></p>
         </div>
+        <div class="form-group">
+            <label for="new_amount">Amount</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                  <option selected value="NGN">&#8358;</option>
+                  <option value="USD">&#36;</option>
+                  <option value="EUR">&euro;</option>
+                  <option value="GBR">&#163;</option>
+                </select>
+              </div>
+              <input type="text" name="amount" class="form-control" aria-label="Text input with dropdown button">
+              <p class="_err_msg"></p>
+            </div>
+          </div>
         <label for="new_amount">Category | Priority</label>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -330,6 +345,7 @@ aria-hidden="true">
           <textarea data-this-desc-edit name="description" type="text" class="form-control" maxlength="100" id="new_desc"
             placeholder=""></textarea>
         </div>
+        <div data-item-edit-id></div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

@@ -64,7 +64,7 @@ const itemsList = document.querySelector('[data-item-list]')
                             <div name="comments" rows="4"
                             class="list-edit list-description">${description}</div>
                             <ul class="list-label-list">
-                            <li class="list-label-item normal-label" style="background:rgb(0,0,0,0.5); color:white;">${i}</li>
+                            <li class="list-label-item normal-label" style="background:rgb(0,0,0,0.5); color:black;">${i}</li>
                             <li class="list-label-item normal-label">${category}</li>
                             <li id="border-design_2${id}" class="list-label-item important-priority-label">${priority}</li>
                             </ul>

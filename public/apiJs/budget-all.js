@@ -58,7 +58,7 @@ const budgetList = document.querySelector('[data-budget-list]')
                     <div class="col-4 delete-budget px-0 text-right" style="cursor: pointer;">
                         <i style="margin-right:10px;" data-edit-id="${id}" class="far fa-edit edit_budget" class="btn btn-primary" data-toggle="modal"
                         data-target="#editBudgetModal"></i>
-                        <a  style="margin-right:10px;" href="${window.location.origin}/dashboard/items-edit.html?id=${id}"><i class="fas fa-eye"></i></a>
+                        <a  style="margin-right:10px;" href="${window.location.origin}/dashboard/items-edit.html?id=${id}&budget=${title}"><i class="fas fa-eye"></i></a>
                         <i  style="margin-right:10px;" data-del-id=${id} class="fas fa-times-circle del_budget"></i>
                     </div>
                     <div class="col-12 budget-desc">
