@@ -94,7 +94,7 @@ class UserProfileController extends Controller
             $user_image = $file_url.".".$format;
 
             $this->saveImages($request, $user_image);
-            $token = Auth::guard()->login($user);
+            $token = Auth::guard()->login(Auth::user());
 
             $res['message'] = "Upload Successful!";
             $msg['token'] = 'Bearer ' . $token;
