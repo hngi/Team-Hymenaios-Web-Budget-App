@@ -34,7 +34,7 @@ class CalculatorController extends Controller
                         $format_budget_2 = $format_budget_2 - $format_item_2;
                         $details = explode("-", $format_budget_2);
                         if ($details[0] == "") {
-                             array_push($low_budget, $details[1]);
+                             array_push($low_budget, number_format($details[1]));
                              array_push($not_allocated, $item);
                              $msg['message'] = "Allocated and Not allocated budget items!";
                              $msg['low_budget'] =  $low_budget;
