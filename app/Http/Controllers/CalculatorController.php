@@ -25,7 +25,7 @@ class CalculatorController extends Controller
                 $allocated = [];
                 $not_allocated = [];
                 $low_budget = [];
-
+                $i = 0;
                 foreach ($items as $item) {
                     $format_item  = explode(".", $item->item_amount);
                     $format_item_2 = filter_var($format_item[0], FILTER_SANITIZE_NUMBER_INT);
@@ -34,19 +34,18 @@ class CalculatorController extends Controller
                         $format_budget_2 = $format_budget_2 - $format_item_2;
                         $details = explode("-", $format_budget_2);
                         if ($details[0] == "") {
-                             array_push($low_budget, number_format($details[1]));
+                             $values = [number_format($format_item_2, 2) , number_format($details[1], 2)];
+
+                             array_push($low_budget, $values);
                              array_push($not_allocated, $item);
-                             $msg['message'] = "Allocated and Not allocated budget items!";
-                             $msg['low_budget'] =  $low_budget;
-                             $msg['allocated'] =  $allocated;
-                             $msg['not_allocated'] =  $not_allocated;
-                             return response()->json($msg, 200);
+                             $format_budget_2 = $format_item_2 - $details[1];  
                         }else {
                             array_push($allocated, $item);
                         } 
                     }else {
                         array_push($not_allocated, $item);
                     }
+                    $i++;
                 }
             $msg['message'] = "Allocated and Not allocated budget items!";
             $msg['allocated'] =  $allocated;
