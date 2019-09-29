@@ -12,10 +12,10 @@
 	font-size: 12px;
 }
 .budgets-list{
-	height: 70vh;
+	min-height: 70vh;
 }
 .budget{
-	height: 17vh;
+	min-height: 17vh;
 	background: white;
 	border-radius: 10px;
 	box-shadow: 2px 2px 16px lightgrey;
@@ -29,17 +29,17 @@
 	width: 10vh;
 }
 .budget-name{
-	height: 4vh;
+	min-height: 4vh;
 }
 .budget-desc{
-	height: 8vh;
+	min-height: 8vh;
 	font-size: 14px;
 }
 .budget-info{
-	height: 5vh;
+	min-height: 5vh;
 }
 .budget-info-pill{
-	height: 3.5vh;
+	height: 4vh;
 	border-radius: 20px;
 }
 .budget-info-pill span{
@@ -53,4 +53,7 @@
 }
 .negative-value{
 	color: red;
+}
+.add-budget-btn button{
+	font-size: 12px;
 }

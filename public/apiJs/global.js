@@ -14,7 +14,7 @@ const {token, image_link, image_format, user} = current_user;
 //eg cloudinary image link and round format Read more on cloudinary Doc
 
 //Get the user by destruring
-const {first_name, last_name, email, username, image, dob, id, bio, created_at, updated_at } = user;
-console.log(first_name)
+const {first_name, last_name, email, username, image, dob, id, bio, total_income, created_at, updated_at } = user;
+
 
 

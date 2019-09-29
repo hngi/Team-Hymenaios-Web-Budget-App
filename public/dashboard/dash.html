@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Hymenaios - Dashboard</title>
+  <title>blueBOX - Dashboard</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"
     type="text/css">
   <link
@@ -20,7 +20,8 @@
   <link href="css/sb-admin-2.css" rel="stylesheet">
   <link href="css/design.css" rel="stylesheet">
   <link href="css/dashboard.css" rel="stylesheet">
-
+  <link rel="stylesheet" href="../styles/global.css">
+  <script type="text/javascript" src="../apiJs/global.js"></script>
 </head>
 
 <body id="page-top">
@@ -34,15 +35,15 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <img src="img/logo.svg">
-        <div class="sidebar-brand-text mx-3">Hymenaios</div>
+        <div class="sidebar-brand-text mx-3">blueBOX</div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <a class="d-flex align-items-center" href="profile.html" id="profile-icon-link">
-        <img src="img/man-1.png" width="45px" height="45px">
-        <div class="mx-1">Rubbie Kelvin</div>
+        <img style="border-radius: 50%;"  data-this-image-side src="img/man-1.png" width="45px" height="45px">
+        <div class="mx-1" data-this-username-side></div>
       </a>
 
       <!-- Divider -->
@@ -62,7 +63,7 @@
 
       <!-- Nav Item - Budget -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="budget-edit.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Budget</span></a>
       </li>
@@ -70,8 +71,14 @@
       <!-- Nav Item - Profile -->
       <li class="nav-item">
         <a class="nav-link" href="profile.html">
-          <i class="fas fa-fw fa-table"></i>
+          <i class="fas fa-user"></i>
           <span>Profile</span></a>
+      </li>
+
+      <li class="nav-item" data-logout>
+        <a class="nav-link" href="#">
+          <i class="fas fa-sign-out-alt"></i>
+          <span style="color: tomato">Log Out</span></a>
       </li>
 
       <!-- Divider -->
@@ -111,7 +118,7 @@
           <div class="row">
 
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-7 col-lg-7">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -126,15 +133,15 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row col-xl-5 col-lg-5">
               <!-- Earnings (Monthly) Card Example -->
-              <div class="col-xl-12 col-lg-5 mb-4">
+              <div class="col-xl-12 col-lg-12 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Income</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$ 6, 800</div>
+                        <div data-income-spot class="h5 mb-0 font-weight-bold text-gray-800">0.00</div>
                       </div>
                       <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -145,13 +152,13 @@
               </div>
 
               <!-- Earnings (Monthly) Card Example -->
-              <div class="col-xl-12 col-lg-5 mb-4">
+              <div class="col-xl-12 col-lg-12 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Expenses</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">$ 5, 470</div>
+                        <div data-expences-spot class="h5 mb-0 font-weight-bold text-gray-800">0.00</div>
                       </div>
                       <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -160,8 +167,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
         </div>
         <!-- /.container-fluid -->
 
@@ -178,10 +183,11 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4">
+                    <h1 class="percent_formatting" data-higest-spot_1></h1>
                     <canvas id="Important"></canvas>
                   </div>
                   <hr>
-                  71% of your budget was spent on top priority expenses
+                  <span data-higest-spot_2></span> of your budget was spent on high priority expenses
                 </div>
               </div>
             </div>
@@ -196,10 +202,11 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4">
+                    <h1 class="percent_formatting" data-medium-spot_1></h1>
                     <canvas id="Medium"></canvas>
                   </div>
                   <hr>
-                  18% of your budget was spent on medium priority expenses!
+                  <span data-medium-spot_2></span>  of your budget was spent on medium priority expenses!
                 </div>
               </div>
             </div>
@@ -214,10 +221,11 @@
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4">
+                    <h1 class="percent_formatting" data-lowest-spot_1></h1>
                     <canvas id="Low"></canvas>
                   </div>
                   <hr>
-                  11% of your budget was spent on low priority expenses
+                  <span data-lowest-spot_2></span> of your budget was spent on low priority expenses
                 </div>
               </div>
             </div>
@@ -231,7 +239,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Hymenaios 2019</span>
+            <span>Copyright &copy; blueBOX 2019</span>
           </div>
         </div>
       </footer>
@@ -270,6 +278,10 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area.js"></script>
   <script src="js/demo/chart-pie.js"></script>
+  <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
+  <script type="text/javascript" src="../apiJs/formatter.js"></script>
+  <script type="text/javascript" src="../apiJs/dash_view.js"></script>
+  <script type="text/javascript" src="../apiJs/dash_data.js"></script>
 
 </body>
 

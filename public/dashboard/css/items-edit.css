@@ -1,0 +1,99 @@
+nav{
+	background: none;
+	background-image: none;
+	background-color: #19bdea;
+}
+li {
+	list-style: none;
+}
+
+#budget-title{
+	color: #ffffff;
+}
+
+#toolbar-expenses{
+	color: #4eccee;
+}
+
+.toolbar-input{
+	height: 20px;
+	width: 60px;
+	margin-right: 20px;
+	border-radius: 4px;
+	padding-left: 4px;
+	color: #4eccee;
+}
+
+.toolbar-buttons{
+	float: right;
+	margin-left: 8px;
+}
+
+.list-head{
+	width: 100%;
+	font-size: 10px;
+}
+
+#budget-list{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.budget-item{
+	margin-bottom: 10px;
+}
+
+.list-edit{
+	width: 50px;
+	height: 30px;
+	border-radius: 2px;
+	border: 0px solid;
+	margin-right: 2px;
+}
+
+.list-item{
+	font-size: 15px;
+	font-style: bold;
+}
+
+.list-amount{
+	font-size: 12px;
+}
+
+.list-description{
+	width: 100%;
+}
+
+.list-label-list{
+	display: inline-flex;
+	list-style-type: none;
+	padding: 0px;
+}
+
+.list-label-item{
+	margin-right: 5px;
+	padding: 4px;
+	border-radius: 20px;
+	font-size: 10px;
+}
+
+.important-priority-label{
+	background-color: #2D9CDB;
+	color: #ffffff;
+}
+
+.medium-priority-label{
+	background-color: #f6c23e;
+	color: #ffffff;
+}
+
+.low-priority-label{
+	background-color: #EB5757;
+	color: #ffffff;
+}
+
+.normal-label{
+	background-color: #E0E0E0;
+	color: #454545;
+}

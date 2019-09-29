@@ -28,3 +28,9 @@ body{
     height: 100%;
     width:  100%;
 }
+@media(max-width: 768px) {
+    .landing-words{
+        margin-top:0vh;
+        color: white;
+    }
+}

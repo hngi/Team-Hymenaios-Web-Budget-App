@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Hymenaios - Profile</title>
+  <title>blueBOX | Profile</title>
 
   <!-- Custom fonts for this template-->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"
@@ -20,15 +20,22 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <!-- Custom styles for this template-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
   <link href="css/sb-admin-2.css" rel="stylesheet">
   <link href="css/design.css" rel="stylesheet">
   <link href="css/profile.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/global.css">
   <script type="text/javascript" src="../apiJs/global.js"></script>
 
 </head>
 
 <body id="page-top">
-
+  <!--Preloader-->
+  <div class="preloader_bg" data-editAccount-preloader>
+    <div class="money_preloader fadeInContinue bounceOutContinue">
+      <img src="../images/money-bag.png">
+    </div>
+  </div>
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -38,15 +45,15 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <img src="img/logo.svg">
-        <div class="sidebar-brand-text mx-3">Hymenaios</div>
+        <div class="sidebar-brand-text mx-3">blueBOX</div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <a class="d-flex align-items-center" href="#" id="profile-icon-link">
-        <img class="" style="border-radius: 50%;" data-this-image-side src="img/man-1.png" width="45px" height="45px">
-        <div data-this-username-side class="mx-1">Rubbie Kelvin</div>
+        <img class="" style="border-radius: 50%;" data-this-image-side src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/noimage.png" width="45px" height="45px">
+        <div data-this-username-side class="mx-1"></div>
       </a>
 
       <!-- Divider -->
@@ -66,18 +73,23 @@
 
       <!-- Nav Item - Budget -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="budget-edit.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Budget</span></a>
       </li>
 
       <!-- Nav Item - Profile -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-fw fa-table"></i>
+        <a class="nav-link" href="profile.html">
+          <i class="fas fa-user"></i>
           <span>Profile</span></a>
       </li>
 
+      <li class="nav-item" data-logout>
+          <a class="nav-link" href="#">
+            <i class="fas fa-sign-out-alt"></i>
+            <span style="color: tomato" data-logout>Log Out</span></a>
+        </li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
@@ -106,7 +118,6 @@
           <!-- Topbar Title -->
           <h3>Profile</h3>
           <p><small>last edited: today</small></p>
-
         </nav>
         <!-- End of Topbar -->
 
@@ -131,7 +142,7 @@
                       <a class="dropdown-item" href="#">Clear Records</a>
                       <a class="dropdown-item" href="#">Edit Profile</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Log Out</a>
+                      <a class="dropdown-item" href="#"  data-logout>Log Out</a>
                     </div>
                   </div>
                 </div>
@@ -140,7 +151,20 @@
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-lg-4 profile-image">
-                        <img class="border mt-5" style="border-radius: 50%;" data-this-image src="">
+                            <label id="image_power" for="uploadImage">
+                                  <div style="width: 100%;">
+                                      <img class="border mt-5 p-0" style="border-radius: 50%;" data-this-image src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/noimage.png">
+                                  </div>
+                                  <span>Upload an image (jpeg, jpg, png format only)</span>   
+                                <i class="fa fa-camera image_click" aria-hidden="true"></i>
+                                <form id="data" enctype="multipart/form-data">
+                                    <input style="display:none;" type="file" id="uploadImage"  accept="image/png, image/jpeg, Image/jpg" value="noImage.png" />
+                                </form>
+                            </label>
+                            
+                            <a id="saveImage" style="font-size: 15px; width: 60%; margin: auto">
+                             <i class="fa fa-upload" style="font-size:36px;color:red"></i>
+                            </a>
                         <!--img/man-1.svg-->
                       </div>
                       <div class="col-lg-8" style="height: 40vh;">
@@ -152,7 +176,7 @@
                           <p class="mb-1" data-this-email></p>
                         </div>
                         <div class="col-12 border bio-box mb-2 px-0">
-                          <span>This is some dummy text to check how it looks and i am currently running out of things to write</span>
+                          <span data-this-bio>Hey write a bio about your self, so we can know you better...</span>
                         </div>
                         <div class="col-12 row mx-0 px-0 ">
                           <a href="#" class="btn btn-primary btn-icon-split col mr-2" data-toggle="modal"
@@ -160,11 +184,13 @@
                             <span class="text">EDIT</span>
                           </a>
                           <div class="my-2"></div>
-                          <a href="#" class="btn btn-primary btn-icon-split col mr-2">
+                          <a href="#" class="btn btn-primary btn-icon-split col mr-2" data-toggle="modal"
+                          data-target="#editPasswordModal">
                             <span class="text">Change Password</span>
                           </a>
                           <div class="my-2"></div>
-                          <a href="#" class="btn btn-danger btn-icon-split col mr-2 px-0">
+                          <a href="#" class="btn btn-danger btn-icon-split col mr-2 px-0" data-toggle="modal"
+                          data-target="#deleteModal">
                             <span class="icon text-white-50">
                               <i class="fas fa-trash"></i>
                             </span>
@@ -186,7 +212,7 @@
         <footer class="sticky-footer bg-white" id="footer">
           <div class="container my-auto">
             <div class="copyright text-center my-auto">
-              <span>Copyright &copy; Hymenaios 2019</span>
+              <span>Copyright &copy; blueBOX 2019</span>
             </div>
           </div>
         </footer>
@@ -209,31 +235,109 @@
         <div class="modal-content">
           <div class="modal-body">
             <h4 class="mb-4">Edit Profile</h4>
-            <form>
+            <form id="editAccountForm">
               <div class="form-group">
                 <label for="edit_username">Username</label>
-                <input type="text" class="form-control" maxlength="100" id="edit_username" aria-describedby=""
-                  placeholder="Username">
+                <input data-this-username-edit name="username" type="text" class="form-control" maxlength="100" id="edit_username"
+                  aria-describedby="" placeholder="Username" >
+                  <p class="_err_msg"></p>
               </div>
               <div class="form-group">
                 <label for="edit_fname">First Name</label>
-                <input type="text" class="form-control" maxlength="100" id="edit_fname" placeholder="First Name">
+                <input data-this-first-name-edit name="first_name" type="text" class="form-control" maxlength="100" id="edit_fname"
+                  placeholder="First Name">
+                  <p class="_err_msg"></p>
               </div>
               <div class="form-group">
                 <label for="edit_lname">Last Name</label>
-                <input type="text" class="form-control" maxlength="100" id="edit_lname" placeholder="text">
+                <input data-this-last-name-edit name="last_name" type="text" class="form-control" maxlength="100" id="edit_lname"
+                  placeholder="Last Name">
+                  <p class="_err_msg"></p>  
               </div>
               <div class="form-group">
                 <label for="edit_dob">Date Of Birth</label>
-                <input type="date" class="form-control" maxlength="100" id="edit_dob" placeholder="DOB">
+                <input data-this-dob-edit name="dob" type="date" class="form-control" maxlength="100" id="edit_dob" placeholder="DOB">
+                <p class="_err_msg"></p>
               </div>
               <div class="form-group">
                 <label for="edit_bio">Bio</label>
-                <textarea type="text" class="form-control" maxlength="100" id="edit_bio"
+                <textarea data-this-bio-edit name="bio" type="text" class="form-control" maxlength="100" id="edit_bio"
                   placeholder="Write a short bio here"></textarea>
+                  <p class="_err_msg"></p>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editPasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4 class="mb-4">Change Password</h4>
+            <form id="changePasswordForm">
+              <div class="form-group">
+                <label for="edit_username">Password</label>
+                <input  name="old_password" type="text" class="form-control" maxlength="100" id="edit_username"
+                aria-describedby="" placeholder="Old Password" >
+                <p class="_err_msg"></p>
+                <input  name="password" type="text" class="form-control mt-1" maxlength="100" id="edit_username"
+                  aria-describedby="" placeholder="New Password" >
+                <p class="_err_msg"></p>
+              </div>
+              <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- Modal -->
+     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-body">
+           <h4 class="mb-4">Delete Account</h4>
+           <form id="delAccountForm">
+             <div class="form-group">
+               <p>Are you certain to delete you account?</p>
+               <small>please note: if you do this all your information would be lost.</small>
+             </div>
+             <button type="submit" class="btn btn-primary" style="background: tomato; border: tomato;">Yes</button>
+             <button data-close-del class="btn btn-primary" data-dismiss="modal">No</button>
+           </form>
+         </div>
+       </div>
+     </div>
+   </div>
+   
+  <!--Image Upload Block-->
+  <div class="modal fade" id="uploadImageModal" role="dialog" aria-labelledby="uploadImageModal"
+  aria-hidden="true" style="z-index: 9999">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="form-group">
+              <div class="se-pre">
+                <p align='center'></p>
+              </div>
+
+              <label for="inputBio">Profile Image Upload</label>
+              <div class="row col-9 mx-auto border user-page-interests" style="height: auto;"
+                id="ImagePreview">
+                <!--  <div class="mx-auto border mt-3" style=" max-height: 50vh; height:17vh; width: 60%;border-radius: 50%; z-index: 9999; opacity: 0.8;">
+                                </div>  -->
+              </div>
+              <small id="BioHelp" class="form-text text-muted alert_note">Click "Change" to choose
+                another image.</small>
+            </div>
+            <button type="submit" class="btn btn-primary saveImage">Save</button>
+            <label for="uploadImage" class="btn btn-primary"
+              style="margin-top: 9px; background-color: #d1b7e2; border-color: #d1b7e2;">Change</label>
           </div>
         </div>
       </div>
@@ -254,16 +358,12 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area.js"></script>
-    <script src="js/demo/chart-pie.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
     <script type="text/javascript" src="../apiJs/dashboard.js"></script>
-
+    <script type="text/javascript" src="../apiJs/formatter.js"></script>
+    <script type="text/javascript" src="../apiJs/user_edit_profile.js"></script>
+    <script type="text/javascript" src="../apiJs/imageupload.js"></script>
 </body>
 
 </html>

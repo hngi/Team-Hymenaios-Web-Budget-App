@@ -47,16 +47,16 @@ const loginFormFunc = (event) => {
 				    background: 'none',
 				    html: `<p id="error_field" style="font-weight:bold;"></p>`,
 				    backdrop: `
-					    rgba(0,0,123,0.4)
+					rgba(0,0,0,0.5)
 					  `,
 					confirmButtonText: `<span id="action"></span>`
 				})
 				const title_field =document.querySelector('#title');
 				const action_field =document.querySelector('#action');
 				const error_field =document.querySelector('#error_field');
-				title_field.style.color = 'red';
+				title_field.style.color = 'tomato';
 				action_field.style.color = 'white';
-				error_field.style.color = 'red';
+				error_field.style.color = 'tomato';
 				title_field.innerHTML = 'Oops, an error just occured !';
 				action_field.innerHTML = '<i class="fa fa-thumbs-down"></i>Try again !';
 				if (path == 0) {
