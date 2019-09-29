@@ -158,13 +158,11 @@ const not_allocatedList = document.querySelector('[data-not_allocated-list]')
         })
 
     }else {
-        console.log('jsdjsdj')
         not_allocatedList.innerHTML = `<li style="text-align:center;">All items are allocated! </li>`;
     }
-    console.log(low_budget)
     if(low_budget.length != 0) {
-        document.querySelector('[data-low-budget_1]').innerHTML = `Your have a low budget amount of ${tip} ${low_budget} which obstruct allocation (item allocation terminated)`;
-        document.querySelector('[data-low-budget_2]').innerHTML = `Your have a low budget amount of ${tip} ${low_budget} which obstruct allocation (item allocation terminated)`;
+        document.querySelector('[data-low-budget_1]').innerHTML = `Allocation skipped for item (${low_budget[0][0]}) with amount (${tip} ${low_budget[0][1]}) due to a low budget amount (${tip} ${low_budget[0][2]})`;
+        document.querySelector('[data-low-budget_2]').innerHTML = `Allocation skipped for item (${low_budget[0][0]}) with amount (${tip} ${low_budget[0][1]}) due to a low budget amount (${tip} ${low_budget[0][2]})`;
     }
 
 }

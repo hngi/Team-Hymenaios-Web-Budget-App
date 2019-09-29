@@ -97,15 +97,16 @@
       <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
+       <!-- Sidebar Toggle (Topbar) -->
+       <!-- <button data-side-toggle style="background: white; border-radius: 50%;"  class="btn btn-link d-md-none rounded-circle mr-3">
+          <i class="fa fa-bars"></i>
+        </button> -->
 
     </ul>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+    <div id="content-wrapper"  class="d-flex flex-column">
 
       <!-- Main Content -->
       <div id="content">
@@ -114,12 +115,12 @@
         <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+          <button data-side-toggle style="background: white; border-radius: 50%;"class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
 
           <!-- Topbar Title -->
-          <h4 id="budget-title" data-budget-title></h4>
+          <h4 id="budget-title" style="font-size: 20px;" data-budget-title></h4>
 
           <!-- <ul class="navbar-nav ml-auto">
             <li>
@@ -151,10 +152,10 @@
                         <!-- <span>Total expenses : <span id="toolbar-expenses">$1360</span></span> -->
                       </div>
                       <div class="col-lg-6">
-                        <a data-calc-work style="color: white;" data-toggle="modal" data-target=".calculateModal" class="btn btn-primary btn-icon-split toolbar-buttons">
+                        <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" data-calc-work data-toggle="modal" data-target=".calculateModal" class="btn btn-primary btn-icon-split toolbar-buttons">
                           <span class="text">Calculate</span>
                         </a>
-                        <a  style="color: white;"  data-toggle="modal" data-target="#addItemModal" class="btn btn-warning btn-icon-split toolbar-buttons">
+                        <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;"  data-toggle="modal" data-target="#addItemModal" class="btn btn-warning btn-icon-split toolbar-buttons">
                           <span class="text">Add Item</span>
                         </a>
                       </div>
@@ -170,7 +171,7 @@
 
           <!-- below is the budget list -->
 
-          <ul data-item-list  style="width: 80%; margin:auto; overflow:auto; height:70vh;">
+          <ul data-item-list  class="item_list_sty">
              <!--Preloader-->
              <div class="preloader_bg_2" style="display: block">
                 <div class="money_preloader fadeInContinue bounceOutContinue">
@@ -206,7 +207,6 @@
 
 
           </ul><br><br>
-
         </div>
       </div>
       <!-- End of Main Content -->
@@ -236,6 +236,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="mb-4">Add New Item</h4>
         <form id="addItemForm">
           <div class="form-group">
@@ -300,6 +301,7 @@ aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
       <h4 class="mb-4">Edit Item</h4>
       <form id="editItemForm">
         <div class="form-group">
@@ -361,13 +363,15 @@ aria-hidden="true">
 </div>
 
 <!-- calculate modal -->
-<div class="modal fade calculateModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade calculateModal" id="allocated" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="row" style="padding: 10px;">
             <div class="col-lg-12">
+              <button style="padding: 10px;" type="button" class="close" data-dismiss="modal">&times;</button>
               <span>Allocated Budget Report</span>
-              <a style="color: white;" data-toggle="modal" data-dismiss="modal" data-target=".notallocatedModal" class="btn btn-primary btn-icon-split toolbar-buttons">
+              <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" data-toggle="modal" data-dismiss="modal" data-target=".notallocatedModal" class="btn btn-primary btn-icon-split toolbar-buttons">
+                <input style="background: grey; color:white;" type="button" value="Print" onclick="printDiv('allocated')" />
                 <span class="text">View Non Allocated</span>
               </a>
             </div>
@@ -386,13 +390,15 @@ aria-hidden="true">
     </div>
   </div>
 </div>
-<div class="modal fade notallocatedModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade notallocatedModal" id="not_allocated" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content" id="non_allocated_result">
           <div class="row" style="padding: 10px;">
             <div class="col-lg-12">
+              <button style="padding: 10px;" type="button" class="close" data-dismiss="modal">&times;</button>
               <span>Non Allocated Budget Report</span>
-              <a  style="color: white;"  data-dismiss="modal" data-toggle="modal" data-target=".calculateModal" class="btn btn-warning btn-icon-split toolbar-buttons">
+              <a  style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;"  data-dismiss="modal" data-toggle="modal" data-target=".calculateModal" class="btn btn-warning btn-icon-split toolbar-buttons">
+                <input style="background: grey; color:white;" type="button" value="Print" onclick="printDiv('not_allocated')" />
                 <span class="text">View Allocated</span>
               </a>
             </div>
@@ -437,8 +443,24 @@ aria-hidden="true">
   <script type="text/javascript" src="../apiJs/items-all.js"></script>
   <script type="text/javascript" src="../apiJs/items-edit.js"></script>
   <script type="text/javascript" src="../apiJs/calculate.js"></script>
+  <script type="text/javascript" src="../apiJs/resize.js"></script>
 
+  <script>
+   function printDiv(divName) {
 
+    var printContents = document.getElementById(divName).innerHTML;
+    w = window.open();
+
+    w.document.write(printContents);
+    w.document.write('<scr' + 'ipt type="text/javascript">' + 'window.onload = function() { window.print(); window.close(); };' + '</sc' + 'ript>');
+
+    w.document.close(); // necessary for IE >= 10
+    w.focus(); // necessary for IE >= 10
+
+    return true;
+    }
+  
+  </script>
 </body>
 
 </html>
