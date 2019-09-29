@@ -55,9 +55,9 @@ class ItemController extends Controller
         }
 
             $msg['total_expences'] = $format_currency[0]. " " .number_format($sum, 2);
-            $msg['highest_priority_percent'] = $highest_priority_percent.'%';
-            $msg['medium_priority_percent'] = $medium_priority_percent.'%';
-            $msg['lowest_priority_percent'] = $lowest_priority_percent.'%';
+            $msg['highest_priority_percent'] = number_format($highest_priority_percent).'%';
+            $msg['medium_priority_percent'] = number_format($medium_priority_percent).'%';
+            $msg['lowest_priority_percent'] = number_format($lowest_priority_percent).'%';
             $msg['message'] = 'Successful';
             return response()->json([$msg], 200);
     }
