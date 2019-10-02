@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Hymenaios - Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"
+    type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link href="css/design.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="css/budget-edit.css">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <img src="img/logo.svg">
+        <div class="sidebar-brand-text mx-3">Hymenaios</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <a class="d-flex align-items-center" href="profile.html" id="profile-icon-link">
+        <img src="img/man-1.png" width="45px" height="45px">
+        <div class="mx-1">Rubbie Kelvin</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Menu
+      </div>
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Nav Item - Budget -->
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Budget</span></a>
+      </li>
+
+      <!-- Nav Item - Profile -->
+      <li class="nav-item">
+        <a class="nav-link" href="profile.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Profile</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Begin Page Content -->
+        <div class="container-fluid budgets-full">
+          <div class="row">
+            <div class="col-8 mx-auto budgets-con">
+              <div class="col-12 search-budgets mt-2">
+                <div class="input-group mt-3">
+                  <input type="text" class="form-control search-budget-input" placeholder="Search Budget..."
+                    aria-label="" aria-describedby="">
+                  <div class="input-group-append">
+                    <button class="btn btn-brand search-budget-btn" type="button" id="button-addon2"><i class="fas fa-plus-circle"></i></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 budgets-list">
+                <div class="col-12 budget border row mx-0 mt-3 px-0">
+                  <div class="col-2 budget-image text-center">
+                    <img class="mt-3" src="../images/43016.png" alt="">
+                  </div>
+                  <div class="col-10 row mx-0">
+                    <div class="col-11 budget-name">
+                      <span>Budget 1</span>
+                    </div>
+                    <div class="col-1 delete-budget">
+                      <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="col-12 budget-desc">
+                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, beatae. Atque veritatis molestias soluta quisquam?</span>
+                    </div>
+                    <div class="col-12 budget-info row mx-0">
+                      <div class="col-2 budget-info-pill text-center items-count border mt-1 mr-3">
+                        <span>25 items</span>
+                      </div>
+                      <div class="col-2 budget-info-pill text-center budget-total border mt-1 mr-3">
+                        <span>$2500</span>
+                      </div>
+                      <div class="col-2 budget-info-pill text-center budget-status border mt-1 mr-3">
+                        <span class="negative-value">-$500</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 budget border row mx-0 mt-3 px-0">
+                  <div class="col-2 budget-image text-center">
+                    <img class="mt-3" src="../images/43016.png" alt="">
+                  </div>
+                  <div class="col-10 row mx-0">
+                    <div class="col-11 budget-name">
+                      <span>Budget 1</span>
+                    </div>
+                    <div class="col-1 delete-budget">
+                      <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="col-12 budget-desc">
+                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, beatae. Atque veritatis molestias soluta quisquam?</span>
+                    </div>
+                    <div class="col-12 budget-info row mx-0">
+                      <div class="col-2 budget-info-pill text-center items-count border mt-1 mr-3">
+                        <span>25 items</span>
+                      </div>
+                      <div class="col-2 budget-info-pill text-center budget-total border mt-1 mr-3">
+                        <span>$2500</span>
+                      </div>
+                      <div class="col-2 budget-info-pill text-center budget-status border mt-1 mr-3">
+                        <span class="negative-value">-$500</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 budget border row mx-0 mt-3 px-0">
+                  <div class="col-2 budget-image text-center">
+                    <img class="mt-3" src="../images/43016.png" alt="">
+                  </div>
+                  <div class="col-10 row mx-0">
+                    <div class="col-11 budget-name">
+                      <span>Budget 1</span>
+                    </div>
+                    <div class="col-1 delete-budget">
+                      <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="col-12 budget-desc">
+                      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, beatae. Atque veritatis molestias soluta quisquam?</span>
+                    </div>
+                    <div class="col-12 budget-info row mx-0">
+                      <div class="col-2 budget-info-pill text-center items-count border mt-1 mr-3">
+                        <span>25 items</span>
+                      </div>
+                      <div class="col-2 budget-info-pill text-center budget-total border mt-1 mr-3">
+                        <span>$2500</span>
+                      </div>
+                      <div class="col-2 budget-info-pill text-center budget-status border mt-1 mr-3">
+                        <span class="negative-value">-$500</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Hymenaios 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area.js"></script>
+  <script src="js/demo/chart-pie.js"></script>
+
+</body>
+
+</html>

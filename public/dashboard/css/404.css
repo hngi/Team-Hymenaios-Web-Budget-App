@@ -1,0 +1,21 @@
+nav{
+	background: none;
+	background-image: none;
+	background-color: #0094E7;
+}
+
+html{
+	background-color: #2B2B2B;
+}
+
+#title{
+	color: #ffffff;
+}
+
+#content-wrapper{
+	background-color: #2B2B2B !important;
+}
+
+#footer{
+	background-color: #2B2B2B !important;
+}

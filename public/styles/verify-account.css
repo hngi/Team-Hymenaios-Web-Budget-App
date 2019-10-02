@@ -1,0 +1,46 @@
+body{
+    font-family: 'Nunito', sans-serif;
+}
+.main-body{
+    min-height: 80vh;
+    background: #2b2b2b;
+}
+.verify-con{
+    min-height: 50vh;
+    background: #333333;
+    border-radius: 10px;
+    margin-top: 10vh;
+    border: 1px solid transparent;
+}
+.svg-bg{
+    margin-top: 10vh;
+    min-height: 70vh;
+    background-image: url("../images/group-3.svg");
+    background-size: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.verify-con p{
+    color: white;
+}
+.verify-con span{
+    word-wrap: break-word;
+    color: grey;
+    font-size: 14px;
+}
+#verify-email-input{
+    background: rgb(78, 77, 77);
+    border: none;
+    color: white;
+}
+#verify-email-input::placeholder{
+    color: lightgrey;
+    font-size: 10px;
+}
+.verify-con button{
+    font-size: 12px;
+}
+.not-email-btn{
+    border: 1px solid #0094e7;
+    color: #0094e7;
+}
