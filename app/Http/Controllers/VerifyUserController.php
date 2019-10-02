@@ -38,7 +38,6 @@ class VerifyUserController extends Controller
                 
                 $msg["message"] = "Account is verified. You can now login.";
                 $msg['verified'] = "True";
-                $msg['note'] = 'if it return verified = True store the token in a localstorage and redirect to dashboard';
                 $msg['user'] = $user;
                 $msg['token'] = 'Bearer ' . $token;
                 $msg['image_link'] = 'https://res.cloudinary.com/getfiledata/image/upload/';
@@ -48,7 +47,7 @@ class VerifyUserController extends Controller
                 
             } else {
                 $msg["message"] = "Account verified already. Please Login";
-                $msg['note'] = 'if it return verified = fasle redirect to login page';
+                $msg['note'] = 'please redirect to login page';
                 $msg['verified'] = "Done";
 
                 return response()->json($msg, 200);

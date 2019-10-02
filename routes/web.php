@@ -23,3 +23,55 @@ $router->post('api/user/verify', 'VerifyUserController@verifyUser');
 $router->post('api/user/login', 'LogInController@userLogin');
 $router->post('api/password/reset', 'PasswordController@resetpassword');
 $router->put('api/password/change', 'ChangePasswordController@updatepassword');
+
+
+$router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {
+
+	$router->get('/profile', 'UserProfileController@index');
+
+	// edit users profile
+    $router->put('user/edit', 'UserProfileController@edit');
+
+    // upload profile picture
+    $router->post('user/image/upload', 'UserProfileController@image');
+
+	// delete users profile
+    $router->delete('user/delete', 'UserProfileController@destroy');
+
+    // change users password
+    $router->put('/password', 'UserProfileController@updatePassword');
+
+    $router->put('/total_income', 'UserProfileController@addIncome');
+
+    
+
+});
+//The budget Api     
+$router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {
+
+	$router->post('budget/create', 'UserBudgetController@create');
+
+    $router->put('budget/{id}/edit', 'UserBudgetController@update');
+
+    $router->get('budget/all', 'UserBudgetController@showAll');
+
+    $router->get('budget/{id}/one', 'UserBudgetController@showOne');
+
+    $router->delete('budget/{id}/delete', 'UserBudgetController@destroy');
+
+    $router->get('calculate/{budget_id}', 'CalculatorController@calculate');
+});
+
+//The item Api     
+$router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use ($router) {
+
+    $router->post('item/{budget_id}/create', 'ItemController@create');
+
+    $router->put('item/{budget_id}/{id}/edit', 'ItemController@update');
+
+    $router->get('items/{budget_id}', 'ItemController@showAll');
+
+    $router->delete('item/{id}/delete', 'ItemController@destroy');
+
+    $router->get('/total_xpences', 'ItemController@totalXpences');
+});
