@@ -26,7 +26,7 @@ const loginFormFunc = (event) => {
 		for (const [key, value]  of formData.entries()) {
 		    data[key] = value;
 		}
-
+		localStorage.setItem('re_auth', JSON.stringify(data));
 		const url = `${ baseUrl }api/user/login`;
 		fetch(url, {
 		 method: "POST",

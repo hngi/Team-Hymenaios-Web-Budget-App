@@ -173,7 +173,7 @@
 
           <ul data-item-list  class="item_list_sty">
              <!--Preloader-->
-             <div class="preloader_bg_2" style="display: block">
+             <div class="preloader_bg_2" data-preloader-global>
                 <div class="money_preloader fadeInContinue bounceOutContinue">
                   <img src="../images/money-bag.png">
                 </div>
@@ -210,7 +210,16 @@
         </div>
       </div>
       <!-- End of Main Content -->
+      <!-- <div id="uboy">
+         <p>ffjdhdfhjdfhjdfdfdf</p>
+      </div> -->
+     <!--  <div class="g-savetodrive"
+         data-src="//example.com/path/to/myfile.pdf"
+         data-filename="My Statement.pdf"
+         data-sitename="My Company Name">
+      </div>
 
+      <div id="elementH"></div> -->
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -429,6 +438,7 @@ aria-hidden="true">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
@@ -459,8 +469,55 @@ aria-hidden="true">
 
     return true;
     }
+//   var elementHTML = $('#content').html();
+//     console.log(elementHTML);
+//   setTimeout(() => {
+//     var doc = new jsPDF();
+//     var elementHTML = $('#allocated').html();
+//     console.log(elementHTML);
+//     var specialElementHandlers = {
+//         '#elementH': function (element, renderer) {
+//             return true;
+//         }
+//     };
+//     doc.fromHTML(elementHTML, 15, 15, {
+//         'width': 170,
+//         'elementHandlers': specialElementHandlers
+//     });
+//     var base64pdf = doc.output('bloburl');
+//     // Save the PDF
+//     // doc.save(`sample-document.pdf`);
+//        console.log(base64pdf);
+//     window.open( base64pdf, '_blank');
+ 
+//    // IE doesn't allow using a blob object directly as link href
+// // instead it is necessary to use msSaveOrOpenBlob
+// if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+//   window.navigator.msSaveOrOpenBlob(doc.output("blob"), "Name.pdf");
+// } else {
+
+//   // For other browsers:
+//   // Create a link pointing to the ObjectURL containing the blob.
+//   doc.autoPrint();
+//   window.open(
+//     doc.output("bloburl"),
+//     "_blank",
+//     "height=650,width=500,scrollbars=yes,location=yes"
+//   );
+
+//   // For Firefox it is necessary to delay revoking the ObjectURL
+//   setTimeout(() => {    
+//     window.URL.revokeObjectURL(doc.output("bloburl"));
+//   }, 100);
+// }
   
+//   }, 10000)
+
+
+    
   </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  
 </body>
 
 </html>

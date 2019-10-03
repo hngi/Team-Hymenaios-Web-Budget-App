@@ -8,6 +8,7 @@ const datalowestSpot_1 = document.querySelector('[data-lowest-spot_1]');
 const dataHighestSpot_2 = document.querySelector('[data-higest-spot_2]');
 const dataMediumSpot_2 = document.querySelector('[data-medium-spot_2]');
 const datalowestSpot_2 = document.querySelector('[data-lowest-spot_2]');
+let resStatus;
 
 const getdashData = () => {
         const url = `${ baseUrl }api/total_xpences`;
@@ -19,12 +20,19 @@ const getdashData = () => {
 		 	 "Content-Type": "application/json"
 		 }
 		})
-		.then(response => response.json())
+		.then(response => {
+        resStatus = response.status;
+        if(resStatus == 401) {
+          dull = null;
+            return reAuthenticate(dull);
+        }
+        return response.json()
+    })
 		.then(data => {
-            console.log(data[0])
-           const {total_expences, highest_priority_percent, medium_priority_percent, lowest_priority_percent, } = data[0];
+         if(data) {
+            const {total_expences, highest_priority_percent, medium_priority_percent, lowest_priority_percent, } = data[0];
 
-           const amount_total_expences = total_expences.substr(4, total_expences.length - 2)
+            const amount_total_expences = total_expences.substr(4, total_expences.length - 2)
             const currency = total_expences.slice(0, 3)
 
             let formatted_total_expences;
@@ -50,11 +58,11 @@ const getdashData = () => {
 
            datalowestSpot_1.innerHTML = lowest_priority_percent;
            datalowestSpot_2.innerHTML = lowest_priority_percent;
+         }
 
         })
 		.catch(error => {
-            console.error(error)
-			console.error(error.status)
+        console.error(error)
 		})
 }
 getdashData();

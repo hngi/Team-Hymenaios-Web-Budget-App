@@ -135,11 +135,11 @@
               </div>
               <div class="col-12 budgets-list" data-budget-list style="overflow: auto; height:80vh; margin-bottom: 20px;">
                  <!--Preloader-->
-                <div class="preloader_bg_2" style="display: block">
-                    <div class="money_preloader fadeInContinue bounceOutContinue">
-                      <img src="../images/money-bag.png">
-                    </div>
+                <div data-preloader-global class="preloader_bg_2" >
+                  <div class="money_preloader fadeInContinue bounceOutContinue" >
+                    <img src="../images/money-bag.png">
                   </div>
+                </div>
               </div>
             </div>
           </div>
@@ -195,7 +195,7 @@
                     <option value="GBR">&#163;</option>
                   </select>
                 </div>
-                <input type="text" name="amount" class="form-control" aria-label="Text input with dropdown button">
+                <input type="number" name="amount" class="form-control" aria-label="Text input with dropdown button">
                 <p class="_err_msg"></p>
               </div>
             </div>

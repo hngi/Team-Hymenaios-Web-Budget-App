@@ -14,14 +14,26 @@ const getCalcItemsApi = (event) => {
 		 	 "Content-Type": "application/json"
 		 }
 		})
-		.then(response => response.json())
+		.then(response => {
+            resStatus = response.status;
+            console.log(resStatus);
+            if(resStatus == 401) {
+                $("#allocated").modal("toggle")
+                dull = null;
+                return reAuthenticate(dull);
+            }
+            return response.json()
+        })
 		.then(data => {
-            console.log(data)
-            allocatedItems = [];
-            not_allocatedItems = [];
-            allocatedItems.push(...data.allocated);
-            not_allocatedItems.push(...data.not_allocated);
-            calculatedResult(data.low_budget)
+            if(data) {
+                console.log(data)
+                allocatedItems = [];
+                not_allocatedItems = [];
+                allocatedItems.push(...data.allocated);
+                not_allocatedItems.push(...data.not_allocated);
+                calculatedResult(data.low_budget)
+            }
+        
         })
 		.catch(error => {
             console.error(error)
