@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>blueBOX - Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"
+    type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Custom styles for this template-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+  <link href="css/design.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/global.css">
+  <link rel="stylesheet" href="css/budget-edit.css">
+  <link rel="stylesheet" href="../styles/global.css">  
+  <script type="text/javascript" src="../apiJs/global.js"></script>
+</head>
+
+<body id="page-top">
+  <!--Preloader-->
+  <div class="preloader_bg" data-preloader>
+    <div class="money_preloader fadeInContinue bounceOutContinue">
+      <img src="../images/money-bag.png">
+    </div>
+  </div>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+        <img src="img/logo.svg">
+        <div class="sidebar-brand-text mx-3">blueBOX</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <a class="d-flex align-items-center" href="profile.html" id="profile-icon-link">
+        <img style="border-radius: 50%;" data-this-image-side src="" width="45px" height="45px">
+        <!--img/man-1.png-->
+        <div class="mx-1" data-this-username-side></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Menu
+      </div>
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="dash.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Nav Item - Budget -->
+      <li class="nav-item">
+          <a class="nav-link"  href="budget-edit.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Budget</span></a>
+        </li>
+  
+      <!-- Nav Item - Profile -->
+      <li class="nav-item">
+        <a class="nav-link" href="profile.html">
+          <i class="fas fa-user"></i>
+          <span>Profile</span></a>
+      </li>
+
+      <li class="nav-item" data-logout>
+        <a class="nav-link" href="#">
+          <i class="fas fa-sign-out-alt"></i>
+          <span style="color: tomato">Log Out</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+        <!-- Begin Page Content -->
+        <div class="container-fluid budgets-full">
+          <div class="row">
+            <div class="col-11 col-md-8 mx-auto budgets-con">
+              <div class="col-12 search-budgets mt-2">
+                <div class="input-group mt-3">
+                  <input type="text" class="form-control search-budget-input" placeholder="Search Budget..."
+                    aria-label="" aria-describedby="">
+                  <div class="input-group-append">
+                    <button class="btn btn-brand search-budget-btn" type="button" id="button-addon2"><i
+                        class="fas fa-plus-circle"></i></i></button>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-12 add-budget-btn text-right">
+                  <span style="text-align: left; color: slateblue; font-weight: bold;" class="text-left"><span style="color: black">Total Income:</span> <span data-income-spot>0.00</span></span>
+                <button type="button" class="btn btn-brand" data-toggle="modal" data-target="#addIncomeModal">
+                  Add Income
+                </button>   
+                <button type="button" class="btn btn-brand" data-toggle="modal" data-target="#addBudgetModal">
+                  Add Budget
+                </button>
+              </div>
+              <div class="col-12 budgets-list" data-budget-list style="overflow: auto; height:80vh; margin-bottom: 20px;">
+                 <!--Preloader-->
+                <div class="preloader_bg_2" style="display: block">
+                    <div class="money_preloader fadeInContinue bounceOutContinue">
+                      <img src="../images/money-bag.png">
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; blueBOX 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <div class="modal fade" id="addBudgetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="mb-4">Add New Budget</h4>
+          <form id="addBudgetForm">
+            <div class="form-group">
+              <label for="new_title">Title</label>
+              <input data-this-title-edit name="title" type="text" class="form-control" maxlength="100" id="new_title"
+                aria-describedby="" placeholder="">
+              <p class="_err_msg"></p>
+            </div>
+            <div class="form-group">
+              <label for="new_amount">Amount</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                    <option selected value="NGN">&#8358;</option>
+                    <option value="USD">&#36;</option>
+                    <option value="EUR">&euro;</option>
+                    <option value="GBR">&#163;</option>
+                  </select>
+                </div>
+                <input type="text" name="amount" class="form-control" aria-label="Text input with dropdown button">
+                <p class="_err_msg"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="new_desc">Description</label>
+              <textarea data-this-desc-edit name="description" type="text" class="form-control" maxlength="100" id="new_desc"
+                placeholder=""></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="editBudgetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="mb-4">Edit Budget</h4>
+          <form id="editBudgetForm">
+            <div class="form-group">
+              <label for="edit_title">Title</label>
+              <input data-this-username-edit name="title" type="text" class="form-control" maxlength="100"
+                id="edit_title" aria-describedby="" placeholder="">
+              <p class="_err_msg"></p>
+            </div>
+            <div class="form-group">
+              <label for="new_amount">Amount</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                    <option selected value="NGN">&#8358;</option>
+                    <option value="USD">&#36;</option>
+                    <option value="EUR">&euro;</option>
+                    <option value="GBR">&#163;</option>
+                  </select>
+                </div>
+                <input name="amount" type="number" class="form-control" aria-label="Text input with dropdown button">
+                <p class="_err_msg"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="edit_desc">Description</label>
+              <textarea name="description" data-this-first-name-edit name="desc" type="text" class="form-control" maxlength="100"
+                id="edit_desc" placeholder=""></textarea>
+            </div>
+            <div style="visibility:hidden;" data-budget-edit-id></div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addIncomeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="mb-4">Add Total Income</h4>
+          <form id="addTotalIncomeForm">
+            <div class="form-group">
+              <label for="new_amount">Total Income</label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                    <option selected value="NGN">&#8358;</option>
+                    <option value="USD">&#36;</option>
+                    <option value="EUR">&euro;</option>
+                    <option value="GBR">&#163;</option>
+                  </select>
+                </div>
+                <input name="total_income" type="number" class="form-control" aria-label="Text input with dropdown button">
+                <p class="_err_msg"></p>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
+  <script type="text/javascript" src="../apiJs/formatter.js"></script>
+  <script type="text/javascript" src= "../apiJs/budget-view.js"></script>
+  <script type="text/javascript" src="../apiJs/budget-all.js"></script>
+  <script type="text/javascript" src="../apiJs/budget-edit.js"></script>
+
+</body>
+
+</html>

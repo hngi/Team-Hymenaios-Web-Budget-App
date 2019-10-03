@@ -1,0 +1,36 @@
+body{
+    font-family: 'Nunito', sans-serif;
+}
+.container-fluid{
+    min-height: 100vh;
+}
+.main-body{
+    min-height: 80vh;
+    background: #2B2B2B;
+    border-bottom:1px solid #0094e7;
+}
+.landing-words{
+    margin-top:25vh;
+    color: white;
+}
+.landing-words p{
+    font-size: 24px;
+}
+.get-started-btn{
+    font-size: 14px;
+    font-weight: bold;
+}
+.landing-image{
+    height: 60vh;
+    margin-top: 7vh;
+}
+.landing-image img{
+    height: 100%;
+    width:  100%;
+}
+@media(max-width: 768px) {
+    .landing-words{
+        margin-top:0vh;
+        color: white;
+    }
+}
