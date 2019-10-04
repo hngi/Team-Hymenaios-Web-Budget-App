@@ -19,6 +19,7 @@ class CreateBudgetsTable extends Migration
             $table->string('title');
             $table->string('budget_amount');
             $table->string('description');
+            $table->string('recycled')->default('no');
             $table->timestamps();
 
               $table->foreign('owner_id')
