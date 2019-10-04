@@ -27,7 +27,7 @@ fgpwFormBtn.addEventListener('click', (e) => {
             if (status == 200) {
                 $('#forgotPasswordModal').modal('toggle')
                 resetStatus.innerHTML = `${data.data.message}`
-                var delayInMilliseconds = 5000; //1 second
+                var delayInMilliseconds = 2000; //1 second
 
                 setTimeout(function () {
                     location.replace('newpassword.html')
