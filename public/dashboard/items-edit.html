@@ -380,7 +380,7 @@ aria-hidden="true">
               <button style="padding: 10px;" type="button" class="close" data-dismiss="modal">&times;</button>
               <span>Allocated Budget Report</span>
               <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-primary btn-icon-split toolbar-buttons">
-               <span class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
+               <span id="emailReportActivate" class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
                 <span class="text" style="border-right: 1px solid dodgerblue;" onclick="printDiv('allocated')" >Print</span>
                 <span class="text"  data-toggle="modal" data-dismiss="modal" data-target=".notallocatedModal">View Non Allocated</span>
               </a>
@@ -408,7 +408,7 @@ aria-hidden="true">
               <button style="padding: 10px;" type="button" class="close" data-dismiss="modal">&times;</button>
               <span>Non Allocated Budget Report</span>
               <a  style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-warning btn-icon-split toolbar-buttons">
-                 <span class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
+                 <span id="emailReportBtn" class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
                 <span class="text" style="border-right: 1px solid dodgerblue;" onclick="printDiv('not_allocated')" >Print</span>
                 <span class="text" data-dismiss="modal" data-toggle="modal" data-target=".calculateModal">View Allocated</span>
               </a>
@@ -437,7 +437,7 @@ aria-hidden="true">
         <div class="modal-content">
           <div class="modal-body">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="mb-4">Email Report</h4>
+            <h5 class="mb-4">Email Report</h5>
               <div class="form-group">
                 <label for="edit_username">Enter Emails</label>
                 <textarea id="emails_to" class="form-control" placeholder="mike@example.com,vim@exaple.com,ricky@example.com,benny@example.com"></textarea>
@@ -453,7 +453,7 @@ aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
-            <p id="report_status"></p>
+            <p data-report-status id="report_status" class="text-center mt-2 report_status"></p>
           </div>
         </div>
       </div>
