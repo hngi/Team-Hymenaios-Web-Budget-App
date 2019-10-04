@@ -1,22 +1,59 @@
-nav{
-	background: none;
-	background-image: none;
-	background-color: #19bdea;
+#content{
+	background: #eaeaea;
 }
-
-#budget-title{
-	color: #ffffff;
+.search-budgets{
+	height: 10vh;
 }
-
-#toolbar-expenses{
-	color: #4eccee;
+.search-budget-input{
+	background-color: #151515;
 }
-
-.toolbar-input{
-	height: 20px;
-	width: 60px;
-	margin-right: 20px;
-	border-radius: 4px;
-	padding-left: 4px;
-	color: #4eccee;
+.search-budget-input::placeholder{
+	color: grey;
+	font-size: 12px;
+}
+.budgets-list{
+	min-height: 70vh;
+}
+.budget{
+	min-height: 17vh;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 2px 2px 16px lightgrey;
+}
+.budget-image{
+	background: linear-gradient(160deg, #0094e7, rgb(182, 49, 182));
+	border-radius: 10px 0px 0px 10px;
+}
+.budget-image img{
+	height: 10vh;
+	width: 10vh;
+}
+.budget-name{
+	min-height: 4vh;
+}
+.budget-desc{
+	min-height: 8vh;
+	font-size: 14px;
+}
+.budget-info{
+	min-height: 5vh;
+}
+.budget-info-pill{
+	height: 4vh;
+	border-radius: 20px;
+}
+.budget-info-pill span{
+	font-size: 12px;
+}
+.budget-total{
+	color: #0094e7;
+}
+.positive-value{
+	color: green;
+}
+.negative-value{
+	color: red;
+}
+.add-budget-btn button{
+	font-size: 12px;
 }

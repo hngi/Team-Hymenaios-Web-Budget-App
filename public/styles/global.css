@@ -23,15 +23,18 @@ a {
   color: white;
 }
 .btn-brand-outline {
-  color: white;
+  color: white !important;
   background: inherit;
 }
 .btn-brand-white{
     background: white;
-    color: #0094e7;
+    color: #0094e7 !important;
 }
 .our-nav{
     background: #0094e7;
+}
+#re_auth_preloader {
+  visibility: hidden;
 }
 .brand-image{
     height: 6vh;
@@ -73,14 +76,26 @@ a {
   font-size: 14px;
   margin: 0;
 }
+#saveImage {
+  visibility: hidden;
+}
+.percent_formatting {
+  position:absolute; left: 30%; margin-left:-20px; top:40%; font-size: 80px;
+}
 .preloader_bg {
   width: 100%;
   height: 100%;
-  z-index: 999;
-  position: absolute;
+  z-index: 999999999;
+  position: fixed;
   background: black;
   opacity: 0.4;
   display: none;
+}
+.preloader_bg_2 {
+  width: 100%;
+  height: 100%;
+  z-index: 999999999;
+  opacity: 1;
 }
 .bounceOutContinue {
   animation: bounceOut 1s infinite linear;
@@ -102,4 +117,7 @@ a {
 }
 .action {
   background: #0094e7 !important;
+}
+.filler {
+  display: none !important;
 }

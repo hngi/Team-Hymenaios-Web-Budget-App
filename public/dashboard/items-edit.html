@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>blueBOX | items</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet"
+    type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" />
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/design.css" rel="stylesheet">
+  <link href="css/items-edit.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/global.css">
+  <script type="text/javascript" src="../apiJs/global.js"></script>
+</head>
+
+<body id="page-top">
+  <!--Preloader-->
+  <div class="preloader_bg" data-preloader>
+      <div class="money_preloader fadeInContinue bounceOutContinue">
+        <img src="../images/money-bag.png">
+      </div>
+    </div>
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <img src="img/logo.svg">
+        <div class="sidebar-brand-text mx-3">blueBOX</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <a class="d-flex align-items-center" href="profile.html" id="profile-icon-link">
+        <img style="border-radius: 50%;" data-this-image-side src="" width="45px" height="45px">
+        <div class="mx-1" data-this-username-side></div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Menu
+      </div>
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item">
+        <a class="nav-link" href="dash.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Nav Item - Budget -->
+      <li class="nav-item">
+        <a class="nav-link"  href="budget-edit.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Budget</span></a>
+      </li>
+
+      <!-- Nav Item - Profile -->
+      <li class="nav-item">
+        <a class="nav-link" href="profile.html">
+          <i class="fas fa-user"></i>
+          <span>Profile</span></a>
+      </li>
+
+      <li class="nav-item" data-logout>
+        <a class="nav-link" href="#">
+          <i class="fas fa-sign-out-alt"></i>
+          <span style="color: tomato">Log Out</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+       <!-- Sidebar Toggle (Topbar) -->
+       <!-- <button data-side-toggle style="background: white; border-radius: 50%;"  class="btn btn-link d-md-none rounded-circle mr-3">
+          <i class="fa fa-bars"></i>
+        </button> -->
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper"  class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav style="background: #151515; border-left: 1px solid rgba(255,255,255,.15);" class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button data-side-toggle style="background: white; border-radius: 50%;"class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <!-- Topbar Title -->
+          <h4 id="budget-title" style="font-size: 20px;" data-budget-title></h4>
+
+          <!-- <ul class="navbar-nav ml-auto">
+            <li>
+              <a href="#" class="btn btn-primary btn-icon-split">
+                <span class="text">Save</span>
+              </a>
+            </li>
+          </ul> -->
+         <!-- Button trigger modal -->
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+
+          <div class="row">
+
+            <div class="col-lg-12">
+
+              <!-- tool card -->
+              <div class="card mb-4">
+                <div class="card-body">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-6">
+                        Income : <span data-income-spot>0.00<span>
+                        <!-- <span>Total expenses : <span id="toolbar-expenses">$1360</span></span> -->
+                      </div>
+                      <div class="col-lg-6">
+                        <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" data-calc-work data-toggle="modal" data-target=".calculateModal" class="btn btn-primary btn-icon-split toolbar-buttons">
+                          <span class="text">Calculate</span>
+                        </a>
+                        <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;"  data-toggle="modal" data-target="#addItemModal" class="btn btn-warning btn-icon-split toolbar-buttons">
+                          <span class="text">Add Item</span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <h3 class="list-head" style="font-size: 20px;">ITEMS</h3>
+
+          <!-- below is the budget list -->
+
+          <ul data-item-list  class="item_list_sty">
+             <!--Preloader-->
+             <div class="preloader_bg_2" data-preloader-global>
+                <div class="money_preloader fadeInContinue bounceOutContinue">
+                  <img src="../images/money-bag.png">
+                </div>
+              </div>
+            <!-- <li class="budget-item">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        <span class="list-edit list-item">Item :</span>
+                        <span class="list-edit list-amount">$ 100</span>
+                        <span class="delete-budget px-0 text-right" style="cursor: pointer; float: right">
+                            <i style="margin-right:10px; font-size: 15px;" data-edit-id="${id}" class="far fa-edit edit_budget" class="btn btn-primary" data-toggle="modal"
+                            data-target="#editItemModal"></i>
+                            <i  style="margin-right:10px; font-size: 15px;" data-del-id=${id} class="fas fa-times-circle del_budget"></i>
+                        </span>
+                      </div>
+                      <div name="comments" rows="4"
+                        class="list-edit list-description">This is the description of the item...</div>
+                      <ul class="list-label-list">
+                        <li class="list-label-item normal-label">label 1</li>
+                        <li class="list-label-item normal-label">category</li>
+                        <li class="list-label-item important-priority-label">priority</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li> -->
+
+
+          </ul><br><br>
+        </div>
+      </div>
+      <!-- End of Main Content -->
+      <!-- <div id="uboy">
+         <p>ffjdhdfhjdfhjdfdfdf</p>
+      </div> -->
+     <!--  <div class="g-savetodrive"
+         data-src="//example.com/path/to/myfile.pdf"
+         data-filename="My Statement.pdf"
+         data-sitename="My Company Name">
+      </div>
+
+      <div id="elementH"></div> -->
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; blueBOX 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+  <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="mb-4">Add New Item</h4>
+        <form id="addItemForm">
+          <div class="form-group">
+            <label for="new_title">Title</label>
+            <input data-this-title-edit name="title" type="text" class="form-control" maxlength="100" id="new_title"
+              aria-describedby="" placeholder="">
+            <p class="_err_msg"></p>
+          </div>
+          <div class="form-group">
+            <label for="new_amount">Amount</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                  <option selected value="NGN">&#8358;</option>
+                  <option value="USD">&#36;</option>
+                  <option value="EUR">&euro;</option>
+                  <option value="GBR">&#163;</option>
+                </select>
+              </div>
+              <input type="text" name="amount" class="form-control" aria-label="Text input with dropdown button">
+              <p class="_err_msg"></p>
+            </div>
+          </div>
+          <label for="new_amount">Category | Priority</label>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select name="category" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                  <option selected value="None">None</option>
+                  <option value="Education">Education</option>
+                  <option value="Food">Food</option>
+                  <option value="Grocery">Grocery</option>
+                  <option value="Gadget">Gadget</option>
+                  <option value="Accessory">Accessory</option>
+                  <option value="Family">Family</option>
+                  <option value="Aplliances">Aplliances</option>
+                  <option value="Clothing">Clothing</option>
+                  <option value="Document">Document</option>
+                </select>
+              </div>
+              <div class="input-group-prepend">
+                  <select name="priority" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                    <option selected value="Highest">Highest</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Lowest">Lowest</option>
+                  </select>
+                </div>
+            </div>
+          <div class="form-group">
+            <label for="new_desc">Description</label>
+            <textarea data-this-desc-edit name="description" type="text" class="form-control" maxlength="100" id="new_desc"
+              placeholder=""></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="editItemModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="mb-4">Edit Item</h4>
+      <form id="editItemForm">
+        <div class="form-group">
+          <label for="new_title">Title</label>
+          <input data-this-title-edit name="title" type="text" class="form-control" maxlength="100" id="new_title"
+            aria-describedby="" placeholder="">
+          <p class="_err_msg"></p>
+        </div>
+        <div class="form-group">
+            <label for="new_amount">Amount</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select name="currency" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                  <option selected value="NGN">&#8358;</option>
+                  <option value="USD">&#36;</option>
+                  <option value="EUR">&euro;</option>
+                  <option value="GBR">&#163;</option>
+                </select>
+              </div>
+              <input type="text" name="amount" class="form-control" aria-label="Text input with dropdown button">
+              <p class="_err_msg"></p>
+            </div>
+          </div>
+        <label for="new_amount">Category | Priority</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <select name="category" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                <option selected value="None">None</option>
+                <option value="Education">Education</option>
+                <option value="Food">Food</option>
+                <option value="Grocery">Grocery</option>
+                <option value="Gadget">Gadget</option>
+                <option value="Accessory">Accessory</option>
+                <option value="Family">Family</option>
+                <option value="Aplliances">Aplliances</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Document">Document</option>
+              </select>
+            </div>
+            <div class="input-group-prepend">
+                <select name="priority" class="custom-select" style="border-radius: 5px 0px 0px 5px" id="inputGroupSelect01">
+                  <option selected value="Highest">Highest</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Lowest">Lowest</option>
+                </select>
+              </div>
+          </div>
+        <div class="form-group">
+          <label for="new_desc">Description</label>
+          <textarea data-this-desc-edit name="description" type="text" class="form-control" maxlength="100" id="new_desc"
+            placeholder=""></textarea>
+        </div>
+        <div style="visibility:hidden;" data-item-edit-id></div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- calculate modal -->
+<div class="modal fade calculateModal" id="allocated" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="row" style="padding: 10px;">
+            <div class="col-lg-12">
+              <button style="padding: 10px;" type="button" class="close" data-dismiss="modal">&times;</button>
+              <span>Allocated Budget Report</span>
+              <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-primary btn-icon-split toolbar-buttons">
+               <span class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
+                <span class="text" style="border-right: 1px solid dodgerblue;" onclick="printDiv('allocated')" >Print</span>
+                <span class="text"  data-toggle="modal" data-dismiss="modal" data-target=".notallocatedModal">View Non Allocated</span>
+              </a>
+            </div>
+            <div class="col-lg-12">
+              <span data-low-budget_1 style="color: tomato"></span>
+            </div>
+          </div>
+            <ul data-allocated-list id="budget-list" style="width: 80%; margin:auto; overflow:auto; height:70vh;">
+               <!--Preloader-->
+               <div class="text-center">
+                  <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+                  <p>Allocating Budget...</p>
+                </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade notallocatedModal" id="not_allocated" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content" id="non_allocated_result">
+          <div class="row" style="padding: 10px;">
+            <div class="col-lg-12">
+              <button style="padding: 10px;" type="button" class="close" data-dismiss="modal">&times;</button>
+              <span>Non Allocated Budget Report</span>
+              <a  style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-warning btn-icon-split toolbar-buttons">
+                 <span class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
+                <span class="text" style="border-right: 1px solid dodgerblue;" onclick="printDiv('not_allocated')" >Print</span>
+                <span class="text" data-dismiss="modal" data-toggle="modal" data-target=".calculateModal">View Allocated</span>
+              </a>
+            </div>
+            <div class="col-lg-12">
+              <span data-low-budget_2 style="color: tomato"></span>
+            </div>
+          </div>
+            <ul data-not_allocated-list id="budget-list" style="width: 80%; margin:auto; overflow:auto; height:70vh;">
+               <!--Preloader-->
+             <!--Preloader-->
+             <div class="text-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+                <p>Allocating Budget...</p>
+              </div>
+            </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="EmailReportModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="mb-4">Email Report</h4>
+              <div class="form-group">
+                <label for="edit_username">Enter Emails</label>
+                <textarea id="emails_to" class="form-control" placeholder="mike@example.com,vim@exaple.com,ricky@example.com,benny@example.com"></textarea>
+                <p id="_err_msg_mail" class="_err_msg">please seperate emails with a comma sign!</p>
+              </div>
+              <button id="send_report_btn" type="submit" class="btn btn-primary">Email Report</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
+  <script type="text/javascript" src="../apiJs/formatter.js"></script>
+  <script type="text/javascript" src= "../apiJs/items-view.js"></script>
+  <script type="text/javascript" src="../apiJs/items-all.js"></script>
+  <script type="text/javascript" src="../apiJs/items-edit.js"></script>
+  <script type="text/javascript" src="../apiJs/calculate.js"></script>
+  <script type="text/javascript" src="../apiJs/resize.js"></script>
+
+  <script>
+   function printDiv(divName) {
+
+    var printContents = document.getElementById(divName).innerHTML;
+    w = window.open();
+
+    w.document.write(printContents);
+    w.document.write('<scr' + 'ipt type="text/javascript">' + 'window.onload = function() { window.print(); window.close(); };' + '</sc' + 'ript>');
+
+    w.document.close(); // necessary for IE >= 10
+    w.focus(); // necessary for IE >= 10
+
+    return true;
+    }
+//   var elementHTML = $('#content').html();
+//     console.log(elementHTML);
+//   setTimeout(() => {
+//     var doc = new jsPDF();
+//     var elementHTML = $('#allocated').html();
+//     console.log(elementHTML);
+//     var specialElementHandlers = {
+//         '#elementH': function (element, renderer) {
+//             return true;
+//         }
+//     };
+//     doc.fromHTML(elementHTML, 15, 15, {
+//         'width': 170,
+//         'elementHandlers': specialElementHandlers
+//     });
+//     var base64pdf = doc.output('bloburl');
+//     // Save the PDF
+//     // doc.save(`sample-document.pdf`);
+//        console.log(base64pdf);
+//     window.open( base64pdf, '_blank');
+ 
+//    // IE doesn't allow using a blob object directly as link href
+// // instead it is necessary to use msSaveOrOpenBlob
+// if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+//   window.navigator.msSaveOrOpenBlob(doc.output("blob"), "Name.pdf");
+// } else {
+
+//   // For other browsers:
+//   // Create a link pointing to the ObjectURL containing the blob.
+//   doc.autoPrint();
+//   window.open(
+//     doc.output("bloburl"),
+//     "_blank",
+//     "height=650,width=500,scrollbars=yes,location=yes"
+//   );
+
+//   // For Firefox it is necessary to delay revoking the ObjectURL
+//   setTimeout(() => {    
+//     window.URL.revokeObjectURL(doc.output("bloburl"));
+//   }, 100);
+// }
+  
+//   }, 10000)
+    
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  
+</body>
+
+</html>

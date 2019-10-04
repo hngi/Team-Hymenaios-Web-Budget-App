@@ -1,3 +1,16 @@
 #footer{
 	background-color: #2B2B2B00 !important;
 }
+.profile-image img{
+	height: 20vh;
+	width: 20vh;
+}
+#editProfileModal .modal-content{
+	color: black;
+}
+.btn-icon-split span{
+	font-size: 12px;
+}
+.bio-box{
+	height: 12vh;
+}
