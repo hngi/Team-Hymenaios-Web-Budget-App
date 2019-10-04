@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sign Up Form</title>
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Font-->
+	<link rel="stylesheet" type="text/css" href="css/nunito-font.css">
+	
+    <link rel="stylesheet" href="css/signup.css"/>
+</head>
+<body class="signup">
+	<div class="formDetails">
+		<div class="formDetails2">
+			<form class="form-detail" action="#" method="post">
+				<h2>Sign Up Form</h2>
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="text" name="username" id="full-name" class="input-text" placeholder="User Name:" required>
+					</div>
+					<div class="form-row">
+						<input type="text" name="email" id="your-email" class="input-text" placeholder="Your Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
+					</div>
+				</div>
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="password" name="password" id="password" class="input-text" placeholder="Your Password" required>
+					</div>
+					<div class="form-row">
+						<input type="password" name="comfirm-password" id="comfirm-password" class="input-text" placeholder="Comfirm Password" required>
+					</div>
+				</div>
+				<div class="form-row-last">
+					<input type="submit" name="register" class="register" value="Register">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

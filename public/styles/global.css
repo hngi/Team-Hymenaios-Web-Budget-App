@@ -23,18 +23,15 @@ a {
   color: white;
 }
 .btn-brand-outline {
-  color: white !important;
+  color: white;
   background: inherit;
 }
 .btn-brand-white{
     background: white;
-    color: #0094e7 !important;
+    color: #0094e7;
 }
 .our-nav{
     background: #0094e7;
-}
-#re_auth_preloader {
-  visibility: hidden;
 }
 .brand-image{
     height: 6vh;
@@ -43,10 +40,7 @@ a {
     height: 100%;
 }
 .our-nav .brand-image span{
-  font-weight: 600;
-  color: white;
-  font-size: 22px;
-  margin-left: 15px;
+    color: white;
 }
 .our-nav{
   height: 10vh;
@@ -120,7 +114,4 @@ a {
 }
 .action {
   background: #0094e7 !important;
-}
-.filler {
-  display: none !important;
 }

@@ -3,9 +3,8 @@ const getSearchParam = parsedUrl.searchParams;
 let budget_id = getSearchParam.get("id");
 let budget_title = getSearchParam.get("budget");
 let budget_amt = getSearchParam.get("amount");
-if(!(budget_id && budget_title && budget_amt)){
-	location.replace('login.html')
-}
+console.log(budget_id)
+console.log(budget_title);
 
 const thisUserNameSidebar = document.querySelector('[data-this-username-side]');
 const thisImageSidebar = document.querySelector('[data-this-image-side]');
