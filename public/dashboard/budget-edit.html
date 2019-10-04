@@ -210,6 +210,32 @@
       </div>
     </div>
   </div>
+
+  <!-- live support -->
+      <!-- ======================================= -->
+      <div id="live-chat" class="live-chat-transition">
+  
+        <div id="chat-label" class="live-chat-transition">
+      
+          <h4 class="live-chat-galaxie live-chat-transition">
+            
+            Live Chat
+          
+            <img src="https://fgl.scene7.com/is/image/FGLSportsLtd/live-chat-up-arrow-icon?wid=15&fmt=png-alpha&op_sharpen=1&resMode=sharp2" alt="live-chat-up-arrow" class="live-chat-arrow live-chat-transition live-chat-up-arrow" />
+            
+            <img src="https://fgl.scene7.com/is/image/FGLSportsLtd/live-chat-down-arrow-icon?wid=15&fmt=png-alpha&resMode=sharp2" alt="live-chat-down-arrow" class="live-chat-arrow live-chat-transition live-chat-down-arrow" />
+          
+          </h4>
+          
+        </div>
+        
+        <p><strong>Need Consultation?</strong><br>Connect With Our Finance Advisors And Have Your Questions Answered!</p>
+        
+        <a href="#" id="chat-button" class="live-chat-galaxie" style="background-color: lateblue" > Chat Now</a>
+        
+      </div>
+
+
   <!-- Modal -->
   <div class="modal fade" id="editBudgetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -299,6 +325,16 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
+  <script>
+    $("#chat-label").click(function() {
+    
+    $('#live-chat').toggleClass('open-chat');
+    $('#chat-label').toggleClass('open-chat-label');
+    $('.live-chat-up-arrow').toggleClass('hide-up-arrow');
+    $('.live-chat-down-arrow').toggleClass('show-down-arrow');
+    
+  });
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
