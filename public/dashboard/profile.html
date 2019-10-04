@@ -111,7 +111,7 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+          <button data-side-toggle style="background: white; border-radius: 50%;"  class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
 
@@ -179,23 +179,20 @@
                           <span data-this-bio>Hey write a bio about your self, so we can know you better...</span>
                         </div>
                         <div class="col-12 row mx-0 px-0 ">
-                          <a href="#" class="btn btn-primary btn-icon-split col mr-2" data-toggle="modal"
+                          <a href="#" style="border: 1px solid dodgerblue; border-radius: 20px; text-decoration: none;" class=" btn-icon-split col mr-2" data-toggle="modal"
                             data-target="#editProfileModal">
-                            <span class="text">EDIT</span>
+                            <i style="margin: 10px; color: dodgerblue;" class="far fa-edit"></i>
                           </a>
                           <div class="my-2"></div>
-                          <a href="#" class="btn btn-primary btn-icon-split col mr-2" data-toggle="modal"
+                          <a href="#" style="border: 1px solid lime; border-radius: 20px; text-decoration: none;" class=" btn-icon-split col mr-2" data-toggle="modal"
                           data-target="#editPasswordModal">
-                            <span class="text">Change Password</span>
+                            <i style="margin: 10px; color: lime;" class="fas fa-key"></i>
                           </a>
                           <div class="my-2"></div>
-                          <a href="#" class="btn btn-danger btn-icon-split col mr-2 px-0" data-toggle="modal"
+                          <a href="#" style="border: 1px solid tomato; border-radius: 20px; text-decoration: none;" class=" btn-icon-split col mr-2" data-toggle="modal"
                           data-target="#deleteModal">
-                            <span class="icon text-white-50">
-                              <i class="fas fa-trash"></i>
-                            </span>
-                            <span class="text px-0">Clear Records</span>
-                          </a>
+                            <i style="margin: 10px; color: tomato;" class="fas fa-trash"></i>
+                          </a>    
                         </div>
                       </div>
                     </div>
@@ -234,6 +231,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="mb-4">Edit Profile</h4>
             <form id="editAccountForm">
               <div class="form-group">
@@ -278,6 +276,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-body">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="mb-4">Change Password</h4>
             <form id="changePasswordForm">
               <div class="form-group">
@@ -301,6 +300,7 @@
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-body">
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
            <h4 class="mb-4">Delete Account</h4>
            <form id="delAccountForm">
              <div class="form-group">
@@ -364,6 +364,7 @@
     <script type="text/javascript" src="../apiJs/formatter.js"></script>
     <script type="text/javascript" src="../apiJs/user_edit_profile.js"></script>
     <script type="text/javascript" src="../apiJs/imageupload.js"></script>
+    <script type="text/javascript" src="../apiJs/resize.js"></script>
 </body>
 
 </html>
