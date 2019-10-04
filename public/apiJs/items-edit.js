@@ -229,49 +229,60 @@ const reportTo = (event) => {
 	preloader.style.display = 'block';
 
 	//Validate Input
-	const emails = document.querySelector('#emails_to').value;
-	if (emails == '') {
+	const get_emails = document.querySelector('#emails_to').value;
+	if (get_emails == '') {
 		preloader.style.display = 'none';
 		btn.removeAttribute('disabled');
 		document.querySelector('#_err_msg_mail').textContent = "Emails are required!";
 		return false;
 	}
-	console.log(emails)
-	emails.split(',')
-
-
-	// fetch(url, {
-	// 	 method: "POST",
-	// 	 mode: "cors",
-	// 	 headers: {
- //             "Authorization": `${token}`,
-	// 	 	 "Content-Type": "application/json"
-	// 	 },
-	// 	 body: JSON.stringify(data)
-	// 	})
-	// 	.then(response => {
-	// 		status = response.status;
-	// 		if(status == 401) {
-	// 			$("#EmailReportModal").modal("toggle")
- //                return reAuthenticate(preloader);
- //            }
-	// 		return response.json();
-
-	// 	})
-	// 	.then(data => {
-	// 		console.log(data);
-	// 	  preloader.style.display = 'none';
-	// 	  btn.removeAttribute('disabled');
-
-	// 	})
-	// 	.catch(error => {
- //            preloader.style.display = 'none';
- //            btn.removeAttribute('disabled');
- //            console.error(error)
-	// 		console.error(error.status)
-	// 	})
+	let emails = get_emails.split(',');
+	if(emails.length > 5) {
+		preloader.style.display = 'none';
+		btn.removeAttribute('disabled');
+		document.querySelector('#_err_msg_mail').textContent = "Please send 5 mails at a time!";
+		return false;
+	}
+	   re = /([a-z0-9A-Z@.])/;
+	   emails = emails.map(function (x, i) {
+	   		if (!re.test(x)){
+	   			preloader.style.display = 'none';
+				btn.removeAttribute('disabled');
+				document.querySelector('#_err_msg_mail').textContent = `The ${i+1} email is invalid!`;
+				return false;
+	   		}
+            return {
+                "email": x
+            }
+        });
+	   console.log(emails)
+	   var settings = {
+            "url": `${ baseUrl }api/mail/report/${budget_id}`,
+            "method": "POST",
+            "timeout": 0,
+            "headers": {
+                "Authorization":token,
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "data": {
+                "emails": emails
+            }
+        };
+        console.log(settings);
+	     $.ajax(settings).done(function (response) {
+	     	preloader.style.display = 'none';
+            console.log(response);
+        }).fail(function (err) {
+        	preloader.style.display = 'none';
+           if (err)
+		    {
+		        preloader.style.display = 'none';
+		       if(err.status == 401) {
+		       	  $("#EmailReportModal").modal("toggle")
+		          return reAuthenticate(preloader);
+		       }
+		    }
+        });
 
 }
-
-
 sendReportBtn.addEventListener('click', (event) => reportTo(event));
