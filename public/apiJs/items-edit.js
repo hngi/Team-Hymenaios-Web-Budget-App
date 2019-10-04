@@ -2,6 +2,8 @@ const createItemForm = document.querySelector('#addItemForm');
 const preloader = document.querySelector('[data-preloader]');
 const editItemForm = document.querySelector('#editItemForm');
 
+const sendReportBtn = document.querySelector('#send_report_btn');
+
 const createItemFormFunc = (event) => {
 	event.preventDefault();
 	document.querySelectorAll('._err_msg')[0].textContent = "";	
@@ -218,3 +220,58 @@ const editItemFormFunc = (event) => {
 
 editItemForm.addEventListener('submit', (event) => editItemFormFunc(event));  
 
+
+const reportTo = (event) => {
+	event.preventDefault();
+	const btn = event.target || event.srcElement;
+	document.querySelector('#_err_msg_mail').textContent = "please seperate emails with a comma sign!";
+	btn.setAttribute('disabled', "");
+	preloader.style.display = 'block';
+
+	//Validate Input
+	const emails = document.querySelector('#emails_to').value;
+	if (emails == '') {
+		preloader.style.display = 'none';
+		btn.removeAttribute('disabled');
+		document.querySelector('#_err_msg_mail').textContent = "Emails are required!";
+		return false;
+	}
+	console.log(emails)
+	emails.split(',')
+
+
+	// fetch(url, {
+	// 	 method: "POST",
+	// 	 mode: "cors",
+	// 	 headers: {
+ //             "Authorization": `${token}`,
+	// 	 	 "Content-Type": "application/json"
+	// 	 },
+	// 	 body: JSON.stringify(data)
+	// 	})
+	// 	.then(response => {
+	// 		status = response.status;
+	// 		if(status == 401) {
+	// 			$("#EmailReportModal").modal("toggle")
+ //                return reAuthenticate(preloader);
+ //            }
+	// 		return response.json();
+
+	// 	})
+	// 	.then(data => {
+	// 		console.log(data);
+	// 	  preloader.style.display = 'none';
+	// 	  btn.removeAttribute('disabled');
+
+	// 	})
+	// 	.catch(error => {
+ //            preloader.style.display = 'none';
+ //            btn.removeAttribute('disabled');
+ //            console.error(error)
+	// 		console.error(error.status)
+	// 	})
+
+}
+
+
+sendReportBtn.addEventListener('click', (event) => reportTo(event));

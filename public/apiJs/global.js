@@ -9,7 +9,7 @@ checkUser();
 console.log(current_user)
 
 //Destruct to get data
-const {token, image_link, image_format, user} = current_user;
+let {token, image_link, image_format, user} = current_user;
 //eg token
 //eg cloudinary image link and round format Read more on cloudinary Doc
 
@@ -69,8 +69,8 @@ body.innerHTML += `
 	      </div>
 	      <div class="modal-body">
 	      	<div style="width:30%; margin:auto;">
-	      	<button data-re-auth-btn class="btn btn-primary" type="button">
-			  <span id="re_auth_preloader" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+	      	<button style="background:none; border:1px solid dodgerblue; color:dodgerblue;" data-re-auth-btn class="btn" type="button">
+			  <span style="color:dodgerblue;" id="re_auth_preloader" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
 			  Re-authenticate
 			</button>
 	        </div>
@@ -85,4 +85,11 @@ const reAuthBtn = document.querySelector('[data-re-auth-btn]');
 reAuthBtn.addEventListener('click', (event) => activateReAuth(event))
 }
 
+setTimeout( () => {
+	//Format Token for re-Auth
+	token = '0000';
+	console.log(token)
+    	dull = null;
+     return reAuthenticate(dull);	
+}, 1800000)
 
