@@ -40,7 +40,10 @@ a {
     height: 100%;
 }
 .our-nav .brand-image span{
-    color: white;
+  font-weight: 600;
+  color: white;
+  font-size: 22px;
+  margin-left: 15px;
 }
 .our-nav{
   height: 10vh;
