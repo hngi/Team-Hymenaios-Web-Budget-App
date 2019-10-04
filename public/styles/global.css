@@ -23,15 +23,18 @@ a {
   color: white;
 }
 .btn-brand-outline {
-  color: white;
+  color: white !important;
   background: inherit;
 }
 .btn-brand-white{
     background: white;
-    color: #0094e7;
+    color: #0094e7 !important;
 }
 .our-nav{
     background: #0094e7;
+}
+#re_auth_preloader {
+  visibility: hidden;
 }
 .brand-image{
     height: 6vh;
@@ -114,4 +117,7 @@ a {
 }
 .action {
   background: #0094e7 !important;
+}
+.filler {
+  display: none !important;
 }
