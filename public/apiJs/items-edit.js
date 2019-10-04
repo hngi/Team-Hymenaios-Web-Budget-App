@@ -272,7 +272,8 @@ const reportTo = (event) => {
 	     $.ajax(settings).done(function (response) {
 	     	preloader.style.display = 'none';
 			console.log(response);
-			$('#report_status').innerHTML = "The budget has been sent to all emails"
+			btn.removeAttribute('disabled', "");
+			$('.report_status').html("The budget has been sent to all emails")
 			$('#allocated').modal('toggle')
 			$('#EmailReportModal').modal('toggle')
 			$('#reportStatusModal').modal('toggle')
@@ -281,14 +282,18 @@ const reportTo = (event) => {
            if (err)
 		    {
 				console.error(err);
+				console.log(err.status)
 		        preloader.style.display = 'none';
 		       if(err.status == 401) {
 		       	  $("#EmailReportModal").modal("toggle")
 		          return reAuthenticate(preloader);
 		       }
 		       if(err.status == 422) {
-				$('#report_status').innerHTML = "Incorrect email"
-		       	  $("#reportStatusModal").modal("toggle")
+				btn.removeAttribute('disabled', "");
+				$('.report_status').html("Incorrect email format")
+				$('#allocated').modal('toggle')
+				$('#EmailReportModal').modal('toggle')
+				$('#reportStatusModal').modal('toggle')
 		       }
 		    }
         });
