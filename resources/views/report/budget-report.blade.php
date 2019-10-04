@@ -88,11 +88,11 @@
                     <h3 style="color: white; font-size: 20px;">Non Allocated Budget</h3>
                      @foreach ($msg['not_allocated'] as $not_allocated) 
 
-                         @if($not_allocated == 'Highest')
+                         @if($not_allocated->priority == 'Highest')
                              <li class="budget-item" style="color: grey; font-size: 15px; border-left: 3px solid dodgerblue; background: white; padding: 10px; border-bottom: 1px solid lightgrey;">
-                         @elseif($not_allocated == 'Medium')
+                         @elseif($not_allocated->priority == 'Medium')
                              <li class="budget-item" style="color: grey; font-size: 15px; border-left: 3px solid orange; background: white; padding: 10px; border-bottom: 1px solid lightgrey;">
-                         @elseif($not_allocated == 'Lowest')
+                         @elseif($not_allocated->priority == 'Lowest')
                              <li class="budget-item" style="color: grey; font-size: 15px; border-left: 3px solid red; background: white; padding: 10px; border-bottom: 1px solid lightgrey;">
                          @endif
                             <div id="cal_border-design${id}" class="card shadow py-2">
