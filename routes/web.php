@@ -60,6 +60,8 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
     $router->delete('budget/{id}/delete', 'UserBudgetController@destroy');
 
     $router->get('calculate/{budget_id}', 'CalculatorController@calculate');
+
+    $router->post('mail/report/{budget_id}', 'CalculatorController@mailReport');
 });
 
 //The item Api     
