@@ -19,7 +19,7 @@ $(document).on('click', '#saveImage', function (e)
   
   var form = new FormData();
   form.append("image", image);
-  console.log(token)
+  console.log(form)
 
   var settings = {
     "url": `${ baseUrl }api/user/image/upload`,
@@ -47,6 +47,10 @@ $(document).on('click', '#saveImage', function (e)
     if (err)
     {
         profile_preloader.style.display = 'none';
+       if(err.status == 401) {
+          dull=null;
+          return reAuthenticate(dull);
+       }
     }
   });
 });
