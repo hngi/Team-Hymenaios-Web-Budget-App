@@ -77,7 +77,6 @@ class CalculatorController extends Controller
            //  array_push($value, $key);
            // }
            //  return response()->json($value, 200);
-           dd($items);
            try{
                  foreach($items as $item) {
                       Mail::to($item['email'])->send(new BudgetReport($msg, $item['email'], $user));
