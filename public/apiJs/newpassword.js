@@ -30,6 +30,12 @@ newPwdFormBtn.addEventListener('click', (e) => {
         if (status == 200){
             $('#passwordResetModal').modal('toggle')
             resetStatus.innerHTML = `${data.data.message}`
+
+            var delayInMilliseconds = 3000; //1 second
+
+                setTimeout(function () {
+                    location.replace('login.html')
+                }, delayInMilliseconds);
         }
         if(status == 422) {
             $('#passwordResetModal').modal('toggle')
