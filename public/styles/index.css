@@ -28,13 +28,6 @@ body{
     height: 100%;
     width:  100%;
 }
-.navbar-collapse {
-    z-index: 1000;
-    background: #0094e7;
-    margin-left: -15px;
-    margin-right: -15px;
-    padding: 15px;
-}
 @media(max-width: 768px) {
     .landing-words{
         margin-top:0vh;
