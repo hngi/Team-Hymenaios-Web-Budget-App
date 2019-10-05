@@ -33,10 +33,10 @@ class UserBudgetController extends Controller
      public function showAll(Request $request) {
         $user = Auth::user();
         $budget = Budget::where('owner_id', $user->id)
-                  ->where('recycled', 'no')
-                  ->withCount('items')
-                  ->orderBy('id', 'desc')
-                  ->get();
+                      ->where('recycled', 'no')
+                      ->withCount('items')
+                      ->orderBy('id', 'desc')
+                      ->get();
 
         if ($budget) {
             $msg['budget'] = $budget;
