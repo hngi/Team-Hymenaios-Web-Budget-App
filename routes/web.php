@@ -60,10 +60,12 @@ $router->group(['middleware' => 'jwt.auth', 'prefix' => 'api'], function () use 
     $router->get('calculate/{budget_id}', 'CalculatorController@calculate');
 
     $router->post('mail/report/{budget_id}', 'CalculatorController@mailReport');
-    
+
     $router->put('budget/{id}/recycle', 'UserBudgetController@recycled');
 
     $router->get('budget/recycled', 'UserBudgetController@showRecycled');
+
+    $router->get('recycled/count', 'UserBudgetController@recycleCount');
 
     $router->put('budget/{id}/restore', 'UserBudgetController@restore');
 

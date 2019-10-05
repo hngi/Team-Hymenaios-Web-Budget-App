@@ -195,6 +195,15 @@ class UserBudgetController extends Controller
         }
     }
 
+    public function recycleCount() {
+        $user = Auth::user();
+        $recycle_count = Recycle::where('owner_id', $user->id)
+                        ->count();
+        $res['message'] = 'Recycled Count!';
+        $res['recycle_count'] =  $recycle_count;
+        return response()->json($res);
+    }
+
     public function destroy($id) {
         $user = Auth::user();
         $del_budget_recycle = Recycle::where('budget_id', $id)->where('owner_id', $user->id)->first();
