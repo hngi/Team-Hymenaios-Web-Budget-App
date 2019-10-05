@@ -66,7 +66,7 @@
                                     <span class="list-edit list-amount" style="color: black !important;">{{$allocated->item_amount}}</span>
                                     </div>
                                     <div name="comments" rows="4"
-                                    class="list-edit list-description" style="font-weight: normal;">{{$allocated->description}}</div><br><br>
+                                    class="list-edit list-description" style="font-weight: normal; color: black;">{{$allocated->description}}</div><br><br>
 
                                     <span class="list-edit list-item" style="color: black !important;font-weight: normal; background: lightgrey; padding: 5px; border-radius: 20px; font-size: 12px;">{{$allocated->category}}</span>
                                     @if ($allocated->priority == 'Highest')
@@ -110,7 +110,7 @@
                                     <span class="list-edit list-amount" style="color: black !important;">{{$not_allocated->item_amount}}</span>
                                     </div>
                                     <div name="comments" rows="4"
-                                    class="list-edit list-description" style="font-weight: normal;">{{$not_allocated->description}}</div><br><br>
+                                    class="list-edit list-description" style="font-weight: normal; color: black;">{{$not_allocated->description}}</div><br><br>
                                     <span class="list-edit list-item" style="color: black !important;font-weight: normal; background: lightgrey; padding: 5px; border-radius: 20px; font-size: 12px;">{{$not_allocated->category}}</span>
                                     @if($not_allocated->priority == 'Highest')
                                     <span class="list-edit list-amount" style="color: dodgerblue !important;font-weight: normal;  background: lightgrey; padding: 5px; border-radius: 20px; font-size: 12px;">{{$allocated->priority}}</span>
