@@ -6,8 +6,8 @@ body{
     background: #2b2b2b;
 }
 .auth-form-con{
-    min-height: 55vh;
     color: white;
+    margin-bottom: 50px;
 }
 .auth-form-con h5{
     margin-top: 12vh;

@@ -1,5 +1,7 @@
 
 let allBudgets = [];
+let resStatus;
+
 
 const getAllBudgetApi = () => {
         const url = `${ baseUrl }api/budget/all`;
@@ -11,7 +13,15 @@ const getAllBudgetApi = () => {
 		 	 "Content-Type": "application/json"
 		 }
 		})
-		.then(response => response.json())
+		.then(response => {
+            resStatus = response.status;
+            console.log(resStatus);
+            if(resStatus == 401) {
+                const dataPreloader = document.querySelector('[data-preloader-global]');
+                return reAuthenticate(dataPreloader);
+            }
+            return response.json()
+        })
 		.then(data => {
             allBudgets = [];
             allBudgets.push(...data[0].budget);
@@ -109,7 +119,15 @@ const budgetList = document.querySelector('[data-budget-list]')
                     "Content-Type": "application/json"
                 }
                 })
-                .then(response => response.json())
+                .then(response => {
+                    resStatus = response.status;
+                    console.log(resStatus);
+                    if(resStatus == 401) {
+                        let dull = null;
+                        return reAuthenticate(dull);
+                    }
+                    return response.json()
+                })
                 .then(data => {
                     location.replace('budget-edit.html');
                 })

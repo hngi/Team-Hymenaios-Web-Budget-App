@@ -1,5 +1,6 @@
 
 let allItems = [];
+let resStatus;
 
 const getAllItemsApi = () => {
         const url = `${ baseUrl }api/items/${budget_id}`;
@@ -11,11 +12,20 @@ const getAllItemsApi = () => {
 		 	 "Content-Type": "application/json"
 		 }
 		})
-		.then(response => response.json())
+		.then(response => {
+            resStatus = response.status;
+            if(resStatus == 401) {
+                const dataPreloader = document.querySelector('[data-preloader-global]');
+                return reAuthenticate(dataPreloader);
+            }
+            return response.json()
+        })
 		.then(data => {
-            allItems = [];
-            allItems.push(...data[0].items);
-            showAllItems()
+            if(data) {
+                allItems = [];
+                allItems.push(...data[0].items);
+                showAllItems()
+            }
         })
 		.catch(error => {
             console.error(error)
@@ -117,9 +127,18 @@ const itemsList = document.querySelector('[data-item-list]')
                     "Content-Type": "application/json"
                 }
                 })
-                .then(response => response.json())
+                .then(response => {
+                    resStatus = response.status;
+                    if(resStatus == 401) {
+                        let dull = null;
+                        return reAuthenticate(dull);
+                    }
+                    return response.json()
+                })
                 .then(data => {
+                    if(data) {
                     location.replace(`items-edit.html?id=${budget_id}&budget=${budget_title}&amount=${budget_amt}`);
+                    }
                 })
                 .catch(error => {
                     preloader.style.display = 'none';

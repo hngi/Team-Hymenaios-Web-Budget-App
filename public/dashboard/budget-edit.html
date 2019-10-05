@@ -95,11 +95,7 @@
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
+  
     </ul>
     <!-- End of Sidebar -->
 
@@ -111,9 +107,14 @@
         <!-- Begin Page Content -->
         <div class="container-fluid budgets-full">
           <div class="row">
-            <div class="col-11 col-md-8 mx-auto budgets-con">
-              <div class="col-12 search-budgets mt-2">
+            <div class="col-12 col-md-10 col-sm-12 mx-auto budgets-con">
+              <div class="col-10 search-budgets mt-2">
                 <div class="input-group mt-3">
+                                <!-- Sidebar Toggle (Topbar) -->
+                <button  data-side-toggle style="background: white; border-radius: 50%;" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i style="color: slateblue;" class="fa fa-bars"></i>
+                </button>
+
                   <input type="text" class="form-control search-budget-input" placeholder="Search Budget..."
                     aria-label="" aria-describedby="">
                   <div class="input-group-append">
@@ -125,20 +126,20 @@
               
               <div class="col-12 add-budget-btn text-right">
                   <span style="text-align: left; color: slateblue; font-weight: bold;" class="text-left"><span style="color: black">Total Income:</span> <span data-income-spot>0.00</span></span>
-                <button type="button" class="btn btn-brand" data-toggle="modal" data-target="#addIncomeModal">
+                <button style="background: none; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" type="button" class="btn btn-brand" data-toggle="modal" data-target="#addIncomeModal">
                   Add Income
                 </button>   
-                <button type="button" class="btn btn-brand" data-toggle="modal" data-target="#addBudgetModal">
+                <button style="background: none; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" type="button" class="btn btn-brand" data-toggle="modal" data-target="#addBudgetModal">
                   Add Budget
                 </button>
               </div>
               <div class="col-12 budgets-list" data-budget-list style="overflow: auto; height:80vh; margin-bottom: 20px;">
                  <!--Preloader-->
-                <div class="preloader_bg_2" style="display: block">
-                    <div class="money_preloader fadeInContinue bounceOutContinue">
-                      <img src="../images/money-bag.png">
-                    </div>
+                <div data-preloader-global class="preloader_bg_2" >
+                  <div class="money_preloader fadeInContinue bounceOutContinue" >
+                    <img src="../images/money-bag.png">
                   </div>
+                </div>
               </div>
             </div>
           </div>
@@ -174,6 +175,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="mb-4">Add New Budget</h4>
           <form id="addBudgetForm">
             <div class="form-group">
@@ -193,7 +195,7 @@
                     <option value="GBR">&#163;</option>
                   </select>
                 </div>
-                <input type="text" name="amount" class="form-control" aria-label="Text input with dropdown button">
+                <input type="number" name="amount" class="form-control" aria-label="Text input with dropdown button">
                 <p class="_err_msg"></p>
               </div>
             </div>
@@ -208,12 +210,39 @@
       </div>
     </div>
   </div>
+
+  <!-- live support -->
+      <!-- ======================================= -->
+      <div id="live-chat" class="live-chat-transition">
+  
+        <div id="chat-label" class="live-chat-transition">
+      
+          <h4 class="live-chat-galaxie live-chat-transition">
+            
+            Live Chat
+          
+            <img src="https://fgl.scene7.com/is/image/FGLSportsLtd/live-chat-up-arrow-icon?wid=15&fmt=png-alpha&op_sharpen=1&resMode=sharp2" alt="live-chat-up-arrow" class="live-chat-arrow live-chat-transition live-chat-up-arrow" />
+            
+            <img src="https://fgl.scene7.com/is/image/FGLSportsLtd/live-chat-down-arrow-icon?wid=15&fmt=png-alpha&resMode=sharp2" alt="live-chat-down-arrow" class="live-chat-arrow live-chat-transition live-chat-down-arrow" />
+          
+          </h4>
+          
+        </div>
+        
+        <p><strong>Need Consultation?</strong><br>Connect With Our Finance Advisors And Have Your Questions Answered!</p>
+        
+        <a href="#" id="chat-button" class="live-chat-galaxie" style="background-color: lateblue" > Chat Now</a>
+        
+      </div>
+
+
   <!-- Modal -->
   <div class="modal fade" id="editBudgetModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="mb-4">Edit Budget</h4>
           <form id="editBudgetForm">
             <div class="form-group">
@@ -256,6 +285,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="mb-4">Add Total Income</h4>
           <form id="addTotalIncomeForm">
             <div class="form-group">
@@ -295,6 +325,16 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
+  <script>
+    $("#chat-label").click(function() {
+    
+    $('#live-chat').toggleClass('open-chat');
+    $('#chat-label').toggleClass('open-chat-label');
+    $('.live-chat-up-arrow').toggleClass('hide-up-arrow');
+    $('.live-chat-down-arrow').toggleClass('show-down-arrow');
+    
+  });
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script type="text/javascript" src="../apiJs/baseUrl.js"></script>
@@ -302,6 +342,7 @@
   <script type="text/javascript" src= "../apiJs/budget-view.js"></script>
   <script type="text/javascript" src="../apiJs/budget-all.js"></script>
   <script type="text/javascript" src="../apiJs/budget-edit.js"></script>
+  <script type="text/javascript" src="../apiJs/resize.js"></script>
 
 </body>
 

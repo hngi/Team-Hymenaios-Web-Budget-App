@@ -59,7 +59,6 @@ const reAuthenticate = (dataPreloader) => {
 	if (dataPreloader != null) {
 		dataPreloader.style.display = 'none';
 	}
-	
 const body = document.querySelector('body');
 body.innerHTML += `
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

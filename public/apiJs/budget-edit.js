@@ -25,6 +25,11 @@ const createBudgetFormFunc = (event) => {
 		preloader.style.display = 'block';
 		const errorHandling = (response) => {
 			status = response.status;
+			 if(status == 401) {
+			 	$('#addBudgetModal').modal("toggle");
+				console.log(status)
+                return reAuthenticate(preloader);
+            }
 			return response.json();
 		}
         console.log(formData.get('currency'));
@@ -47,21 +52,22 @@ const createBudgetFormFunc = (event) => {
 		.then(response => errorHandling(response))
 		.then(data => {
         console.log(data)
-		preloader.style.display = 'none';
+        if(data) {
+        	preloader.style.display = 'none';
 		let title = 'Process Succesful';
 			let msg = `Budget Created!`;
 			let action   = 'Close!';
-			Swal.fire({
-			    title: `<b id="title">${title}</b>`,
-			    width: 600,
-			    padding: '3em',
-			    background: 'none',
-			    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
-			    backdrop: `
-				    rgba(0,0,123,0.4)
-				  `,
-				confirmButtonText: `<span id="action">${action}</span>`
-			})
+					Swal.fire({
+				    title: `<b id="title">${title}</b>`,
+				    width: 600,
+				    padding: '3em',
+				    background: 'none',
+				    html: `<p id="error_field" style="font-weight:bold;">${msg}</p>`,
+				    backdrop: `
+					    rgba(0,0,123,0.4)
+					  `,
+					confirmButtonText: `<span id="action">${action}</span>`
+				})
 			const title_field =document.querySelector('#title');
 			const action_field =document.querySelector('#action');
 			const error_field =document.querySelector('#error_field');
@@ -96,8 +102,13 @@ const createBudgetFormFunc = (event) => {
 				action_field.style.color = 'white';
 				error_field.style.color = 'white';
 				createBudgetForm.reset();
+				setTimeout( () => {
 				location.replace('budget-edit.html');
+				}, 2000)
+				
 			}
+        }
+		
 		})
 		.catch(error => {
             preloader.style.display = 'none';
@@ -125,6 +136,10 @@ const addTotalIncomeFormFunc = (event) => {
 		preloader.style.display = 'block';
 		const errorHandling = (response) => {
 			status = response.status;
+			if(status == 401) {
+			 	$('#addIncomeModal').modal("toggle");
+                return reAuthenticate(preloader);
+            }
 			return response.json();
 		}
         console.log(formData.get('currency'));
@@ -147,7 +162,8 @@ const addTotalIncomeFormFunc = (event) => {
 		.then(response => errorHandling(response))
 		.then(data => {
         console.log(data)
-		preloader.style.display = 'none';
+        if(data) {
+        	preloader.style.display = 'none';
 		let title = 'Process Succesful';
 			let msg = `Total Income Updated!`;
 			let action   = 'Close!';
@@ -195,8 +211,10 @@ const addTotalIncomeFormFunc = (event) => {
 				setTimeout( () => {
 					localStorage.setItem('h-user-data', JSON.stringify(data));
 					location.href = `${location.origin}/dashboard/budget-edit.html`;
-				}, 3000)
+				}, 2000)
 			}
+        }
+		
 		})
 		.catch(error => {
             preloader.style.display = 'none';
@@ -233,6 +251,10 @@ const editBudgetFormFunc = (event) => {
 		preloader.style.display = 'block';
 		const errorHandling = (response) => {
 			status = response.status;
+			if(status == 401) {
+			 	$('#editBudgetModal').modal("toggle");
+                return reAuthenticate(preloader);
+            }
 			return response.json();
 		}
         console.log(formData.get('currency'));
@@ -255,7 +277,8 @@ const editBudgetFormFunc = (event) => {
 		.then(response => errorHandling(response))
 		.then(data => {
         console.log(data)
-		preloader.style.display = 'none';
+        if(data) {
+        	preloader.style.display = 'none';
 		let title = 'Process Succesful';
 			let msg = `Budget Updated!`;
 			let action   = 'Close!';
@@ -304,8 +327,12 @@ const editBudgetFormFunc = (event) => {
 				action_field.style.color = 'white';
 				error_field.style.color = 'white';
 				editBudgetForm.reset();
-				location.replace('budget-edit.html');
+				setTimeout( () => {
+					location.replace('budget-edit.html');
+				}, 3000)
 			}
+        }
+		
 		})
 		.catch(error => {
             preloader.style.display = 'none';
