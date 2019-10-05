@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+
+	<!-- meta data -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="recycle bin for blueBox">
+	<meta name="author" content="hymenaios">
+
+	<!-- title -->
+	<title>blueBOX - Bin</title>
+
+	<!-- style -->
+	<link href="css/bootstrap.css"  rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/fontawesome.css" rel="stylesheet" type="text/css">
+
+	<!-- ... -->
+	<link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/auth.css">
+    <script type="text/javascript" src="../apiJs/global.js"></script>
+
+</head>
+
+<body id="page-top">
+
+	<!-- nav bar -->
+	<nav class="navbar navbar-toggleable-md bg-faded navbar-inverse bg-primary">
+
+		<!-- brand -->
+		<a class="navbar-brand" href="https://app-hymenaios-a2838.firebaseapp.com/" style="color: white">blue<span style="font-weight: bold">BOX</span><small style="color: red;"> bin</small></a>
+
+		<!-- toggler -->
+		<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon fa-reorder"><img src="img/menu.svg"></span>
+		</button>
+
+		<!-- collapsable -->
+		<div class="navbar-collapse collapse" id="navbarNavDropdown" style="">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" ariaexpanded="false" aria-expanded="false">
+						Bin
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#" onclick="alert('Sorry, multiple recovery isnt available yet.');">Recover All</a>
+						<a class="dropdown-item" href="#" onclick="alert('Opps.. multiple deletion isnt available yet.');">Delete All</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- heading -->
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h5 class="display-4" style="color: #ffffff;">blue<span style="font-weight: bold; color: white">BOX</span><small style="color: red;"> bin</small></h5>
+			<p class="lead" style="color: #bdbdbd;">You Deleted your budget by mistake?, dont worry... we've got you covered. you can retieve your budget from this bin.
+				<br>
+				<small>*budget in this bin are permanently deleted after 30days</small>
+			</p>
+		</div>
+	</div>
+
+	<!-- deleted budgets -->
+	<div id="central">
+		<ul id="budget-list" style="list-style-type: none; padding: 0px;">
+			<!--  -->
+		</ul>
+	</div>
+
+	<!-- footer -->
+	<footer>
+		<center><p style="color: #565656">You Have <span id="len" style="color: red">no</span> budget in the <span style="color: red"> bin</span></p></center>
+	</footer>
+
+	<!--JavaScript-->
+	<script src="js/jquery.js"></script>
+	<script src="js/bin.js"></script>
+	<script src="js/bootstrap.js"></script>
+
+</body>
+</html>
