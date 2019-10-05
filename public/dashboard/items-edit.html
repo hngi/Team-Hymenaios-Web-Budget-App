@@ -220,6 +220,9 @@
       </div>
 
       <div id="elementH"></div> -->
+      
+      <div id="elementH"></div>
+      
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -382,6 +385,7 @@ aria-hidden="true">
               <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-primary btn-icon-split toolbar-buttons">
                <span id="emailReportActivate" class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
                 <span class="text" style="border-right: 1px solid dodgerblue;" onclick="printDiv('allocated')" >Print</span>
+                <span onclick="download('allocated')" class="text" style="border-right: 1px solid dodgerblue;">Download</span>
                 <span class="text"  data-toggle="modal" data-dismiss="modal" data-target=".notallocatedModal">View Non Allocated</span>
               </a>
             </div>
@@ -410,6 +414,7 @@ aria-hidden="true">
               <a  style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-warning btn-icon-split toolbar-buttons">
                  <span id="emailReportBtn" class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
                 <span class="text" style="border-right: 1px solid dodgerblue;" onclick="printDiv('not_allocated')" >Print</span>
+                <span onclick="download('not_allocated')" class="text" style="border-right: 1px solid dodgerblue;">Download</span>
                 <span class="text" data-dismiss="modal" data-toggle="modal" data-target=".calculateModal">View Allocated</span>
               </a>
             </div>
@@ -498,50 +503,51 @@ aria-hidden="true">
 
     return true;
     }
-//   var elementHTML = $('#content').html();
-//     console.log(elementHTML);
-//   setTimeout(() => {
-//     var doc = new jsPDF();
-//     var elementHTML = $('#allocated').html();
-//     console.log(elementHTML);
-//     var specialElementHandlers = {
-//         '#elementH': function (element, renderer) {
-//             return true;
-//         }
-//     };
-//     doc.fromHTML(elementHTML, 15, 15, {
-//         'width': 170,
-//         'elementHandlers': specialElementHandlers
-//     });
-//     var base64pdf = doc.output('bloburl');
-//     // Save the PDF
-//     // doc.save(`sample-document.pdf`);
-//        console.log(base64pdf);
-//     window.open( base64pdf, '_blank');
- 
-//    // IE doesn't allow using a blob object directly as link href
-// // instead it is necessary to use msSaveOrOpenBlob
-// if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-//   window.navigator.msSaveOrOpenBlob(doc.output("blob"), "Name.pdf");
-// } else {
-
-//   // For other browsers:
-//   // Create a link pointing to the ObjectURL containing the blob.
-//   doc.autoPrint();
-//   window.open(
-//     doc.output("bloburl"),
-//     "_blank",
-//     "height=650,width=500,scrollbars=yes,location=yes"
-//   );
-
-//   // For Firefox it is necessary to delay revoking the ObjectURL
-//   setTimeout(() => {    
-//     window.URL.revokeObjectURL(doc.output("bloburl"));
-//   }, 100);
-// }
-  
-//   }, 10000)
     
+   var elementHTML = $('#content').html();
+     console.log(elementHTML);
+   setTimeout(() => {
+     var doc = new jsPDF();
+     var elementHTML = $('#allocated').html();
+     console.log(elementHTML);
+     var specialElementHandlers = {
+         '#elementH': function (element, renderer) {
+             return true;
+         }
+     };
+     doc.fromHTML(elementHTML, 15, 15, {
+         'width': 170,
+         'elementHandlers': specialElementHandlers
+     });
+     var base64pdf = doc.output('bloburl');
+     // Save the PDF
+      doc.save(`sample-document.pdf`);
+        console.log(base64pdf);
+     window.open( base64pdf, '_blank');
+   }, 10000);
+  </script>
+
+  <script>
+   // IE doesn't allow using a blob object directly as link href
+    // instead it is necessary to use msSaveOrOpenBlob
+    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+       window.navigator.msSaveOrOpenBlob(doc.output("blob"), "Name.pdf");
+      } else {
+
+   // For other browsers:
+   // Create a link pointing to the ObjectURL containing the blob.
+   doc.autoPrint();
+   window.open(
+     doc.output("bloburl"),
+     "_blank",
+     "height=650,width=500,scrollbars=yes,location=yes"
+   );
+
+   // For Firefox it is necessary to delay revoking the ObjectURL
+   setTimeout(() => {    
+     window.URL.revokeObjectURL(doc.output("bloburl"));
+   }, 10000);
+    }
   </script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   
