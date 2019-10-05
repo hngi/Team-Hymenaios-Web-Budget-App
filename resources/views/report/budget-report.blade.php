@@ -36,7 +36,7 @@
         </div><br><br>
 
         <div id="box" style="width: 95%; margin: auto; color: white; padding: 10px; background: #2b2b2b;">
-            <h4 style="color: white !important;">Hello <b style="color: #e6e6e6 !important;">{{ $item }} --- [<span style="color: dodgerblue !important;"> {{$user->username}} </span>] with email [<span style="color: dodgerblue !important;"> {{$user->email}} </span>] sent you a budget report</b></h4>
+            <h4 style="color: #e6e6e6 !important;">Hello <b>{{ $item }} --- [<span style="color: dodgerblue !important;"> {{$user->username}} </span>] with email [<span style="color: dodgerblue !important;"> {{$user->email}} </span>] sent you a budget report</b></h4>
                 <h5 style="color: white">
                     <span>Budget Title: {{$msg['budget_title']}} / </span>
                     <span>Budget Amount: {{$msg['budget_amount']}}</span>
