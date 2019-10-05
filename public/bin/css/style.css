@@ -1,0 +1,37 @@
+body{
+	background-color: #171717;
+}
+
+.nav-link{
+  color: #ffffff !important;
+}
+
+footer{
+	height: 60px;
+	background-color: #000000;
+	padding-top: 20px;
+}
+
+#central{
+	margin-bottom: 40px;
+}
+
+.budget{
+	margin-bottom: 15px;
+}
+
+.budget > div{
+	width: auto;
+	background-color: #000000;
+	margin: 0px 10% 0px 10%;
+	border-radius: 5px;
+	padding-bottom: 10px;
+}
+
+.budget-title{
+	padding-top: 10px;
+}
+
+.budget-descr{
+	margin: 15px;font-size:13px;color: #969696;
+}

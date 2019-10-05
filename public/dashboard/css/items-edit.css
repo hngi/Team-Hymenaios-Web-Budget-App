@@ -97,3 +97,12 @@ li {
 	background-color: #E0E0E0;
 	color: #454545;
 }
+.item_list_sty {
+	width: 80%; margin:auto; overflow:auto; height:70vh;
+}
+
+@media(max-width: 575px) {
+	.item_list_sty {
+		width: 100%;
+	}
+}
