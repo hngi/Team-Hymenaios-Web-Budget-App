@@ -87,6 +87,13 @@
           <span>Profile</span></a>
       </li>
 
+        <!-- Nav Item - Profile -->
+      <li class="nav-item">
+        <a class="nav-link" href="../bin/bin.html">
+          <i class="fas fa-user"></i>
+          <span>Recycle Bin</span></a>
+      </li>
+
       <li class="nav-item" data-logout>
         <a class="nav-link" href="#">
           <i class="fas fa-sign-out-alt"></i>
@@ -219,10 +226,8 @@
          data-sitename="My Company Name">
       </div>
 
-      <div id="elementH"></div> -->
-      
-      <div id="elementH"></div>
-      
+       -->
+       <div id="elementH"></div>
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
@@ -379,18 +384,18 @@ aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="row" style="padding: 10px;">
-            <div class="col-lg-12">
+            <div id="a_link_block" class="col-lg-12">
               <button style="padding: 10px;" type="button" class="close" data-dismiss="modal">&times;</button>
               <span>Allocated Budget Report</span>
-              <a style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-primary btn-icon-split toolbar-buttons">
+              <a id="allocated_link" style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-primary btn-icon-split toolbar-buttons">
                <span id="emailReportActivate" class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
                 <span class="text" style="border-right: 1px solid dodgerblue;" onclick="printDiv('allocated')" >Print</span>
                 <span onclick="download('allocated')" class="text" style="border-right: 1px solid dodgerblue;">Download</span>
                 <span class="text"  data-toggle="modal" data-dismiss="modal" data-target=".notallocatedModal">View Non Allocated</span>
               </a>
             </div>
-            <div class="col-lg-12">
-              <span data-low-budget_1 style="color: tomato"></span>
+            <div id="low_budget_block_1" class="col-lg-12">
+              <span id="low_budget_1" data-low-budget_1 style="color: tomato"></span>
             </div>
           </div>
             <ul data-allocated-list id="budget-list" style="width: 80%; margin:auto; overflow:auto; height:70vh;">
@@ -408,18 +413,18 @@ aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content" id="non_allocated_result">
           <div class="row" style="padding: 10px;">
-            <div class="col-lg-12">
+            <div id="na_link_block" class="col-lg-12">
               <button style="padding: 10px;" type="button" class="close" data-dismiss="modal">&times;</button>
               <span>Non Allocated Budget Report</span>
-              <a  style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-warning btn-icon-split toolbar-buttons">
+              <a id="not_allocated_link"  style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" class="btn btn-warning btn-icon-split toolbar-buttons">
                  <span id="emailReportBtn" class="text" style="border-right: 1px solid dodgerblue;" data-toggle="modal" data-target="#EmailReportModal" >Email Report</span>
                 <span class="text" style="border-right: 1px solid dodgerblue;" onclick="printDiv('not_allocated')" >Print</span>
                 <span onclick="download('not_allocated')" class="text" style="border-right: 1px solid dodgerblue;">Download</span>
                 <span class="text" data-dismiss="modal" data-toggle="modal" data-target=".calculateModal">View Allocated</span>
               </a>
             </div>
-            <div class="col-lg-12">
-              <span data-low-budget_2 style="color: tomato"></span>
+            <div id="low_budget_block_2" class="col-lg-12">
+              <span id="low_budget_2" data-low-budget_2 style="color: tomato"></span>
             </div>
           </div>
             <ul data-not_allocated-list id="budget-list" style="width: 80%; margin:auto; overflow:auto; height:70vh;">
@@ -503,51 +508,124 @@ aria-hidden="true">
 
     return true;
     }
-    
-   var elementHTML = $('#content').html();
-     console.log(elementHTML);
-   setTimeout(() => {
-     var doc = new jsPDF();
-     var elementHTML = $('#allocated').html();
-     console.log(elementHTML);
-     var specialElementHandlers = {
-         '#elementH': function (element, renderer) {
-             return true;
-         }
-     };
-     doc.fromHTML(elementHTML, 15, 15, {
-         'width': 170,
-         'elementHandlers': specialElementHandlers
-     });
-     var base64pdf = doc.output('bloburl');
-     // Save the PDF
-      doc.save(`sample-document.pdf`);
-        console.log(base64pdf);
-     window.open( base64pdf, '_blank');
-   }, 10000);
-  </script>
 
-  <script>
-   // IE doesn't allow using a blob object directly as link href
-    // instead it is necessary to use msSaveOrOpenBlob
-    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-       window.navigator.msSaveOrOpenBlob(doc.output("blob"), "Name.pdf");
-      } else {
+    const download = (divName) => {
+          // $('.budget-item').css('list-style', 'none')
+          //  $('.budget-item').css('border', '1px soild grey')
+          z_1 = document.querySelector(`#low_budget_1`);
+                  z_1.parentNode.removeChild(z_1);
+          z_2 = document.querySelector(`#low_budget_2`);
+                  z_2.parentNode.removeChild(z_2);
+          var doc = new jsPDF();
+          var elementHTML = document.querySelector(`#${divName}`)
+          console.log(elementHTML);
+          let amounts;
+          let p;
+          let prior;
+          let na_prior;
+          //Modify the  naira sign 
+          console.log(divName)
+          if(divName == 'allocated'){
+               amounts = Array.from(document.querySelectorAll('.amount_allocated'));
+                  p = document.querySelector(`#allocated_link`);
+                  p.parentNode.removeChild(p);
+                  prior = document.querySelectorAll('.prior');
+          }else if(divName == 'not_allocated'){
+               amounts = Array.from(document.querySelectorAll('.not_amount_allocated')); 
+                p = document.querySelector(`#not_allocated_link`);
+                   p.parentNode.removeChild(p);
+                   na_prior = document.querySelectorAll('.na_prior');
+          }
+          console.log(amounts)
+          amounts.map((amount, i) => {
+                if(divName == 'allocated'){
+                  if (prior[i].innerHTML == 'Highest') {
+                        prior[i].style.color = '#4e73df';
+                  }else if(prior[i].innerHTML == 'Medium') {
+                        prior[i].style.color = 'orange';
+                  }else if(prior[i].innerHTML == 'Lowest') {
+                        prior[i].style.color = 'red';
+                  }
+                }else {
+                  if (na_prior[i].innerHTML == 'Highest') {
+                      na_prior[i].style.color = '#4e73df';
+                  }else if(na_prior[i].innerHTML == 'Medium') {
+                        na_prior[i].style.color = 'orange';
+                  }else if(na_prior[i].innerHTML == 'Lowest') {
+                        na_prior[i].style.color = 'red';
+                  }
+                }
+                console.log(amount);
+                let split_amount = amount.innerHTML.split(' ');
+                console.log(split_amount);
+                //₦ $ € £
+                let new_amount;
+                if(split_amount[0] == '₦'){
+                  new_amount = `NGN ${split_amount[1]}`
+                  amount.innerHTML = new_amount;
+                }else if(split_amount[0] == '$') {
+                  new_amount = `USD ${split_amount[1]}`
+                  amount.innerHTML = new_amount;
+                }else if(split_amount[0] == '€'){
+                  new_amount = `EUR ${split_amount[1]}`
+                  amount.innerHTML = new_amount;
+                }else if(split_amount[0] == '£'){
+                  new_amount = `GBR ${split_amount[1]}`
+                  amount.innerHTML = new_amount;
+                }
+          })
+          //Hide what is not needed
+            console.log(elementHTML);
 
-   // For other browsers:
-   // Create a link pointing to the ObjectURL containing the blob.
-   doc.autoPrint();
-   window.open(
-     doc.output("bloburl"),
-     "_blank",
-     "height=650,width=500,scrollbars=yes,location=yes"
-   );
-
-   // For Firefox it is necessary to delay revoking the ObjectURL
-   setTimeout(() => {    
-     window.URL.revokeObjectURL(doc.output("bloburl"));
-   }, 10000);
+            doc.setFont("courier");
+            doc.setFontType("normal");
+            doc.setTextColor(0,0,255);
+          var specialElementHandlers = {
+              '#elementH': function (element, renderer) {
+                  return true;
+              }
+          };
+          doc.fromHTML(elementHTML, 15, 15, {
+              'width': 170,
+              'elementHandlers': specialElementHandlers
+          });
+          var base64pdf = doc.output('bloburl');
+          if(divName == 'allocated'){
+              document.querySelector("#a_link_block").appendChild(p);
+          }else {
+              document.querySelector("#na_link_block").appendChild(p);
+          }
+           document.querySelector("#low_budget_block_1").appendChild(z_1);
+           document.querySelector("#low_budget_block_2").appendChild(z_2);
+           $('.prior').css('color', 'white');
+           $('.na_prior').css('color', 'white');
+             window.open( base64pdf, '_blank');
+        
     }
+     
+
+
+   // IE doesn't allow using a blob object directly as link href
+// instead it is necessary to use msSaveOrOpenBlob
+// if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+//   window.navigator.msSaveOrOpenBlob(doc.output("blob"), "Name.pdf");
+// } else {
+
+//   // For other browsers:
+//   // Create a link pointing to the ObjectURL containing the blob.
+//   doc.autoPrint();
+//   window.open(
+//     doc.output("bloburl"),
+//     "_blank",
+//     "height=650,width=500,scrollbars=yes,location=yes"
+//   );
+
+//   // For Firefox it is necessary to delay revoking the ObjectURL
+//   setTimeout(() => {    
+//     window.URL.revokeObjectURL(doc.output("bloburl"));
+//   }, 100);
+// }
+  
   </script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   
