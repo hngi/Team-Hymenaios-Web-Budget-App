@@ -84,6 +84,12 @@
           <i class="fas fa-user"></i>
           <span>Profile</span></a>
       </li>
+          <!-- Nav Item - Profile -->
+      <li class="nav-item">
+        <a class="nav-link" href="../bin/bin.html">
+          <i class="fa fa-recycle" aria-hidden="true"></i>
+          <span>Recycle Bin </span><span id="recycle_counter" class="badge badge-pill badge-danger"></span></a>
+      </li>
 
       <li class="nav-item" data-logout>
           <a class="nav-link" href="#">
@@ -263,7 +269,7 @@
                   placeholder="Write a short bio here"></textarea>
                   <p class="_err_msg"></p>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;"type="submit" class="btn btn-primary">Update Profile</button>
             </form>
           </div>
         </div>
@@ -288,7 +294,7 @@
                   aria-describedby="" placeholder="New Password" >
                 <p class="_err_msg"></p>
               </div>
-              <button type="submit" class="btn btn-primary">Change Password</button>
+              <button style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" type="submit" class="btn btn-primary">Change Password</button>
             </form>
           </div>
         </div>
@@ -307,41 +313,14 @@
                <p>Are you certain to delete you account?</p>
                <small>please note: if you do this all your information would be lost.</small>
              </div>
-             <button type="submit" class="btn btn-primary" style="background: tomato; border: tomato;">Yes</button>
-             <button data-close-del class="btn btn-primary" data-dismiss="modal">No</button>
+             <button style="background: none; font-size: 13px; border: 1px solid tomato; color:tomato !important; font-weight:bold;"type="submit" class="btn btn-primary">Yes</button>
+             <button style="background: none; font-size: 13px; border: 1px solid dodgerblue; color:dodgerblue !important; font-weight:bold;" data-close-del class="btn btn-primary" data-dismiss="modal">No</button>
            </form>
          </div>
        </div>
      </div>
    </div>
    
-  <!--Image Upload Block-->
-  <div class="modal fade" id="uploadImageModal" role="dialog" aria-labelledby="uploadImageModal"
-  aria-hidden="true" style="z-index: 9999">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="form-group">
-              <div class="se-pre">
-                <p align='center'></p>
-              </div>
-
-              <label for="inputBio">Profile Image Upload</label>
-              <div class="row col-9 mx-auto border user-page-interests" style="height: auto;"
-                id="ImagePreview">
-                <!--  <div class="mx-auto border mt-3" style=" max-height: 50vh; height:17vh; width: 60%;border-radius: 50%; z-index: 9999; opacity: 0.8;">
-                                </div>  -->
-              </div>
-              <small id="BioHelp" class="form-text text-muted alert_note">Click "Change" to choose
-                another image.</small>
-            </div>
-            <button type="submit" class="btn btn-primary saveImage">Save</button>
-            <label for="uploadImage" class="btn btn-primary"
-              style="margin-top: 9px; background-color: #d1b7e2; border-color: #d1b7e2;">Change</label>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

@@ -1,9 +1,12 @@
 let fgpwFormBtn = document.querySelector("#forgotPasswordFormBtn")
 const emailInput = document.querySelector("[data-email]");
 const resetStatus = document.querySelector('#reset_status');
+const login_preloader = document.querySelector('[data-login-preloader]');
+
 
 fgpwFormBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    login_preloader.style.display = 'block';
     forgotPasswordFormBtn.setAttribute('disabled', '')
     data = {
         'email': emailInput.value
@@ -24,6 +27,7 @@ fgpwFormBtn.addEventListener('click', (e) => {
         })
         .then(data => {
             console.log(data)
+            login_preloader.style.display = 'none';
             if (status == 200) {
                 $('#forgotPasswordModal').modal('toggle')
                 resetStatus.innerHTML = `${data.data.message}`
@@ -55,5 +59,8 @@ fgpwFormBtn.addEventListener('click', (e) => {
             }
         })
         
-        .catch(error => console.error(error))
+        .catch(error => {
+            login_preloader.style.display = 'none';
+            console.error(error)
+        })
 })

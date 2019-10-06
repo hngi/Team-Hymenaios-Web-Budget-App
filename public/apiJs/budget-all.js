@@ -110,9 +110,9 @@ const budgetList = document.querySelector('[data-budget-list]')
                 event.preventDefault();
                 const del_id = delBudget.dataset.delId  
                 console.log(del_id)
-                const url = `${ baseUrl }api/budget/${del_id}/delete`;
+                const url = `${ baseUrl }api/budget/${del_id}/recycle`;
                 fetch(url, {
-                method: "DELETE",
+                method: "PUT",
                 mode: "cors",
                 headers: {
                     "Authorization": `${token}`,

@@ -100,9 +100,28 @@ li {
 .item_list_sty {
 	width: 80%; margin:auto; overflow:auto; height:70vh;
 }
-
+.report-chioce {
+	background: none !important; 
+	font-size: 10px; 
+	border: 1px solid dodgerblue !important; 
+	color:dodgerblue !important; 
+	font-weight:bold;
+}
+.report-chioce:hover {
+	background: none; 
+}
+.report-chioce span{
+	transition: 1s all ease; 
+}
+.report-chioce span:hover {
+	background: #e6e6e5; 
+	transform: scale(1.003);
+}
 @media(max-width: 575px) {
 	.item_list_sty {
 		width: 100%;
+	}
+	.report-chioce {
+		font-size: 8px; 
 	}
 }

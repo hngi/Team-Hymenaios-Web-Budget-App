@@ -74,6 +74,7 @@ const loginFormFunc = (event) => {
 				flashAlert(path = 1);
 			}else{
 				console.log(data)
+				localStorage.setItem('re_auth_permission', 0);
 				localStorage.setItem('h-user-data', JSON.stringify(data));
 				location.replace(`${window.location.origin}/dashboard/profile.html`)
 			}

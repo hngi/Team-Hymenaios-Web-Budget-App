@@ -2,9 +2,12 @@ let newPwdFormBtn = document.querySelector("#newPwdFormBtn")
 const tokenInput = document.querySelector("#new_token");
 const pwdInput = document.querySelector("#new_password");
 const resetStatus = document.querySelector('#reset_status');
+const login_preloader = document.querySelector('[data-login-preloader]');
+
 
 newPwdFormBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    login_preloader.style.display = 'block';
     newPwdFormBtn.setAttribute('disabled', '')
     data = {
         'verifycode': tokenInput.value,
@@ -27,6 +30,8 @@ newPwdFormBtn.addEventListener('click', (e) => {
     .then(data => {
         console.log(data)
         console.log(status);
+        newPwdFormBtn.removeAttribute('disabled')
+        login_preloader.style.display = 'none';
         if (status == 200){
             $('#passwordResetModal').modal('toggle')
             resetStatus.innerHTML = `${data.data.message}`
@@ -39,7 +44,7 @@ newPwdFormBtn.addEventListener('click', (e) => {
         }
         if(status == 422) {
             $('#passwordResetModal').modal('toggle')
-            resetStatus.innerHTML = `${data.data.message}`
+            resetStatus.innerHTML = `${JSON.stringify(data.password)} <br> ${JSON.stringify(data.verifycode)}`
         }
         if(status == 401) {
             $('#passwordResetModal').modal('toggle')
@@ -50,5 +55,8 @@ newPwdFormBtn.addEventListener('click', (e) => {
             resetStatus.innerHTML = `${data.data.message}`
         }
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+        login_preloader.style.display = 'none';
+        console.error(error)
+    })
 })
