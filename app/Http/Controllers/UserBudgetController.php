@@ -8,6 +8,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Budget;
+use App\Recycle;
 use App\Item;
 
 class UserBudgetController extends Controller
@@ -32,9 +33,10 @@ class UserBudgetController extends Controller
      public function showAll(Request $request) {
         $user = Auth::user();
         $budget = Budget::where('owner_id', $user->id)
-                  ->withCount('items')
-                  ->orderBy('id', 'desc')
-                  ->get();
+                      ->where('recycled', 'no')
+                      ->withCount('items')
+                      ->orderBy('id', 'desc')
+                      ->get();
 
         if ($budget) {
             $msg['budget'] = $budget;
@@ -64,6 +66,7 @@ class UserBudgetController extends Controller
             $budget->title = ucwords($request->input('title'));
             $budget->owner_id = Auth::user()->id;
             $budget->description = ucwords($request->input('description'));
+            $budget->recycled = 'no';
             $budget->budget_amount = $request->input('currency') ." ". $budget_amount;
             $budget->save();
 
@@ -108,6 +111,7 @@ class UserBudgetController extends Controller
                 $budget->title = ucwords($request->input('title'));
                 $budget->owner_id = Auth::user()->id;
                 $budget->description = ucwords($request->input('description'));
+                $budget->recycled = 'no';
                 $budget->budget_amount = $request->input('currency') ." ". $budget_amount;
                 $budget->save();
             }else{
@@ -136,10 +140,76 @@ class UserBudgetController extends Controller
 
     }
 
+    public function recycled(Recycle $recycle, $id) {
+        $user = Auth::user();
+        $budget_data = Budget::where('id', $id)->where('owner_id', $user->id)->first();
+        if($budget_data) {
+            DB::beginTransaction();
+            try{    
+                $recycle->owner_id =  $budget_data->owner_id;
+                $recycle->budget_id =  $id;
+                $recycle->save();
+
+                        $budget_data->recycled = 'yes';
+                        $budget_data->save();
+
+                DB::commit();
+                
+                $res['success'] = true;
+                $res['message'] = 'Budget recycled!';
+                return response()->json($res);
+            }catch(\Exception $e) {
+
+                //if any operation fails, Thanos snaps finger - user was not created
+                DB::rollBack();
+
+                $msg['error'] = "An Error Occcured: Budget not Recycled, please try again!";
+                $msg['hint'] = $e->getMessage();
+                return response()->json($msg, 501);
+            }
+        }else {
+            $res['error'] = false;
+            $res['message'] = 'Budget not found!';
+            return response()->json($res);
+        }
+    }
+
+     public function showRecycled() {
+        $user = Auth::user();
+        $get_recycle = Recycle::where('owner_id', $user->id)->pluck('budget_id');
+        if($get_recycle) {
+
+            $recycled_budget = Budget::whereIn('id', $get_recycle)
+                          ->where('recycled', 'yes')
+                          ->withCount('items')
+                          ->orderBy('id', 'desc')
+                          ->get();
+            $res['success'] = true;
+            $res['message'] = 'All Recycled Budget!';
+            $res['recycled_budget'] =  $recycled_budget;
+            return response()->json($res);
+        }else {
+            $res['error'] = false;
+            $res['message'] = 'Recycled Budgets not found!';
+            return response()->json($res);
+        }
+    }
+
+    public function recycleCount() {
+        $user = Auth::user();
+        $recycle_count = Recycle::where('owner_id', $user->id)
+                        ->count();
+        $res['message'] = 'Recycled Count!';
+        $res['recycle_count'] =  $recycle_count;
+        return response()->json($res);
+    }
+
     public function destroy($id) {
         $user = Auth::user();
+        $del_budget_recycle = Recycle::where('budget_id', $id)->where('owner_id', $user->id)->first();
         $del_budget = Budget::where('id', $id)->where('owner_id', $user->id)->first();
-        if($del_budget) {
+        if($del_budget_recycle && $del_budget) {
+            $del_budget_recycle->delete();
             $del_budget->delete();
             $res['success'] = true;
             $res['message'] = 'Budget deleted!';
@@ -150,6 +220,26 @@ class UserBudgetController extends Controller
             return response()->json($res);
         }
     }
+
+      public function restore($id) {
+        $user = Auth::user();
+        $restore = Recycle::where('budget_id', $id)->where('owner_id', $user->id)->first();
+        $budget  = Budget::where('id', $id)->where('owner_id', $user->id)->first();
+        if($restore) {
+            $budget->recycled = 'no';
+            $budget->save();
+            $restore->delete();
+
+            $res['success'] = true;
+            $res['message'] = 'Budget Restored!';
+            return response()->json($res);
+        }else {
+            $res['error'] = false;
+            $res['message'] = 'Budget not found!';
+            return response()->json($res);
+        }
+    }
+
 
     public function validateRequest(Request $request){
 		$rules = [
